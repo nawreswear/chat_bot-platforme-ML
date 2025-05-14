@@ -1,0 +1,1877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISET Sfax Chatbot Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        :root {
+            --primary: #007bff;
+            --primary-dark: #0056b3;
+            --primary-light: #4dabf7;
+            --secondary: #6c757d;
+            --secondary-light: #adb5bd;
+            --success: #28a745;
+            --success-light: #51cf66;
+            --danger: #dc3545;
+            --danger-light: #ff6b6b;
+            --warning: #ffc107;
+            --warning-light: #ffd43b;
+            --info: #17a2b8;
+            --info-light: #3bc9db;
+            --accent: #f8f9fa;
+            --text-dark: #343a40;
+            --text-muted: #6c757d;
+            --border-light: #dee2e6;
+            --background: #f4f6f9;
+            --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.15);
+            --font-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            --font-size-base: 14px;
+            --font-size-lg: 16px;
+            --font-size-sm: 12px;
+            --font-size-xl: 20px;
+            --border-radius: 8px;
+            --border-radius-sm: 6px;
+            --spacing-1: 4px;
+            --spacing-2: 8px;
+            --spacing-3: 12px;
+            --spacing-4: 16px;
+            --spacing-5: 24px;
+            --spacing-6: 32px;
+            --transition: all 0.2s ease;
+        }
+
+        body.dark {
+            --primary: #66b0ff;
+            --primary-dark: #3388ff;
+            --primary-light: #99c7ff;
+            --secondary: #adb5bd;
+            --secondary-light: #ced4da;
+            --accent: #495057;
+            --text-dark: #e9ecef;
+            --text-muted: #adb5bd;
+            --border-light: #495057;
+            --background: #212529;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            font-size: var(--font-size-base);
+            color: var(--text-dark);
+            background: var(--background);
+            line-height: 1.6;
+            transition: var(--transition);
+            direction: ltr;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        body[lang="ar"] {
+            direction: rtl;
+            text-align: right;
+        }
+
+        body[lang="ar"] .header-actions,
+        body[lang="ar"] .tabs,
+        body[lang="ar"] .action-buttons,
+        body[lang="ar"] .modal-actions,
+        body[lang="ar"] .analytics-grid {
+            flex-direction: row-reverse;
+        }
+
+        body[lang="ar"] .form-row {
+            flex-direction: row-reverse;
+            text-align: right;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--spacing-4);
+            flex-grow: 1;
+        }
+
+        header {
+            background: var(--accent);
+            box-shadow: var(--shadow-sm);
+            padding: var(--spacing-4) 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            margin-bottom: var(--spacing-5);
+        }
+
+        body.dark header {
+            background: var(--accent);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-text h1 {
+            font-size: var(--font-size-xl);
+            font-weight: 700;
+        }
+
+        .header-text p {
+            font-size: var(--font-size-sm);
+            color: var(--text-muted);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: var(--spacing-3);
+            align-items: center;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-5);
+            margin-bottom: var(--spacing-6);
+        }
+
+        .card {
+            background: var(--accent);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-5);
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+        }
+
+        body.dark .card {
+            background: var(--accent);
+            box-shadow: var(--shadow-md);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-3);
+            margin-bottom: var(--spacing-3);
+        }
+
+        .card-icon {
+            font-size: 24px;
+            color: var(--primary);
+        }
+
+        .card-title {
+            font-size: var(--font-size-lg);
+            font-weight: 600;
+        }
+
+        .card-subtitle {
+            font-size: var(--font-size-sm);
+            color: var(--text-muted);
+            margin-bottom: var(--spacing-2);
+        }
+
+        .card-description {
+            margin-bottom: var(--spacing-4);
+        }
+
+        .dashboard-content {
+            display: none;
+            flex-direction: column;
+            gap: var(--spacing-6);
+        }
+
+        .dashboard-content.active {
+            display: flex;
+        }
+
+        .tabs {
+            display: flex;
+            gap: var(--spacing-3);
+            margin-bottom: var(--spacing-4);
+            flex-wrap: wrap;
+        }
+
+        .dashboard-tab,
+        .analytics-tab {
+            padding: var(--spacing-2) var(--spacing-4);
+            border-radius: var(--border-radius-sm);
+            background: var(--border-light);
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+            font-size: var(--font-size-sm);
+        }
+
+        .dashboard-tab.active,
+        .analytics-tab.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .dashboard-tab:hover:not(.active),
+        .analytics-tab:hover:not(.active) {
+            background: var(--primary-light);
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+            background: var(--accent);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-5);
+            box-shadow: var(--shadow-sm);
+        }
+
+        body.dark .tab-content {
+            background: var(--accent);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .analytics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-4);
+            margin-bottom: var(--spacing-5);
+        }
+
+        .analytics-card {
+            background: var(--accent);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-4);
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .analytics-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .analytics-card h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: var(--spacing-2);
+            color: var(--primary);
+        }
+
+        .analytics-card p {
+            font-size: var(--font-size-sm);
+            color: var(--text-muted);
+        }
+
+        .chart-container {
+            position: relative;
+            margin-bottom: var(--spacing-4);
+            padding: var(--spacing-3);
+            background: var(--accent);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+        }
+
+        canvas {
+            max-height: 200px;
+        }
+
+        .table-container {
+            position: relative;
+            overflow-x: auto;
+            background: var(--accent);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            padding: var(--spacing-3);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: var(--spacing-4);
+        }
+
+        th,
+        td {
+            padding: var(--spacing-3);
+            text-align: left;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        body[lang="ar"] th,
+        body[lang="ar"] td {
+            text-align: right;
+        }
+
+        th {
+            font-weight: 600;
+            background: var(--primary-light);
+            color: white;
+        }
+
+        tr:hover {
+            background: var(--border-light);
+        }
+
+        .rating-badge {
+            padding: var(--spacing-1) var(--spacing-2);
+            border-radius: var(--border-radius-sm);
+            font-size: var(--font-size-sm);
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-1);
+        }
+
+        .rating-badge.positive {
+            background: var(--success);
+            color: white;
+        }
+
+        .rating-badge.negative {
+            background: var(--danger);
+            color: white;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: var(--spacing-2);
+        }
+
+        .btn {
+            padding: var(--spacing-2) var(--spacing-4);
+            border: none;
+            border-radius: var(--border-radius-sm);
+            font-size: var(--font-size-base);
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            background: var(--primary);
+            color: white;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-1);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn:hover:not(:disabled) {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn:active:not(:disabled) {
+            transform: translateY(0);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn:disabled {
+            background: var(--text-muted);
+            cursor: not-allowed;
+            opacity: 0.6;
+            box-shadow: none;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-sm {
+            padding: var(--spacing-1) var(--spacing-2);
+            font-size: var(--font-size-sm);
+        }
+
+        .btn-edit {
+            background: var(--warning);
+        }
+
+        .btn-edit:hover {
+            background: var(--warning-light);
+        }
+
+        .btn-delete {
+            background: var(--danger);
+        }
+
+        .btn-delete:hover {
+            background: var(--danger-light);
+        }
+
+        body.dark .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        body.dark .btn:hover:not(:disabled) {
+            background: var(--primary-dark);
+            box-shadow: var(--shadow-md);
+        }
+
+        body.dark .btn:disabled {
+            background: var(--text-muted);
+            opacity: 0.5;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: var(--spacing-5);
+            color: var(--text-muted);
+        }
+
+        .empty-state i {
+            font-size: 32px;
+            margin-bottom: var(--spacing-2);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--accent);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-5);
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            box-shadow: var(--shadow-md);
+        }
+
+        body.dark .modal-content {
+            background: var(--accent);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: var(--spacing-2);
+            right: var(--spacing-2);
+            background: none;
+            border: none;
+            font-size: var(--font-size-lg);
+            cursor: pointer;
+            color: var(--text-muted);
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            color: var(--primary);
+        }
+
+        .modal h2 {
+            margin-bottom: var(--spacing-4);
+            font-size: var(--font-size-lg);
+        }
+
+        .form-group {
+            margin-bottom: var(--spacing-3);
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: var(--spacing-1);
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: var(--spacing-2);
+            border: 1px solid var(--border-light);
+            border-radius: var(--border-radius-sm);
+            font-size: var(--font-size-base);
+            background: var(--accent);
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: var(--spacing-3);
+            justify-content: flex-end;
+            margin-top: var(--spacing-4);
+        }
+
+        .settings-form {
+            display: grid;
+            gap: var(--spacing-4);
+        }
+
+        .form-row {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-3);
+        }
+
+        .form-row label {
+            flex: 0 0 auto;
+            font-weight: 500;
+        }
+
+        .form-row input[type="range"] {
+            flex: 1;
+            accent-color: var(--primary);
+        }
+
+        .form-row span {
+            flex: 0 0 auto;
+            color: var(--text-dark);
+        }
+
+        .form-row input[type="checkbox"] {
+            width: auto;
+            accent-color: var(--primary);
+        }
+
+        .language-selector {
+            display: flex;
+            gap: var(--spacing-2);
+            margin-top: var(--spacing-3);
+        }
+
+        .language-btn {
+            padding: var(--spacing-1) var(--spacing-2);
+            border: 1px solid var(--border-light);
+            border-radius: var(--border-radius-sm);
+            background: var(--accent);
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: var(--font-size-sm);
+        }
+
+        .language-btn.active,
+        .language-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .toast {
+            position: fixed;
+            bottom: var(--spacing-4);
+            right: var(--spacing-4);
+            background: var(--success);
+            color: white;
+            padding: var(--spacing-3);
+            border-radius: var(--border-radius-sm);
+            box-shadow: var(--shadow-md);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: var(--transition);
+            z-index: 3000;
+            font-size: var(--font-size-sm);
+        }
+
+        .toast.error {
+            background: var(--danger);
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .loading::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 24px;
+            height: 24px;
+            border: 3px solid var(--primary);
+            border-top-color: transparent;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            transform: translate(-50%, -50%);
+        }
+
+        @keyframes spin {
+            to {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        .fade {
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        footer {
+            text-align: center;
+            padding: var(--spacing-4);
+            color: var(--text-muted);
+            font-size: var(--font-size-sm);
+            margin-top: var(--spacing-6);
+            background: var(--accent);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: var(--spacing-3);
+            }
+
+            .header-text h1 {
+                font-size: 18px;
+            }
+
+            .header-actions {
+                flex-direction: column;
+                align-items: flex-end;
+                gap: var(--spacing-2);
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .analytics-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .chart-container {
+                padding: var(--spacing-2);
+            }
+
+            .modal-content {
+                padding: var(--spacing-4);
+            }
+
+            .tabs {
+                flex-direction: column;
+                gap: var(--spacing-2);
+            }
+
+            .dashboard-tab,
+            .analytics-tab {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .action-buttons,
+            .modal-actions {
+                flex-direction: column;
+                gap: var(--spacing-2);
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .language-selector {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="header-text">
+                    <h1 data-i18n="header.title">ISET Sfax Chatbot Admin</h1>
+                    <p data-i18n="header.subtitle">Manage the chatbot knowledge base and view analytics</p>
+                </div>
+                <div class="header-actions">
+                    <button id="theme-toggle" class="btn btn-sm">
+                        <i id="theme-icon" class="fas fa-moon"></i>
+                    </button>
+                    <div class="language-selector">
+                        <button class="language-btn" data-lang="en">EN</button>
+                        <button class="language-btn" data-lang="fr">FR</button>
+                        <button class="language-btn" data-lang="ar">AR</button>
+                    </div>
+                    <a href="{{ url_for('main.index_interface') }}" id="close-dashboard" class="btn btn-sm" data-i18n="header.back">Back to Chat</a>
+                    <a href="{{ url_for('logout') }}" class="btn btn-sm" data-i18n="header.logout">Logout</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="cards">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-chart-line card-icon"></i>
+                    <h2 class="card-title" data-i18n="card.analytics.title">Conversation Analytics</h2>
+                </div>
+                <p class="card-subtitle" data-i18n="card.analytics.subtitle">View insights from chatbot interactions</p>
+                <p class="card-description" data-i18n="card.analytics.description">Analyze user sentiment and feedback to improve the chatbot's performance.</p>
+                <button id="open-analytics" class="btn btn-primary" data-i18n="card.analytics.button">View Analytics</button>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-cog card-icon"></i>
+                    <h2 class="card-title" data-i18n="card.settings.title">System Settings</h2>
+                </div>
+                <p class="card-subtitle" data-i18n="card.settings.subtitle">Configure chatbot behavior and appearance</p>
+                <p class="card-description" data-i18n="card.settings.description">Adjust confidence thresholds, default language, and other settings that control how the chatbot interacts with users.</p>
+                <button id="open-settings" class="btn btn-primary" data-i18n="card.settings.button">Configure Settings</button>
+            </div>
+        </div>
+
+        <div id="dashboard-content">
+            <div class="tabs">
+                <div class="dashboard-tab" data-tab="analytics" data-i18n="tab.analytics">Analytics</div>
+                <div class="dashboard-tab" data-tab="settings" data-i18n="tab.settings">Settings</div>
+            </div>
+
+            <div id="analytics-tab" class="tab-content">
+                <h2 data-i18n="analytics.title">Chatbot Analytics</h2>
+                <div class="tabs">
+                    <div class="analytics-tab active" data-tab="stats" data-i18n="analytics.stats.title">Statistics</div>
+                    <div class="analytics-tab" data-tab="feedback" data-i18n="analytics.feedbackList.title">User Feedback</div>
+                    <div class="analytics-tab" data-tab="users" data-i18n="analytics.usersList.title">Users</div>
+                    <div class="analytics-tab" data-tab="messages" data-i18n="analytics.messagesList.title">Contact Messages</div>
+                </div>
+                <div id="stats-tab" class="analytics-tab-content active">
+                    <div class="analytics-grid">
+                        <div class="analytics-card">
+                            <h3 id="positive-feedback">0%</h3>
+                            <p data-i18n="analytics.positiveFeedback.title">Positive Feedback</p>
+                            <p data-i18n="analytics.positiveFeedback.description">Percentage of positive responses</p>
+                        </div>
+                        <div class="analytics-card">
+                            <h3 id="total-feedback">0</h3>
+                            <p data-i18n="analytics.totalFeedback.title">Total Feedback</p>
+                            <p data-i18n="analytics.totalFeedback.description">Total feedback submissions</p>
+                        </div>
+                        <div class="analytics-card">
+                            <h3 id="active-users">0</h3>
+                            <p data-i18n="analytics.activeUsers.title">Active Users</p>
+                            <p data-i18n="analytics.activeUsers.description">Users active in the last 30 days</p>
+                        </div>
+                        <div class="analytics-card">
+                            <h3 id="avg-response-time">0s</h3>
+                            <p data-i18n="analytics.responseTime.title">Avg. Response Time</p>
+                            <p data-i18n="analytics.responseTime.description">Average chatbot response time</p>
+                        </div>
+                    </div>
+                    <div class="analytics-grid">
+                        <div class="chart-container">
+                            <h3 data-i18n="analytics.feedbackAnalysis.title">Feedback Analysis</h3>
+                            <canvas id="feedback-chart"></canvas>
+                        </div>
+                        <div class="chart-container">
+                            <h3 data-i18n="analytics.userActivity.title">User Activity</h3>
+                            <canvas id="user-activity-chart"></canvas>
+                        </div>
+                        <div class="chart-container">
+                            <h3 data-i18n="analytics.contactMessagesTrend.title">Contact Messages Trend</h3>
+                            <canvas id="contact-messages-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div id="feedback-tab" class="analytics-tab-content">
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th data-i18n="analytics.feedbackList.responseId">Response ID</th>
+                                    <th data-i18n="analytics.feedbackList.rating">Rating</th>
+                                </tr>
+                            </thead>
+                            <tbody id="feedback-table-body"></tbody>
+                        </table>
+                    </div>
+                </div>
+                <div id="users-tab" class="analytics-tab-content">
+                    <button id="add-user-btn" class="btn btn-primary btn-sm" data-i18n="users.add">Add User</button>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th data-i18n="analytics.usersList.id">ID</th>
+                                    <th data-i18n="analytics.usersList.username">Username</th>
+                                    <th data-i18n="analytics.usersList.role">Role</th>
+                                    <th data-i18n="users.actions">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="users-table-body"></tbody>
+                        </table>
+                    </div>
+                </div>
+                <div id="messages-tab" class="analytics-tab-content">
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th data-i18n="analytics.messagesList.id">ID</th>
+                                    <th data-i18n="analytics.messagesList.name">Name</th>
+                                    <th data-i18n="analytics.messagesList.email">Email</th>
+                                    <th data-i18n="analytics.messagesList.subject">Subject</th>
+                                    <th data-i18n="analytics.messagesList.message">Message</th>
+                                    <th data-i18n="analytics.messagesList.submittedAt">Submitted At</th>
+                                    <th data-i18n="analytics.messagesList.username">Username</th>
+                                </tr>
+                            </thead>
+                            <tbody id="messages-table-body"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div id="settings-tab" class="tab-content">
+                <h2 data-i18n="settings.title">Chatbot Settings</h2>
+                <form id="settings-form" class="settings-form">
+                    <div class="form-row">
+                        <label for="confidence-threshold" data-i18n="settings.confidenceThreshold.label">Confidence Threshold:</label>
+                        <input type="range" id="confidence-threshold" name="confidenceThreshold" min="0" max="100" value="80">
+                        <span id="confidence-value">80%</span>
+                    </div>
+                    <p data-i18n="settings.confidenceThreshold.description">Minimum confidence level required for the chatbot to provide an answer</p>
+                    <div class="form-row">
+                        <label for="default-language" data-i18n="settings.language.label">Default Language:</label>
+                        <select id="default-language" name="defaultLanguage">
+                            <option value="en" data-i18n="settings.language.english">English</option>
+                            <option value="fr" data-i18n="settings.language.french">French</option>
+                            <option value="ar" data-i18n="settings.language.arabic">Arabic</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <input type="checkbox" id="ml-insights" name="mlInsights">
+                        <label for="ml-insights" data-i18n="settings.mlInsights">Show ML Insights in Chat Interface</label>
+                    </div>
+                    <div class="form-row">
+                        <input type="checkbox" id="voice-input" name="voiceInput">
+                        <label for="voice-input" data-i18n="settings.voiceInput">Enable Voice Input</label>
+                    </div>
+                    <div class="form-row">
+                        <input type="checkbox" id="user-feedback" name="userFeedback" checked>
+                        <label for="user-feedback" data-i18n="settings.userFeedback">Enable User Feedback</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary" data-i18n="settings.save">Save Settings</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="add-user-modal" class="modal">
+            <div class="modal-content">
+                <button class="modal-close">×</button>
+                <h2 data-i18n="users.add">Add User</h2>
+                <form id="add-user-form">
+                    <div class="form-group">
+                        <label for="add-username" data-i18n="analytics.usersList.username">Username</label>
+                        <input type="text" id="add-username" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="add-password" data-i18n="users.password">Password</label>
+                        <input type="password" id="add-password" name="password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="add-role" data-i18n="analytics.usersList.role">Role</label>
+                        <select id="add-role" name="role">
+                            <option value="user" data-i18n="users.role.user">User</option>
+                            <option value="admin" data-i18n="users.role.admin">Admin</option>
+                        </select>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="button" class="btn btn-sm" data-i18n="users.cancel">Cancel</button>
+                        <button type="submit" class="btn btn-primary btn-sm" data-i18n="users.save">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div id="edit-user-modal" class="modal">
+            <div class="modal-content">
+                <button class="modal-close">×</button>
+                <h2 data-i18n="users.edit">Edit User</h2>
+                <form id="edit-user-form">
+                    <input type="hidden" id="edit-user-id" name="id">
+                    <div class="form-group">
+                        <label for="edit-username" data-i18n="analytics.usersList.username">Username</label>
+                        <input type="text" id="edit-username" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-password" data-i18n="users.password">Password</label>
+                        <input type="password" id="edit-password" name="password" placeholder="Leave blank to keep unchanged">
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-role" data-i18n="analytics.usersList.role">Role</label>
+                        <select id="edit-role" name="role">
+                            <option value="user" data-i18n="users.role.user">User</option>
+                            <option value="admin" data-i18n="users.role.admin">Admin</option>
+                        </select>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="button" class="btn btn-sm" data-i18n="users.cancel">Cancel</button>
+                        <button type="submit" class="btn btn-primary btn-sm" data-i18n="users.save">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div id="delete-user-modal" class="modal">
+            <div class="modal-content">
+                <button class="modal-close">×</button>
+                <h2 data-i18n="users.delete">Delete User</h2>
+                <p data-i18n="users.deleteConfirm">Are you sure you want to delete this user?</p>
+                <input type="hidden" id="delete-user-id">
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-sm" data-i18n="users.cancel">Cancel</button>
+                    <button id="confirm-delete" class="btn btn-danger btn-sm" data-i18n="users.delete">Delete</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p data-i18n="footer.copyright">© 2025 ISET Sfax. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/i18next@21.9.2/dist/umd/i18next.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize i18next
+            i18next.init({
+                lng: getCookie('language') || 'en',
+                resources: {
+                    en: {
+                        translation: {
+                            'header.title': 'ISET Sfax Chatbot Admin',
+                            'header.subtitle': 'Manage the chatbot knowledge base and view analytics',
+                            'header.back': 'Back to Chat',
+                            'header.logout': 'Logout',
+                            'card.analytics.title': 'Conversation Analytics',
+                            'card.analytics.subtitle': 'View insights from chatbot interactions',
+                            'card.analytics.description': 'Analyze user sentiment and feedback to improve the chatbot\'s performance.',
+                            'card.analytics.button': 'View Analytics',
+                            'card.settings.title': 'System Settings',
+                            'card.settings.subtitle': 'Configure chatbot behavior and appearance',
+                            'card.settings.description': 'Adjust confidence thresholds, default language, and other settings that control how the chatbot interacts with users.',
+                            'card.settings.button': 'Configure Settings',
+                            'tab.analytics': 'Analytics',
+                            'tab.settings': 'Settings',
+                            'analytics.title': 'Chatbot Analytics',
+                            'analytics.stats.title': 'Statistics',
+                            'analytics.feedbackList.title': 'User Feedback',
+                            'analytics.feedbackList.responseId': 'Response ID',
+                            'analytics.feedbackList.rating': 'Rating',
+                            'analytics.feedbackList.rating.positive': 'Positive',
+                            'analytics.feedbackList.rating.negative': 'Negative',
+                            'analytics.usersList.title': 'Users',
+                            'analytics.usersList.id': 'ID',
+                            'analytics.usersList.username': 'Username',
+                            'analytics.usersList.role': 'Role',
+                            'analytics.usersList.noAccess': 'Access denied. Only administrators can view the user list.',
+                            'analytics.positiveFeedback.title': 'Positive Feedback',
+                            'analytics.positiveFeedback.description': 'Percentage of positive responses',
+                            'analytics.totalFeedback.title': 'Total Feedback',
+                            'analytics.totalFeedback.description': 'Total feedback submissions',
+                            'analytics.feedbackAnalysis.title': 'Feedback Analysis',
+                            'analytics.userActivity.title': 'User Activity',
+                            'analytics.contactMessagesTrend.title': 'Contact Messages Trend',
+                            'analytics.messagesList.title': 'Contact Messages',
+                            'analytics.messagesList.id': 'ID',
+                            'analytics.messagesList.name': 'Name',
+                            'analytics.messagesList.email': 'Email',
+                            'analytics.messagesList.subject': 'Subject',
+                            'analytics.messagesList.message': 'Message',
+                            'analytics.messagesList.submittedAt': 'Submitted At',
+                            'analytics.messagesList.username': 'Username',
+                            'analytics.messagesList.noAccess': 'Access denied. Only administrators can view contact messages.',
+                            'analytics.activeUsers.title': 'Active Users',
+                            'analytics.activeUsers.description': 'Users active in the last 30 days',
+                            'analytics.responseTime.title': 'Avg. Response Time',
+                            'analytics.responseTime.description': 'Average chatbot response time',
+                            'settings.title': 'Chatbot Settings',
+                            'settings.confidenceThreshold.label': 'Confidence Threshold:',
+                            'settings.confidenceThreshold.description': 'Minimum confidence level required for the chatbot to provide an answer',
+                            'settings.language.label': 'Default Language:',
+                            'settings.language.english': 'English',
+                            'settings.language.french': 'French',
+                            'settings.language.arabic': 'Arabic',
+                            'settings.mlInsights': 'Show ML Insights in Chat Interface',
+                            'settings.voiceInput': 'Enable Voice Input',
+                            'settings.userFeedback': 'Enable User Feedback',
+                            'settings.save': 'Save Settings',
+                            'settings.saveSuccess': 'Settings saved successfully!',
+                            'footer.copyright': '© 2025 ISET Sfax. All rights reserved.',
+                            'language.changeSuccess': 'Language changed successfully!',
+                            'language.changeError': 'Error changing language. Please try again.',
+                            'error.fallback': 'Something went wrong. Please refresh the page.',
+                            'users.add': 'Add User',
+                            'users.edit': 'Edit User',
+                            'users.delete': 'Delete User',
+                            'users.deleteConfirm': 'Are you sure you want to delete this user?',
+                            'users.actions': 'Actions',
+                            'users.password': 'Password',
+                            'users.role.user': 'User',
+                            'users.role.admin': 'Admin',
+                            'users.cancel': 'Cancel',
+                            'users.save': 'Save',
+                            'users.addSuccess': 'User added successfully!',
+                            'users.editSuccess': 'User updated successfully!',
+                            'users.deleteSuccess': 'User deleted successfully!',
+                            'users.error': 'Error performing operation. Please try again.'
+                        }
+                    },
+                    fr: {
+                        translation: {
+                            'header.title': 'Administration du Chatbot ISET Sfax',
+                            'header.subtitle': 'Gérer la base de connaissances du chatbot et consulter les analyses',
+                            'header.back': 'Retour au Chat',
+                            'header.logout': 'Déconnexion',
+                            'card.analytics.title': 'Analyse des Conversations',
+                            'card.analytics.subtitle': 'Consulter les insights des interactions du chatbot',
+                            'card.analytics.description': 'Analysez le sentiment des utilisateurs et les retours pour améliorer les performances du chatbot.',
+                            'card.analytics.button': 'Voir les Analyses',
+                            'card.settings.title': 'Paramètres du Système',
+                            'card.settings.subtitle': 'Configurer le comportement et l’apparence du chatbot',
+                            'card.settings.description': 'Ajustez les seuils de confiance, la langue par défaut et autres paramètres qui contrôlent les interactions du chatbot avec les utilisateurs.',
+                            'card.settings.button': 'Configurer les Paramètres',
+                            'tab.analytics': 'Analyses',
+                            'tab.settings': 'Paramètres',
+                            'analytics.title': 'Analyses du Chatbot',
+                            'analytics.stats.title': 'Statistiques',
+                            'analytics.feedbackList.title': 'Retours Utilisateur',
+                            'analytics.feedbackList.responseId': 'ID de la Réponse',
+                            'analytics.feedbackList.rating': 'Évaluation',
+                            'analytics.feedbackList.rating.positive': 'Positif',
+                            'analytics.feedbackList.rating.negative': 'Négatif',
+                            'analytics.usersList.title': 'Utilisateurs',
+                            'analytics.usersList.id': 'ID',
+                            'analytics.usersList.username': 'Nom d’utilisateur',
+                            'analytics.usersList.role': 'Rôle',
+                            'analytics.usersList.noAccess': 'Accès refusé. Seuls les administrateurs peuvent voir la liste des utilisateurs.',
+                            'analytics.positiveFeedback.title': 'Retour Positif',
+                            'analytics.positiveFeedback.description': 'Pourcentage de réponses positives',
+                            'analytics.totalFeedback.title': 'Total des Retours',
+                            'analytics.totalFeedback.description': 'Total des soumissions de retours',
+                            'analytics.feedbackAnalysis.title': 'Analyse des Retours',
+                            'analytics.userActivity.title': 'Activité des Utilisateurs',
+                            'analytics.contactMessagesTrend.title': 'Tendance des Messages de Contact',
+                            'analytics.messagesList.title': 'Messages de Contact',
+                            'analytics.messagesList.id': 'ID',
+                            'analytics.messagesList.name': 'Nom',
+                            'analytics.messagesList.email': 'Email',
+                            'analytics.messagesList.subject': 'Sujet',
+                            'analytics.messagesList.message': 'Message',
+                            'analytics.messagesList.submittedAt': 'Soumis le',
+                            'analytics.messagesList.username': 'Nom d’utilisateur',
+                            'analytics.messagesList.noAccess': 'Accès refusé. Seuls les administrateurs peuvent voir les messages de contact.',
+                            'analytics.activeUsers.title': 'Utilisateurs Actifs',
+                            'analytics.activeUsers.description': 'Utilisateurs actifs au cours des 30 derniers jours',
+                            'analytics.responseTime.title': 'Temps de Réponse Moyen',
+                            'analytics.responseTime.description': 'Temps de réponse moyen du chatbot',
+                            'settings.title': 'Paramètres du Chatbot',
+                            'settings.confidenceThreshold.label': 'Seuil de Confiance :',
+                            'settings.confidenceThreshold.description': 'Niveau de confiance minimum requis pour que le chatbot fournisse une réponse',
+                            'settings.language.label': 'Langue par Défaut :',
+                            'settings.language.english': 'Anglais',
+                            'settings.language.french': 'Français',
+                            'settings.language.arabic': 'Arabe',
+                            'settings.mlInsights': 'Afficher les Insights ML dans l’Interface de Chat',
+                            'settings.voiceInput': 'Activer l’Entrée Vocale',
+                            'settings.userFeedback': 'Activer les Retours Utilisateur',
+                            'settings.save': 'Enregistrer les Paramètres',
+                            'settings.saveSuccess': 'Paramètres enregistrés avec succès !',
+                            'footer.copyright': '© 2025 ISET Sfax. Tous droits réservés.',
+                            'language.changeSuccess': 'Langue changée avec succès !',
+                            'language.changeError': 'Erreur lors du changement de langue. Veuillez réessayer.',
+                            'error.fallback': 'Une erreur s’est produite. Veuillez actualiser la page.',
+                            'users.add': 'Ajouter un Utilisateur',
+                            'users.edit': 'Modifier l’Utilisateur',
+                            'users.delete': 'Supprimer l’Utilisateur',
+                            'users.deleteConfirm': 'Êtes-vous sûr de vouloir supprimer cet utilisateur ?',
+                            'users.actions': 'Actions',
+                            'users.password': 'Mot de passe',
+                            'users.role.user': 'Utilisateur',
+                            'users.role.admin': 'Administrateur',
+                            'users.cancel': 'Annuler',
+                            'users.save': 'Enregistrer',
+                            'users.addSuccess': 'Utilisateur ajouté avec succès !',
+                            'users.editSuccess': 'Utilisateur modifié avec succès !',
+                            'users.deleteSuccess': 'Utilisateur supprimé avec succès !',
+                            'users.error': 'Erreur lors de l’opération. Veuillez réessayer.'
+                        }
+                    },
+                    ar: {
+                        translation: {
+                            'header.title': 'إدارة شاتبوت ISET Sfax',
+                            'header.subtitle': 'إدارة قاعدة المعرفة للشاتبوت وعرض التحليلات',
+                            'header.back': 'العودة إلى الدردشة',
+                            'header.logout': 'تسجيل الخروج',
+                            'card.analytics.title': 'تحليلات المحادثات',
+                            'card.analytics.subtitle': 'عرض رؤى من تفاعلات الشاتبوت',
+                            'card.analytics.description': 'تحليل مشاعر المستخدمين والتغذية الراجعة لتحسين أداء الشاتبوت.',
+                            'card.analytics.button': 'عرض التحليلات',
+                            'card.settings.title': 'إعدادات النظام',
+                            'card.settings.subtitle': 'تكوين سلوك ومظهر الشاتبوت',
+                            'card.settings.description': 'ضبط عتبات الثقة، واللغة الافتراضية، وغيرها من الإعدادات التي تتحكم في تفاعل الشاتبوت مع المستخدمين.',
+                            'card.settings.button': 'تكوين الإعدادات',
+                            'tab.analytics': 'التحليلات',
+                            'tab.settings': 'الإعدادات',
+                            'analytics.title': 'تحليلات الشاتبوت',
+                            'analytics.stats.title': 'الإحصائيات',
+                            'analytics.feedbackList.title': 'تغذية راجعة المستخدمين',
+                            'analytics.feedbackList.responseId': 'معرف الرد',
+                            'analytics.feedbackList.rating': 'التقييم',
+                            'analytics.feedbackList.rating.positive': 'إيجابي',
+                            'analytics.feedbackList.rating.negative': 'سلبي',
+                            'analytics.usersList.title': 'المستخدمون',
+                            'analytics.usersList.id': 'المعرف',
+                            'analytics.usersList.username': 'اسم المستخدم',
+                            'analytics.usersList.role': 'الدور',
+                            'analytics.usersList.noAccess': 'الوصول مرفوض. يمكن فقط للمديرين رؤية قائمة المستخدمين.',
+                            'analytics.positiveFeedback.title': 'التغذية الراجعة الإيجابية',
+                            'analytics.positiveFeedback.description': 'نسبة الردود الإيجابية',
+                            'analytics.totalFeedback.title': 'إجمالي التغذية الراجعة',
+                            'analytics.totalFeedback.description': 'إجمالي التعليقات المقدمة',
+                            'analytics.feedbackAnalysis.title': 'تحليل التغذية الراجعة',
+                            'analytics.userActivity.title': 'نشاط المستخدمين',
+                            'analytics.contactMessagesTrend.title': 'اتجاه رسائل التواصل',
+                            'analytics.messagesList.title': 'رسائل التواصل',
+                            'analytics.messagesList.id': 'المعرف',
+                            'analytics.messagesList.name': 'الاسم',
+                            'analytics.messagesList.email': 'البريد الإلكتروني',
+                            'analytics.messagesList.subject': 'الموضوع',
+                            'analytics.messagesList.message': 'الرسالة',
+                            'analytics.messagesList.submittedAt': 'تاريخ الإرسال',
+                            'analytics.messagesList.username': 'اسم المستخدم',
+                            'analytics.messagesList.noAccess': 'الوصول مرفوض. يمكن فقط للمديرين رؤية رسائل التواصل.',
+                            'analytics.activeUsers.title': 'المستخدمون النشطون',
+                            'analytics.activeUsers.description': 'المستخدمون النشطون خلال الـ 30 يومًا الماضية',
+                            'analytics.responseTime.title': 'متوسط وقت الاستجابة',
+                            'analytics.responseTime.description': 'متوسط وقت استجابة الشاتبوت',
+                            'settings.title': 'إعدادات الشاتبوت',
+                            'settings.confidenceThreshold.label': 'عتبة الثقة:',
+                            'settings.confidenceThreshold.description': 'الحد الأدنى لمستوى الثقة المطلوب لتقديم إجابة من الشاتبوت',
+                            'settings.language.label': 'اللغة الافتراضية:',
+                            'settings.language.english': 'الإنجليزية',
+                            'settings.language.french': 'الفرنسية',
+                            'settings.language.arabic': 'العربية',
+                            'settings.mlInsights': 'إظهار رؤى التعلم الآلي في واجهة الدردشة',
+                            'settings.voiceInput': 'تمكين الإدخال الصوتي',
+                            'settings.userFeedback': 'تمكين التغذية الراجعة من المستخدم',
+                            'settings.save': 'حفظ الإعدادات',
+                            'settings.saveSuccess': 'تم حفظ الإعدادات بنجاح!',
+                            'footer.copyright': '© 2025 ISET Sfax. جميع الحقوق محفوظة.',
+                            'language.changeSuccess': 'تم تغيير اللغة بنجاح!',
+                            'language.changeError': 'خطأ أثناء تغيير اللغة. يرجى المحاولة مرة أخرى.',
+                            'error.fallback': 'حدث خطأ. يرجى تحديث الصفحة.',
+                            'users.add': 'إضافة مستخدم',
+                            'users.edit': 'تعديل المستخدم',
+                            'users.delete': 'حذف المستخدم',
+                            'users.deleteConfirm': 'هل أنت متأكد من حذف هذا المستخدم؟',
+                            'users.actions': 'الإجراءات',
+                            'users.password': 'كلمة المرور',
+                            'users.role.user': 'مستخدم',
+                            'users.role.admin': 'مدير',
+                            'users.cancel': 'إلغاء',
+                            'users.save': 'حفظ',
+                            'users.addSuccess': 'تمت إضافة المستخدم بنجاح!',
+                            'users.editSuccess': 'تم تعديل المستخدم بنجاح!',
+                            'users.deleteSuccess': 'تم حذف المستخدم بنجاح!',
+                            'users.error': 'خطأ أثناء تنفيذ العملية. يرجى المحاولة مرة أخرى.'
+                        }
+                    }
+                }
+            }, () => {
+                initializeApp();
+            });
+
+            // Helper function to get cookie value
+            function getCookie(name) {
+                const value = `; ${document.cookie}`;
+                const parts = value.split(`; ${name}=`);
+                if (parts.length === 2) return parts.pop().split(';').shift();
+                return null;
+            }
+
+            // Helper function to set cookie
+            function setCookie(name, value, days) {
+                let expires = '';
+                if (days) {
+                    const date = new Date();
+                    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                    expires = `; expires=${date.toUTCString()}`;
+                }
+                document.cookie = `${name}=${value}${expires}; path=/`;
+            }
+
+            // Helper function to format numbers based on language
+            function formatNumber(value, lang) {
+                return new Intl.NumberFormat(lang === 'ar' ? 'ar-EG' : lang === 'fr' ? 'fr-FR' : 'en-US').format(value);
+            }
+
+            // Helper function to convert hex to rgba
+            function hexToRgba(hex, alpha = 1) {
+                if (!hex) return `rgba(0, 0, 0, ${alpha})`;
+                hex = hex.replace('#', '');
+                const r = parseInt(hex.substring(0, 2), 16);
+                const g = parseInt(hex.substring(2, 4), 16);
+                const b = parseInt(hex.substring(4, 6), 16);
+                return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+            }
+
+            // Show toast notification
+            function showToast(message, isError = false) {
+                const toast = document.createElement('div');
+                toast.className = `toast ${isError ? 'error' : ''}`;
+                toast.textContent = message;
+                document.body.appendChild(toast);
+                setTimeout(() => toast.classList.add('show'), 100);
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                    setTimeout(() => toast.remove(), 300);
+                }, 3000);
+            }
+
+            // Update language and UI
+            function updateLanguage(lang) {
+                i18next.changeLanguage(lang, () => {
+                    document.querySelectorAll('[data-i18n]').forEach(elem => {
+                        const key = elem.getAttribute('data-i18n');
+                        elem.textContent = i18next.t(key);
+                    });
+                    document.documentElement.lang = lang;
+                    document.body.setAttribute('lang', lang);
+                    document.querySelectorAll('.language-btn').forEach(btn => {
+                        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+                    });
+                    // Update charts if initialized
+                    if (window.feedbackChart) initFeedbackChart(window.analyticsData.feedbackAnalysis);
+                    if (window.userActivityChart) initUserActivityChart(window.analyticsData.userActivity, window.analyticsData.userTrendLabels);
+                    if (window.contactMessagesChart) initContactMessagesChart(window.analyticsData.messageTrend, window.analyticsData.messageTrendLabels);
+                });
+            }
+
+            // Set up Chart.js defaults
+            Chart.defaults.font.family = getComputedStyle(document.body).getPropertyValue('--font-primary');
+            Chart.defaults.font.size = 12;
+            Chart.defaults.color = getComputedStyle(document.body).getPropertyValue('--text-muted');
+
+            // Common chart options
+            const commonOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: {
+                            font: { size: 12 },
+                            padding: 8,
+                            usePointStyle: true,
+                            pointStyle: 'circle',
+                            boxWidth: 6
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                        titleColor: getComputedStyle(document.body).getPropertyValue('--text-dark'),
+                        bodyColor: getComputedStyle(document.body).getPropertyValue('--text-dark'),
+                        borderColor: getComputedStyle(document.body).getPropertyValue('--border-light'),
+                        borderWidth: 1,
+                        padding: 8,
+                        cornerRadius: 4,
+                        boxPadding: 4,
+                        titleFont: { size: 12 },
+                        bodyFont: { size: 12 }
+                    }
+                }
+            };
+
+            // Initialize Feedback Analysis Chart
+            function initFeedbackChart(feedbackAnalysis) {
+                if (window.feedbackChart) window.feedbackChart.destroy();
+                const ctx = document.getElementById('feedback-chart').getContext('2d');
+                const lang = i18next.language;
+                const labels = {
+                    en: ['Positive', 'Negative', 'No Feedback'],
+                    fr: ['Positif', 'Négatif', 'Sans Retour'],
+                    ar: ['إيجابي', 'سلبي', 'بدون تعليق']
+                };
+
+                window.feedbackChart = new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: labels[lang] || labels.en,
+                        datasets: [{
+                            data: [
+                                feedbackAnalysis.positive || 0,
+                                feedbackAnalysis.negative || 0,
+                                feedbackAnalysis.noFeedback || 0
+                            ],
+                            backgroundColor: [
+                                getComputedStyle(document.body).getPropertyValue('--success'),
+                                getComputedStyle(document.body).getPropertyValue('--danger'),
+                                getComputedStyle(document.body).getPropertyValue('--accent')
+                            ],
+                            borderColor: 'white',
+                            borderWidth: 1,
+                            hoverOffset: 8
+                        }]
+                    },
+                    options: {
+                        ...commonOptions,
+                        cutout: '70%',
+                        plugins: {
+                            ...commonOptions.plugins,
+                            title: { display: false }
+                        }
+                    }
+                });
+            }
+
+            // Initialize User Activity Chart
+            function initUserActivityChart(userActivity, labels) {
+                if (window.userActivityChart) window.userActivityChart.destroy();
+                const ctx = document.getElementById('user-activity-chart').getContext('2d');
+                const lang = i18next.language;
+                const datasetLabels = {
+                    en: { newUsers: 'New Users' },
+                    fr: { newUsers: 'Nouveaux Utilisateurs' },
+                    ar: { newUsers: 'مستخدمون جدد' }
+                };
+
+                window.userActivityChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: datasetLabels[lang]?.newUsers || datasetLabels.en.newUsers,
+                            data: userActivity.newUsers || [],
+                            backgroundColor: getComputedStyle(document.body).getPropertyValue('--primary'),
+                            borderColor: getComputedStyle(document.body).getPropertyValue('--primary-dark'),
+                            borderWidth: 1,
+                            barPercentage: 0.8,
+                            categoryPercentage: 0.9
+                        }]
+                    },
+                    options: {
+                        ...commonOptions,
+                        scales: {
+                            x: {
+                                grid: { display: false },
+                                ticks: { font: { size: 12 } },
+                                reverse: lang === 'ar'
+                            },
+                            y: {
+                                beginAtZero: true,
+                                grid: {
+                                    color: hexToRgba(getComputedStyle(document.body).getPropertyValue('--border-light'), 0.5)
+                                },
+                                ticks: { font: { size: 12 } }
+                            }
+                        },
+                        plugins: {
+                            ...commonOptions.plugins,
+                            title: { display: false }
+                        }
+                    }
+                });
+            }
+
+            // Initialize Contact Messages Chart
+            function initContactMessagesChart(messageTrend, labels) {
+                if (window.contactMessagesChart) window.contactMessagesChart.destroy();
+                const ctx = document.getElementById('contact-messages-chart').getContext('2d');
+                const lang = i18next.language;
+                const datasetLabels = {
+                    en: { support: 'Support Requests', feedback: 'Feedback Messages', inquiries: 'General Inquiries' },
+                    fr: { support: 'Demandes de Support', feedback: 'Messages de Retour', inquiries: 'Demandes Générales' },
+                    ar: { support: 'طلبات الدعم', feedback: 'رسائل التعليقات', inquiries: 'استفسارات عامة' }
+                };
+
+                window.contactMessagesChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: labels,
+                        datasets: [
+                            {
+                                label: datasetLabels[lang]?.support || datasetLabels.en.support,
+                                data: messageTrend.support || [],
+                                borderColor: getComputedStyle(document.body).getPropertyValue('--secondary'),
+                                backgroundColor: 'transparent',
+                                borderWidth: 2,
+                                tension: 0.3,
+                                pointBackgroundColor: getComputedStyle(document.body).getPropertyValue('--secondary'),
+                                pointRadius: 4,
+                                pointHoverRadius: 6
+                            },
+                            {
+                                label: datasetLabels[lang]?.feedback || datasetLabels.en.feedback,
+                                data: messageTrend.feedback || [],
+                                borderColor: getComputedStyle(document.body).getPropertyValue('--warning'),
+                                backgroundColor: 'transparent',
+                                borderWidth: 2,
+                                tension: 0.3,
+                                pointBackgroundColor: getComputedStyle(document.body).getPropertyValue('--warning'),
+                                pointRadius: 4,
+                                pointHoverRadius: 6
+                            },
+                            {
+                                label: datasetLabels[lang]?.inquiries || datasetLabels.en.inquiries,
+                                data: messageTrend.inquiries || [],
+                                borderColor: getComputedStyle(document.body).getPropertyValue('--info'),
+                                backgroundColor: 'transparent',
+                                borderWidth: 2,
+                                tension: 0.3,
+                                pointBackgroundColor: getComputedStyle(document.body).getPropertyValue('--info'),
+                                pointRadius: 4,
+                                pointHoverRadius: 6
+                            }
+                        ]
+                    },
+                    options: {
+                        ...commonOptions,
+                        scales: {
+                            x: {
+                                grid: { display: false },
+                                ticks: { font: { size: 12 } },
+                                reverse: lang === 'ar'
+                            },
+                            y: {
+                                beginAtZero: true,
+                                grid: {
+                                    color: hexToRgba(getComputedStyle(document.body).getPropertyValue('--border-light'), 0.5)
+                                },
+                                ticks: { font: { size: 12 } }
+                            }
+                        },
+                        plugins: {
+                            ...commonOptions.plugins,
+                            title: { display: false }
+                        }
+                    }
+                });
+            }
+
+            // Load contact messages
+            async function loadContactMessages() {
+                const tableContainer = document.querySelector('#messages-tab .table-container');
+                const messagesTableBody = document.getElementById('messages-table-body');
+                tableContainer.classList.add('loading');
+                try {
+                    const response = await fetch('/load_contact_messages', {
+                        method: 'GET',
+                        headers: { 'Accept': 'application/json' }
+                    });
+                    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                    const data = await response.json();
+                    if (!data.success) throw new Error(data.message);
+                    renderMessagesTable(data.messages);
+                    return data.messages;
+                } catch (error) {
+                    console.error('Error loading contact messages:', error);
+                    const errorMessage = error.message.includes('Access denied') 
+                        ? i18next.t('analytics.messagesList.noAccess')
+                        : i18next.t('error.fallback');
+                    showToast(errorMessage, true);
+                    renderMessagesTable([]);
+                    return [];
+                } finally {
+                    tableContainer.classList.remove('loading');
+                }
+            }
+
+            // Render contact messages table
+            function renderMessagesTable(messages) {
+                const messagesTableBody = document.getElementById('messages-table-body');
+                messagesTableBody.innerHTML = '';
+                if (messages.length === 0) {
+                    messagesTableBody.innerHTML = `
+                        <tr>
+                            <td colspan="7" class="empty-state">
+                                <i class="fas fa-envelope-open-text"></i>
+                                <h3>${i18next.t('analytics.messagesList.title')}</h3>
+                                <p>${i18next.t('error.fallback')}</p>
+                            </td>
+                        </tr>
+                    `;
+                    return;
+                }
+                messages.forEach(message => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${message.id}</td>
+                        <td>${message.name || '-'}</td>
+                        <td>${message.email || '-'}</td>
+                        <td>${message.subject || '-'}</td>
+                        <td>${message.message || '-'}</td>
+                        <td>${message.submitted_at ? new Date(message.submitted_at).toLocaleString(i18next.language === 'ar' ? 'ar-EG' : i18next.language === 'fr' ? 'fr-FR' : 'en-US') : '-'}</td>
+                        <td>${message.username || '-'}</td>
+                    `;
+                    messagesTableBody.appendChild(row);
+                });
+            }
+
+            // Load all feedback
+            async function loadAllFeedback() {
+                const tableContainer = document.querySelector('#feedback-tab .table-container');
+                const feedbackTableBody = document.getElementById('feedback-table-body');
+                tableContainer.classList.add('loading');
+                try {
+                    const response = await fetch('/load_all_feedback', {
+                        method: 'GET',
+                        headers: { 'Accept': 'application/json' }
+                    });
+                    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                    const data = await response.json();
+                    if (!data.success) throw new Error(data.message);
+                    renderFeedbackTable(data.feedback);
+                    return data.feedback;
+                } catch (error) {
+                    console.error('Error loading feedback:', error);
+                    showToast(i18next.t('error.fallback'), true);
+                    renderFeedbackTable([]);
+                    return [];
+                } finally {
+                    tableContainer.classList.remove('loading');
+                }
+            }
+
+            // Render feedback table
+            function renderFeedbackTable(feedback) {
+                const feedbackTableBody = document.getElementById('feedback-table-body');
+                feedbackTableBody.innerHTML = '';
+                if (feedback.length === 0) {
+                    feedbackTableBody.innerHTML = `
+                        <tr>
+                            <td colspan="2" class="empty-state">
+                                <i class="fas fa-comment-slash"></i>
+                                <h3>${i18next.t('analytics.feedbackList.title')}</h3>
+                                <p>${i18next.t('error.fallback')}</p>
+                            </td>
+                        </tr>
+                    `;
+                    return;
+                }
+                feedback.forEach(item => {
+                    const row = document.createElement('tr');
+                    const ratingText = item.rating === 'positive' ? i18next.t('analytics.feedbackList.rating.positive') : i18next.t('analytics.feedbackList.rating.negative');
+                    row.innerHTML = `
+                        <td class="response-id">${item.response_id}</td>
+                        <td class="rating" data-rating="${item.rating}">
+                            <span class="rating-badge ${item.rating}">
+                                <i class="fas fa-${item.rating === 'positive' ? 'thumbs-up' : 'thumbs-down'}"></i>
+                                ${ratingText}
+                            </span>
+                        </td>
+                    `;
+                    feedbackTableBody.appendChild(row);
+                });
+            }
+
+            // Load users
+            async function loadUsers() {
+                const tableContainer = document.querySelector('#users-tab .table-container');
+                const usersTableBody = document.getElementById('users-table-body');
+                tableContainer.classList.add('loading');
+                try {
+                    const response = await fetch('/load_users', {
+                        method: 'GET',
+                        headers: { 'Accept': 'application/json' }
+                    });
+                    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                    const data = await response.json();
+                    if (!data.success) throw new Error(data.message);
+                    renderUsersTable(data.users);
+                    return data.users;
+                } catch (error) {
+                    console.error('Error loading users:', error);
+                    const errorMessage = error.message.includes('Access denied') 
+                        ? i18next.t('analytics.usersList.noAccess')
+                        : i18next.t('error.fallback');
+                    showToast(errorMessage, true);
+                    renderUsersTable([]);
+                    return [];
+                } finally {
+                    tableContainer.classList.remove('loading');
+                }
+            }
+
+            // Render users table
+            function renderUsersTable(users) {
+                const usersTableBody = document.getElementById('users-table-body');
+                usersTableBody.innerHTML = '';
+                if (users.length === 0) {
+                    usersTableBody.innerHTML = `
+                        <tr>
+                            <td colspan="4" class="empty-state">
+                                <i class="fas fa-users-slash"></i>
+                                <h3>${i18next.t('analytics.usersList.title')}</h3>
+                                <p>${i18next.t('error.fallback')}</p>
+                            </td>
+                        </tr>
+                    `;
+                    return;
+                }
+                users.forEach(user => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${user.id}</td>
+                        <td>${user.username}</td>
+                        <td>${user.role.charAt(0).toUpperCase() + user.role.slice(1)}</td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="btn btn-edit btn-sm" data-id="${user.id}">${i18next.t('users.edit')}</button>
+                                <button class="btn btn-delete btn-sm" data-id="${user.id}">${i18next.t('users.delete')}</button>
+                            </div>
+                        </td>
+                    `;
+                    usersTableBody.appendChild(row);
+                });
+            }
+
+            // Load analytics data
+            async function loadAnalyticsData() {
+                try {
+                    const response = await fetch('/analytics_data', {
+                        method: 'GET',
+                        headers: { 'Accept': 'application/json' }
+                    });
+                    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                    const data = await response.json();
+                    if (!data.success) throw new Error(data.message);
+                    window.analyticsData = {
+                        positiveFeedback: data.positiveFeedback || 0,
+                        totalFeedback: data.totalFeedback || 0,
+                        activeUsers: data.activeUsers || 0,
+                        avgResponseTime: data.avgResponseTime || 0,
+                        feedbackAnalysis: data.feedbackAnalysis || { positive: 0, negative: 0, noFeedback: 0 },
+                        userActivity: data.userActivity || { newUsers: [] },
+                        messageTrend: data.messageTrend || { support: [], feedback: [], inquiries: [] },
+                        userTrendLabels: data.userTrendLabels || [],
+                        feedbackTrendLabels: data.feedbackTrendLabels || [],
+                        messageTrendLabels: data.messageTrendLabels || []
+                    };
+                    updateAnalyticsCards(window.analyticsData);
+                    initFeedbackChart(window.analyticsData.feedbackAnalysis);
+                    initUserActivityChart(window.analyticsData.userActivity, window.analyticsData.userTrendLabels);
+                    initContactMessagesChart(window.analyticsData.messageTrend, window.analyticsData.messageTrendLabels);
+                } catch (error) {
+                    console.error('Error loading analytics data:', error);
+                    showToast(i18next.t('error.fallback'), true);
+                    window.analyticsData = {
+                        positiveFeedback: 0,
+                        totalFeedback: 0,
+                        activeUsers: 0,
+                        avgResponseTime: 0,
+                        feedbackAnalysis: { positive: 0, negative: 0, noFeedback: 0 },
+                        userActivity: { newUsers: [] },
+                        messageTrend: { support: [], feedback: [], inquiries: [] },
+                        userTrendLabels: [],
+                        feedbackTrendLabels: [],
+                        messageTrendLabels: []
+                    };
+                    updateAnalyticsCards(window.analyticsData);
+                    initFeedbackChart(window.analyticsData.feedbackAnalysis);
+                    initUserActivityChart(window.analyticsData.userActivity, window.analyticsData.userTrendLabels);
+                    initContactMessagesChart(window.analyticsData.messageTrend, window.analyticsData.messageTrendLabels);
+                }
+            }
+
+            // Update analytics cards
+            function updateAnalyticsCards(data) {
+                document.getElementById('positive-feedback').textContent = `${formatNumber(data.positiveFeedback, i18next.language)}%`;
+                document.getElementById('total-feedback').textContent = formatNumber(data.totalFeedback, i18next.language);
+                document.getElementById('active-users').textContent = formatNumber(data.activeUsers, i18next.language);
+                document.getElementById('avg-response-time').textContent = `${formatNumber(data.avgResponseTime, i18next.language)}s`;
+            }
+
+            // Add user
+            async function addUser(formData) {
+                try {
+                    const response = await fetch('/add_user', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(Object.fromEntries(formData))
+                    });
+                    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                    const data = await response.json();
+                    if (!data.success) throw new Error(data.message);
+                    showToast(i18next.t('users.addSuccess'));
+                    document.getElementById('add-user-form').reset();
+                    document.getElementById('add-user-modal').classList.remove('active');
+                    loadUsers();
+                } catch (error) {
+                    console.error('Error adding user:', error);
+                    showToast(i18next.t('users.error'), true);
+                }
+            }
+
+            // Edit user
+            async function editUser(formData) {
+                try {
+                    const response = await fetch('/edit_user', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(Object.fromEntries(formData))
+                    });
+                    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                    const data = await response.json();
+                    if (!data.success) throw new Error(data.message);
+                    showToast(i18next.t('users.editSuccess'));
+                    document.getElementById('edit-user-modal').classList.remove('active');
+                    loadUsers();
+                } catch (error) {
+                    console.error('Error editing user:', error);
+                    showToast(i18next.t('users.error'), true);
+                }
+            }
+
+            // Delete user
+            async function deleteUser(userId) {
+                try {
+                    const response = await fetch('/delete_user', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ id: userId })
+                    });
+                    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                    const data = await response.json();
+                    if (!data.success) throw new Error(data.message);
+                    showToast(i18next.t('users.deleteSuccess'));
+                    document.getElementById('delete-user-modal').classList.remove('active');
+                    loadUsers();
+                } catch (error) {
+                    console.error('Error deleting user:', error);
+                    showToast(i18next.t('users.error'), true);
+                }
+            }
+
+            // Open edit user modal
+            async function openEditUserModal(userId) {
+                try {
+                    const response = await fetch(`/get_user/${userId}`, {
+                        method: 'GET',
+                        headers: { 'Accept': 'application/json' }
+                    });
+                    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                    const data = await response.json();
+                    if (!data.success) throw new Error(data.message);
+                    document.getElementById('edit-user-id').value = data.user.id;
+                    document.getElementById('edit-username').value = data.user.username;
+                    document.getElementById('edit-role').value = data.user.role;
+                    document.getElementById('edit-password').value = '';
+                    document.getElementById('edit-user-modal').classList.add('active');
+                } catch (error) {
+                    console.error('Error fetching user data:', error);
+                    showToast(i18next.t('users.error'), true);
+                }
+            }
+
+            // Initialize application
+            async function initializeApp() {
+                // Load initial data
+                await loadAnalyticsData();
+
+                // Apply saved theme
+                const savedTheme = getCookie('theme');
+                if (savedTheme === 'dark') {
+                    document.body.classList.add('dark');
+                    document.getElementById('theme-icon').className = 'fas fa-sun';
+                }
+
+                // Apply saved language
+                const savedLang = getCookie('language') || 'en';
+                await i18next.changeLanguage(savedLang);
+                updateLanguage(savedLang);
+
+                // Event listeners
+                document.getElementById('theme-toggle').addEventListener('click', () => {
+                    document.body.classList.toggle('dark');
+                    const isDark = document.body.classList.contains('dark');
+                    document.getElementById('theme-icon').className = `fas fa-${isDark ? 'sun' : 'moon'}`;
+                    setCookie('theme', isDark ? 'dark' : 'light', 30);
+                });
+
+               document.querySelectorAll('.language-btn').forEach(button => {
+    button.addEventListener('click', async () => {
+        const lang = button.dataset.lang;
+        try {
+            await i18next.changeLanguage(lang);
+            updateLanguage(lang);
+            setCookie('language', lang, 30); // Save language preference for 30 days
+            showToast(i18next.t('language.changeSuccess')); // Show success notification
+        } catch (error) {
+            console.error('Error changing language:', error);
+            showToast(i18next.t('language.changeError'), true); // Show error notification
+        }
+    });
+});
+// Initialize application
+async function initializeApp() {
+    // Load initial data
+    await loadAnalyticsData();
+
+    // Apply saved theme
+    const savedTheme = getCookie('theme');
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark');
+        document.getElementById('theme-icon').className = 'fas fa-sun';
+    }
+
+    // Apply saved language
+    const savedLang = getCookie('language') || 'en';
+    await i18next.changeLanguage(savedLang);
+    updateLanguage(savedLang);
+
+    // Event listeners
+    document.getElementById('theme-toggle').addEventListener('click', () => {
+        document.body.classList.toggle('dark');
+        const isDark = document.body.classList.contains('dark');
+        document.getElementById('theme-icon').className = `fas fa-${isDark ? 'sun' : 'moon'}`;
+        setCookie('theme', isDark ? 'dark' : 'light', 30);
+    });
+
+    document.querySelectorAll('.language-btn').forEach(button => {
+        button.addEventListener('click', async () => {
+            const lang = button.dataset.lang;
+            try {
+                await i18next.changeLanguage(lang);
+                updateLanguage(lang);
+                setCookie('language', lang, 30); // Save language preference for 30 days
+                showToast(i18next.t('language.changeSuccess')); // Show success notification
+            } catch (error) {
+                console.error('Error changing language:', error);
+                showToast(i18next.t('language.changeError'), true); // Show error notification
+            }
+        });
+    });
+
+    // ... (rest of the initializeApp function, such as other event listeners)
+}
+    </script>
+</body>
+</html>

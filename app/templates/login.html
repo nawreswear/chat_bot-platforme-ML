@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion - ISET Sfax AI Platform</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            /* Color palette - Professional theme */
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --primary-light: #3b82f6;
+            --secondary: #f59e0b;
+            --secondary-dark: #d97706;
+            --secondary-light: #fbbf24;
+            --accent: #e2e8f0;
+            --text-dark: #1e293b;
+            --text-light: #f8fafc;
+            --background-light: #f1f5f9;
+            --background-dark: #0f172a;
+            --success: #10b981;
+            --info: #06b6d4;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --border-radius-sm: 8px;
+            --border-radius: 16px;
+            --box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+            --font-primary: 'Poppins', 'Noto Sans Arabic', sans-serif;
+            --spacing-4: 16px;
+            --spacing-6: 24px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-primary);
+        }
+
+        body {
+            background-color: var(--background-light);
+            background-image: url('/static/ise.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-attachment: fixed;
+            color: var(--text-dark);
+            line-height: 1.0;
+            transition: var(--transition);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-4);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            position: relative;
+        }
+
+
+        body[lang="ar"] {
+            direction: rtl;
+            text-align: right;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 420px;
+        }
+
+        .logo-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 32px;
+            transition: var(--transition);
+            border: 1px solid var(--accent);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-light) 100%);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 24px;
+            color: var(--primary);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--accent);
+            border-radius: var(--border-radius-sm);
+            font-size: 1rem;
+            transition: var(--transition);
+            background-color: var(--background-light);
+            color: var(--text-dark);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+        }
+
+        .input-icon {
+            position: absolute;
+            right: 16px;
+            top: 42px;
+            color: #94a3b8;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 16px;
+            top: 42px;
+            color: #94a3b8;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: var(--text-light);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(90deg, var(--primary-dark) 0%, var(--primary) 100%);
+            transform: translateY(-2px);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+
+        .notification {
+            padding: 12px 16px;
+            border-radius: var(--border-radius-sm);
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .notification.success {
+            background-color: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+            border-left: 4px solid var(--success);
+        }
+
+        .notification.error {
+            background-color: rgba(239, 68, 68, 0.1);
+            color: var(--danger);
+            border-left: 4px solid var(--danger);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .link {
+            color: var(--primary);
+            transition: var(--transition);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .link:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 24px 0;
+            color: #94a3b8;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background-color: var(--accent);
+        }
+
+        .divider span {
+            padding: 0 10px;
+            font-size: 0.9rem;
+        }
+
+        .social-login {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .social-btn {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            border-radius: var(--border-radius-sm);
+            background-color: var(--background-light);
+            border: 1px solid var(--accent);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .social-btn:hover {
+            background-color: white;
+            transform: translateY(-2px);
+        }
+
+        .social-btn i {
+            font-size: 20px;
+        }
+
+        .google i {
+            color: #ea4335;
+        }
+
+        .facebook i {
+            color: #1877f2;
+        }
+
+        .footer {
+            margin-top: 24px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #64748b;
+        }
+
+        .security-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.8rem;
+            color: #64748b;
+            margin-top: 16px;
+            padding: 8px 12px;
+            background-color: rgba(6, 182, 212, 0.1);
+            border-radius: var(--border-radius-sm);
+        }
+
+        .security-info i {
+            color: var(--info);
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                padding: 24px;
+            }
+            
+            .social-login {
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo-container">
+            <!--<div class="logo">
+                <i class="fas fa-robot"></i>
+                ISET Sfax AI Platform
+            </div>-->
+        </div>
+        <div class="card">
+            <h2 class="card-title">Connexion</h2>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="notification {{ category }}">
+                            <i class="fas fa-{{ 'check-circle' if category == 'success' else 'exclamation-circle' }}"></i>
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <form method="POST" action="{{ url_for('main.login') }}">
+                <div class="form-group">
+                    <label for="username" class="form-label">Nom d'utilisateur</label>
+                    <input type="text" name="username" id="username" class="form-input" required>
+                    <i class="fas fa-user input-icon"></i>
+                </div>
+                <div class="form-group">
+                    <label for="password" class="form-label">Mot de passe</label>
+                    <input type="password" name="password" id="password" class="form-input" required>
+                    <button type="button" class="password-toggle" id="password-toggle">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+                <div class="text-center" style="margin-bottom: 16px;">
+                    <a href="#" class="link">Mot de passe oublié?</a>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-sign-in-alt" style="margin-right: 8px;"></i>
+                    Se connecter
+                </button>
+            </form>
+            
+            <div class="security-info">
+                <i class="fas fa-shield-alt"></i>
+                <span>Votre mot de passe est protégé par un hachage sécurisé PBKDF2-SHA256.</span>
+            </div>
+            
+            <div class="divider">
+                <span>ou connectez-vous avec</span>
+            </div>
+            
+            <div class="social-login">
+                <div class="social-btn google">
+                    <i class="fab fa-google"></i>
+                </div>
+                <div class="social-btn facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </div>
+                <div class="social-btn">
+                    <i class="fab fa-apple" style="color: #000;"></i>
+                </div>
+            </div>
+            
+            <p class="text-center">
+                Pas de compte ? <a href="{{ url_for('main.signup') }}" class="link">Inscrivez-vous</a>
+            </p>
+        </div>
+        <div class="footer">
+            &copy; 2025 ISET Sfax AI Platform. Tous droits réservés.
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const passwordInput = document.getElementById('password');
+            const passwordToggle = document.getElementById('password-toggle');
+            
+            // Toggle password visibility
+            passwordToggle.addEventListener('click', function() {
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+                
+                // Toggle icon
+                const icon = passwordToggle.querySelector('i');
+                icon.className = type === 'password' ? 'fas fa-eye' : 'fas fa-eye-slash';
+            });
+        });
+    </script>
+</body>
+</html>

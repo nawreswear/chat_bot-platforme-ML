@@ -1,0 +1,20 @@
+[
+  {
+    "question": "Comment puis-je m'inscrire à l'ISET?",
+    "answer": "Pour vous inscrire à l'ISET, vous devez vous rendre sur le site d'inscription en ligne et suivre les étapes indiquées.",
+    "category": "Inscription",
+    "url": "https://iset.tn/inscription"
+  },
+  {
+    "question": "Quels sont les horaires de la bibliothèque?",
+    "answer": "La bibliothèque est ouverte du lundi au vendredi de 8h à 18h et le samedi de 9h à 13h.",
+    "category": "Services",
+    "url": "https://iset.tn/bibliotheque"
+  },
+  {
+    "question": "Où puis-je trouver les résultats des examens?",
+    "answer": "Les résultats des examens sont publiés sur votre espace étudiant accessible depuis le site de l'ISET.",
+    "category": "Examens",
+    "url": "https://iset.tn/resultats"
+  }
+]

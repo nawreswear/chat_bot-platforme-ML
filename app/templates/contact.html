@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="contact.title">Contact Us - ISET Sfax Chatbot</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/i18next@21.9.2/dist/umd/i18next.min.js"></script>
+    <style>
+        :root {
+            /* Color palette - Professional blue theme */
+            --primary: #0056b3;
+            --primary-dark: #003b7a;
+            --primary-light: #2979d2;
+            --secondary: #ff9800;
+            --secondary-dark: #e68a00;
+            --secondary-light: #ffb74d;
+            --accent: #f5f7fa;
+            --text-dark: #1a2b4e;
+            --text-muted: #64748b;
+            --text-light: #ffffff;
+            --background-light: #f8f9fa;
+            --background-dark: #131c2e;
+            --border-light: #e2e8f0;
+            --border-dark: #334155;
+            --success: #10b981;
+            --success-light: #ecfdf5;
+            --success-dark: #065f46;
+            --info: #0ea5e9;
+            --info-light: #f0f9ff;
+            --info-dark: #0c4a6e;
+            --warning: #f59e0b;
+            --warning-light: #fffbeb;
+            --warning-dark: #78350f;
+            --danger: #ef4444;
+            --danger-light: #fef2f2;
+            --danger-dark: #7f1d1d;
+            --spacing-1: 4px;
+            --spacing-2: 8px;
+            --spacing-3: 12px;
+            --spacing-4: 16px;
+            --spacing-5: 20px;
+            --spacing-6: 24px;
+            --spacing-8: 32px;
+            --spacing-10: 40px;
+            --spacing-12: 48px;
+            --spacing-16: 64px;
+            --border-radius-sm: 6px;
+            --border-radius: 8px;
+            --border-radius-lg: 12px;
+            --border-radius-xl: 16px;
+            --border-radius-2xl: 24px;
+            --border-radius-full: 9999px;
+            --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            --font-primary: 'Poppins', 'Noto Sans Arabic', sans-serif;
+            --font-size-xs: 0.75rem;
+            --font-size-sm: 0.875rem;
+            --font-size-base: 1rem;
+            --font-size-lg: 1.125rem;
+            --font-size-xl: 1.25rem;
+            --font-size-2xl: 1.5rem;
+            --font-size-3xl: 1.875rem;
+            --font-size-4xl: 2.25rem;
+            --font-size-5xl: 3rem;
+            --transition-fast: all 0.2s ease;
+            --transition: all 0.3s ease;
+            --transition-slow: all 0.5s ease;
+            --header-height: 70px;
+            --container-max-width: 1280px;
+        }
+
+        .dark {
+            --primary: #2979d2;
+            --primary-dark: #0056b3;
+            --primary-light: #4b96e6;
+            --secondary: #ffb74d;
+            --secondary-dark: #ff9800;
+            --secondary-light: #ffc77d;
+            --accent: #1e293b;
+            --text-dark: #f1f5f9;
+            --text-muted: #94a3b8;
+            --text-light: #ffffff;
+            --background-light: #0f172a;
+            --background-dark: #f8f9fa;
+            --border-light: #334155;
+            --border-dark: #e2e8f0;
+            --success-light: #064e3b;
+            --info-light: #0c4a6e;
+            --warning-light: #78350f;
+            --danger-light: #7f1d1d;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-primary);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+            scroll-padding-top: calc(var(--header-height) + 50px);
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--background-light) 0%, #e9eef6 100%);
+            color: var(--text-dark);
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .dark body {
+            background: linear-gradient(135deg, var(--background-light) 0%, #172138 100%);
+        }
+
+        body[lang="ar"] {
+            direction: rtl;
+            text-align: right;
+            font-family: 'Noto Sans Arabic', 'Poppins', sans-serif;
+        }
+
+        body[lang="ar"] .header-actions,
+        body[lang="ar"] nav {
+            flex-direction: row-reverse;
+        }
+
+        body[lang="ar"] .contact-info p i {
+            margin-right: 0;
+            margin-left: 1rem;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 0.5em;
+            color: var(--text-dark);
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        a:hover {
+            color: var(--primary-dark);
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--accent);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-light);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary);
+        }
+
+        .container {
+            width: 100%;
+            max-width: var(--container-max-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-6);
+            position: relative;
+        }
+
+        .header {
+            background: linear-gradient(90deg, var(--primary-dark), var(--primary));
+            color: var(--text-light);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            height: var(--header-height);
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at top right, rgba(255,255,255,0.1), transparent 70%);
+            pointer-events: none;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: var(--header-height);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-4);
+        }
+
+        .logo img {
+            height: 48px;
+            width: 48px;
+            object-fit: contain;
+            border-radius: var(--border-radius);
+            background: white;
+            padding: 4px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .logo:hover img {
+            transform: scale(1.05);
+        }
+
+        .logo h1 {
+            font-size: var(--font-size-xl);
+            font-weight: 700;
+            margin: 0;
+            background: linear-gradient(90deg, #ffffff, #e6e9ed);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: var(--spacing-3);
+            align-items: center;
+        }
+
+        .theme-toggle-wrapper {
+            margin-right: 10px;
+        }
+
+        .theme-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 30px;
+        }
+
+        .theme-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .theme-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.2);
+            transition: .4s;
+            border-radius: 34px;
+            overflow: hidden;
+        }
+
+        .theme-slider:before {
+            position: absolute;
+            content: "";
+            height: 22px;
+            width: 22px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+            z-index: 2;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .theme-slider:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, rgba(255,255,255,0.1), transparent);
+            opacity: 0.5;
+            z-index: 1;
+        }
+
+        input:checked + .theme-icons + .theme-slider {
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        input:checked + .theme-icons + .theme-slider:before {
+            transform: translateX(30px);
+        }
+
+        .theme-icons {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 8px;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .theme-icons i {
+            font-size: 14px;
+            color: var(--text-light);
+            z-index: 3;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: var(--border-radius-full);
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: var(--font-size-sm);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            box-shadow: var(--shadow);
+            letter-spacing: 0.01em;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+            pointer-events: none;
+        }
+
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background-color: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.5s, height 0.5s;
+        }
+
+        .btn:active::after {
+            width: 300px;
+            height: 300px;
+            opacity: 0;
+        }
+
+        .btn i {
+            font-size: 0.9em;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: var(--text-light);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-logout {
+            background: linear-gradient(135deg, #6b7280, #4b5563);
+            color: var(--text-light);
+        }
+
+        .btn-logout:hover {
+            background: linear-gradient(135deg, #4b5563, #6b7280);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: var(--text-light);
+            padding: 1rem 2.5rem;
+            font-size: 1.2rem;
+        }
+
+        .btn-submit:hover {
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        nav {
+            background: linear-gradient(90deg, var(--primary-dark), var(--primary));
+            padding: 1rem;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            position: sticky;
+            top: var(--header-height);
+            z-index: 999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--text-light);
+            font-weight: 600;
+            font-size: 1rem;
+            position: relative;
+            padding: 0.5rem 0.75rem;
+            border-radius: var(--border-radius-sm);
+            transition: var(--transition);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--secondary);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 80%;
+        }
+
+        nav a:hover {
+            color: var(--secondary);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .card {
+            background-color: white;
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            border: 1px solid var(--border-light);
+            position: relative;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.5s forwards;
+            margin: var(--spacing-8) 0;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: var(--text-light);
+            padding: 1.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at top right, rgba(255,255,255,0.2), transparent 70%);
+            pointer-events: none;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            position: relative;
+        }
+
+        .card-title i {
+            color: var(--secondary);
+            font-size: 1.25rem;
+        }
+
+        .card-body {
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .doc-section {
+            margin-bottom: 3rem;
+            animation: fadeIn 0.5s ease-out forwards;
+            opacity: 0;
+        }
+
+        .doc-section:nth-child(1) { animation-delay: 0.1s; }
+        .doc-section:nth-child(2) { animation-delay: 0.2s; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .doc-section h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .doc-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+            border-radius: 3px;
+            transition: width 0.3s ease;
+        }
+
+        .doc-section:hover h2::after {
+            width: 100px;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            background: var(--background-light);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 3rem;
+            box-shadow: var(--shadow-md);
+            transition: transform 0.3s ease;
+        }
+
+        .contact-info:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .contact-info p {
+            display: flex;
+            align-items: center;
+            font-size: 1.1rem;
+            margin: 0;
+            background: white;
+            padding: 1rem;
+            border-radius: var(--border-radius-sm);
+            box-shadow: var(--shadow-sm);
+            transition: background 0.3s ease;
+        }
+
+        .contact-info p:hover {
+            background: var(--accent);
+        }
+
+        .contact-info p i {
+            color: var(--primary);
+            margin-right: 1rem;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info p:hover i {
+            color: var(--primary-dark);
+        }
+
+        .contact-form {
+            margin-top: 2.5rem;
+            background: var(--background-light);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md);
+        }
+
+        .contact-form label {
+            display: block;
+            margin: 1rem 0 0.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            border: 2px solid var(--border-light);
+            border-radius: var(--border-radius-sm);
+            font-size: 1rem;
+            background: white;
+            transition: all 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 12px rgba(0, 86, 179, 0.3);
+            background: var(--accent);
+            outline: none;
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 180px;
+        }
+
+        footer {
+            background: linear-gradient(90deg, var(--primary-dark), var(--primary));
+            color: var(--text-light);
+            padding: var(--spacing-8) 0 var(--spacing-6);
+            margin-top: auto;
+            position: relative;
+            box-shadow: 0 -6px 25px rgba(0, 0, 0, 0.35);
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at bottom left, rgba(255,255,255,0.1), transparent 70%);
+            pointer-events: none;
+        }
+
+        footer::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), var(--secondary), var(--primary));
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            text-align: center;
+            margin: 0;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--success);
+            color: var(--text-light);
+            padding: 15px 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-lg);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .toast::before {
+            content: '\f058';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            font-size: 1.2rem;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .toast.error {
+            background: var(--danger);
+        }
+
+        .toast.error::before {
+            content: '\f057';
+        }
+
+        .dark .card {
+            background-color: var(--accent);
+            border-color: var(--border-light);
+        }
+
+        .dark .contact-info,
+        .dark .contact-form {
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 992px) {
+            .container {
+                padding-left: var(--spacing-4);
+                padding-right: var(--spacing-4);
+            }
+
+            .card-body {
+                padding: 1.5rem;
+            }
+
+            .doc-section h2 {
+                font-size: 1.6rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 0.75rem 0;
+                height: auto;
+            }
+
+            .header-actions {
+                justify-content: center;
+                width: 100%;
+                flex-wrap: wrap;
+                gap: 0.75rem;
+            }
+
+            nav {
+                padding: 0.8rem;
+                gap: 0.75rem;
+                top: calc(var(--header-height) + 20px);
+            }
+
+            nav a {
+                font-size: 0.9rem;
+                padding: 0.4rem 0.6rem;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form {
+                padding: 1.5rem;
+            }
+
+            .doc-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .toast {
+                right: 10px;
+                left: 10px;
+                bottom: 10px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .card-body {
+                padding: 1.25rem;
+            }
+
+            .btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.85rem;
+            }
+
+            .contact-form {
+                padding: 1rem;
+            }
+        }
+
+        @media print {
+            .header, footer, nav, .theme-toggle-wrapper {
+                display: none !important;
+            }
+
+            body {
+                background: white !important;
+                color: black !important;
+            }
+
+            .container {
+                max-width: 100% !important;
+                padding: 0 !important;
+            }
+
+            .card {
+                box-shadow: none !important;
+                border: 1px solid #ddd !important;
+                margin: 0 !important;
+            }
+
+            .card-header {
+                background: #f0f0f0 !important;
+                color: black !important;
+            }
+
+            .contact-info,
+            .contact-form {
+                background: #f8f8f8 !important;
+                border: 1px solid #ddd !important;
+            }
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(0, 86, 179, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(0, 86, 179, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 86, 179, 0); }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        .text-primary { color: var(--primary) !important; }
+        .mb-3 { margin-bottom: 1rem !important; }
+        .mt-3 { margin-top: 1rem !important; }
+        .d-flex { display: flex !important; }
+        .justify-content-between { justify-content: space-between !important; }
+        .align-items-center { align-items: center !important; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQghP9MPtQ4YU3UqysqQGnf0_NxGgrnOn7cjCao-MdKRQ72Jwitn1-l_midGtdBIbP8jVs&usqp=CAU" alt="ISET Sfax Logo">
+                    <h1 data-i18n="header.title">ISET Sfax Chatbot</h1>
+                </div>
+                <div class="header-actions">
+                    <div class="theme-toggle-wrapper">
+                        <label class="theme-switch">
+                            <input type="checkbox" id="themeToggle">
+                            <div class="theme-icons">
+                                <i class="fas fa-sun"></i>
+                                <i class="fas fa-moon"></i>
+                            </div>
+                            <span class="theme-slider"></span>
+                        </label>
+                    </div>
+                    <a href="{{ url_for('main.index_interface') }}" class="btn btn-primary">
+                        <i class="fas fa-arrow-left"></i> <span data-i18n="header.back">Back to Chat</span>
+                    </a>
+                    <a href="{{ url_for('main.logout') }}" class="btn btn-logout">
+                        <i class="fas fa-sign-out-alt"></i> <span data-i18n="header.logout">Logout</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <a href="/" data-i18n="nav.home">Home</a>
+        <a href="/dashboard" data-i18n="nav.dashboard">Dashboard</a>
+        <a href="/chat_interface" data-i18n="nav.chat">Chat</a>
+        <a href="/documentation" data-i18n="nav.documentation">Documentation</a>
+        <a href="/contact" data-i18n="nav.contact">Contact</a>
+    </nav>
+
+    <main class="main">
+        <div class="container">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title"><i class="fas fa-envelope"></i> <span data-i18n="contact.title">Contact ISET Sfax Chatbot Support</span></h3>
+                </div>
+                <div class="card-body">
+                    <div class="doc-section" id="contact">
+                        <h2 data-i18n="contact.info">Contact Information</h2>
+                        <div class="contact-info">
+                            <p><i class="fas fa-envelope"></i><strong data-i18n="contact.email_label">Email:</strong> contact@isetsf.rnu.tn</p>
+                            <p><i class="fas fa-phone"></i><strong data-i18n="contact.phone_label">Phone:</strong> +216 74 241 388</p>
+                            <p><i class="fas fa-map-marker-alt"></i><strong data-i18n="contact.address_label">Address:</strong> ISET Sfax, Route de l'Aéroport, Km 4, Sfax, Tunisia</p>
+                            <p><i class="fas fa-clock"></i><strong data-i18n="contact.hours_label">Office Hours:</strong> Monday to Friday, 8:00 AM - 4:00 PM</p>
+                            <p><i class="fas fa-headset"></i><strong data-i18n="contact.support_label">4C Center Support:</strong> 4c@isetsf.rnu.tn | +216 71 234 567</p>
+                            <p><i class="fas fa-desktop"></i><strong data-i18n="contact.it_label">IT Support:</strong> it.support@isetsf.rnu.tn</p>
+                        </div>
+                        <h2 data-i18n="contact.form">Send Us a Message</h2>
+                        <form class="contact-form" id="contact-form">
+                            <label for="name" data-i18n="contact.name">Name</label>
+                            <input type="text" id="name" name="name" required data-i18n="[placeholder]contact.name_placeholder">
+                            <label for="email" data-i18n="contact.email">Email</label>
+                            <input type="email" id="email" name="email" required data-i18n="[placeholder]contact.email_placeholder">
+                            <label for="subject" data-i18n="contact.subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required data-i18n="[placeholder]contact.subject_placeholder">
+                            <label for="message" data-i18n="contact.message">Message</label>
+                            <textarea id="message" name="message" required data-i18n="[placeholder]contact.message_placeholder"></textarea>
+                            <button type="submit" class="btn btn-submit" data-i18n="contact.submit">Submit Message <i class="fas fa-paper-plane"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p data-i18n="footer.copyright">© 2025 ISET Sfax | Designed & Developed by ISET Sfax IT Department</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            i18next.init({
+                lng: getCookie('language') || 'en',
+                resources: {
+                    en: {
+                        translation: {
+                            'header.title': 'ISET Sfax Chatbot',
+                            'header.back': 'Back to Chat',
+                            'header.logout': 'Logout',
+                            'nav.home': 'Home',
+                            'nav.dashboard': 'Dashboard',
+                            'nav.chat': 'Chat',
+                            'nav.documentation': 'Documentation',
+                            'nav.contact': 'Contact',
+                            'contact.title': 'Contact ISET Sfax Chatbot Support',
+                            'contact.info': 'Contact Information',
+                            'contact.email_label': 'Email',
+                            'contact.phone_label': 'Phone',
+                            'contact.address_label': 'Address',
+                            'contact.hours_label': 'Office Hours',
+                            'contact.support_label': '4C Center Support',
+                            'contact.it_label': 'IT Support',
+                            'contact.form': 'Send Us a Message',
+                            'contact.name': 'Name',
+                            'contact.name_placeholder': 'Enter your name',
+                            'contact.email': 'Email',
+                            'contact.email_placeholder': 'Enter your email',
+                            'contact.subject': 'Subject',
+                            'contact.subject_placeholder': 'Enter the subject',
+                            'contact.message': 'Message',
+                            'contact.message_placeholder': 'Type your message here',
+                            'contact.submit': 'Submit Message',
+                            'contact.success': 'Message submitted successfully!',
+                            'contact.error': 'Error submitting message. Please try again.',
+                            'footer.copyright': '© 2025 ISET Sfax | Designed & Developed by ISET Sfax IT Department'
+                        }
+                    },
+                    fr: {
+                        translation: {
+                            'header.title': 'Chatbot ISET Sfax',
+                            'header.back': 'Retour au Chat',
+                            'header.logout': 'Déconnexion',
+                            'nav.home': 'Accueil',
+                            'nav.dashboard': 'Tableau de bord',
+                            'nav.chat': 'Chat',
+                            'nav.documentation': 'Documentation',
+                            'nav.contact': 'Contact',
+                            'contact.title': 'Contacter le Support du Chatbot ISET Sfax',
+                            'contact.info': 'Informations de Contact',
+                            'contact.email_label': 'Email',
+                            'contact.phone_label': 'Téléphone',
+                            'contact.address_label': 'Adresse',
+                            'contact.hours_label': 'Heures de Bureau',
+                            'contact.support_label': 'Support du Centre 4C',
+                            'contact.it_label': 'Support Informatique',
+                            'contact.form': 'Envoyez-nous un Message',
+                            'contact.name': 'Nom',
+                            'contact.name_placeholder': 'Entrez votre nom',
+                            'contact.email': 'Email',
+                            'contact.email_placeholder': 'Entrez votre email',
+                            'contact.subject': 'Sujet',
+                            'contact.subject_placeholder': 'Entrez le sujet',
+                            'contact.message': 'Message',
+                            'contact.message_placeholder': 'Tapez votre message ici',
+                            'contact.submit': 'Envoyer le Message',
+                            'contact.success': 'Message envoyé avec succès !',
+                            'contact.error': 'Erreur lors de l’envoi du message. Veuillez réessayer.',
+                            'footer.copyright': '© 2025 ISET Sfax | Conçu et Développé par le Département IT de ISET Sfax'
+                        }
+                    },
+                    ar: {
+                        translation: {
+                            'header.title': 'شاتبوت ISET Sfax',
+                            'header.back': 'العودة إلى الدردشة',
+                            'header.logout': 'تسجيل الخروج',
+                            'nav.home': 'الرئيسية',
+                            'nav.dashboard': 'لوحة التحكم',
+                            'nav.chat': 'دردشة',
+                            'nav.documentation': 'التوثيق',
+                            'nav.contact': 'تواصل',
+                            'contact.title': 'تواصل مع دعم شاتبوت ISET Sfax',
+                            'contact.info': 'معلومات التواصل',
+                            'contact.email_label': 'البريد الإلكتروني',
+                            'contact.phone_label': 'الهاتف',
+                            'contact.address_label': 'العنوان',
+                            'contact.hours_label': 'ساعات العمل',
+                            'contact.support_label': 'دعم مركز 4C',
+                            'contact.it_label': 'دعم تكنولوجيا المعلومات',
+                            'contact.form': 'أرسل لنا رسالة',
+                            'contact.name': 'الاسم',
+                            'contact.name_placeholder': 'أدخل اسمك',
+                            'contact.email': 'البريد الإلكتروني',
+                            'contact.email_placeholder': 'أدخل بريدك الإلكتروني',
+                            'contact.subject': 'الموضوع',
+                            'contact.subject_placeholder': 'أدخل الموضوع',
+                            'contact.message': 'الرسالة',
+                            'contact.message_placeholder': 'اكتب رسالتك هنا',
+                            'contact.submit': 'إرسال الرسالة',
+                            'contact.success': 'تم إرسال الرسالة بنجاح!',
+                            'contact.error': 'خطأ أثناء إرسال الرسالة. يرجى المحاولة مرة أخرى.',
+                            'footer.copyright': '© 2025 ISET Sfax | صمم وطور بواسطة قسم تكنولوجيا المعلومات بـ ISET Sfax'
+                        }
+                    }
+                }
+            }, () => {
+                updateLanguage(i18next.language);
+            });
+
+            function initThemeSwitcher() {
+                const themeToggle = document.getElementById('themeToggle');
+                const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+                const currentTheme = localStorage.getItem('theme') || 
+                                    (prefersDarkScheme.matches ? 'dark' : 'light');
+
+                if (currentTheme === 'dark') {
+                    document.body.classList.add('dark');
+                    if (themeToggle) themeToggle.checked = true;
+                }
+
+                if (themeToggle) {
+                    themeToggle.addEventListener('change', function() {
+                        if (this.checked) {
+                            document.body.classList.add('dark');
+                            localStorage.setItem('theme', 'dark');
+                        } else {
+                            document.body.classList.remove('dark');
+                            localStorage.setItem('theme', 'light');
+                        }
+                    });
+                }
+            }
+
+            function updateLanguage(lang) {
+                document.documentElement.setAttribute('lang', lang);
+                document.querySelectorAll('[data-i18n]').forEach(element => {
+                    const key = element.getAttribute('data-i18n');
+                    if (key.startsWith('[placeholder]')) {
+                        element.placeholder = i18next.t(key.replace('[placeholder]', ''));
+                    } else {
+                        element.innerHTML = i18next.t(key);
+                    }
+                });
+                document.title = i18next.t('contact.title');
+                setCookie('language', lang, 30);
+            }
+
+            function setCookie(name, value, days) {
+                const date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                document.cookie = `${name}=${value};expires=${date.toUTCString()};path=/`;
+            }
+
+            function getCookie(name) {
+                const value = `; ${document.cookie}`;
+                const parts = value.split(`; ${name}=`);
+                return parts.length === 2 ? parts.pop().split(';').shift() : null;
+            }
+
+            const contactForm = document.getElementById('contact-form');
+            contactForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const formData = new FormData(contactForm);
+                try {
+                    const response = await fetch('/contact', {
+                        method: 'POST',
+                        body: formData
+                    });
+                    const result = await response.json();
+                    if (result.success) {
+                        showToast(i18next.t('contact.success'));
+                        contactForm.reset();
+                    } else {
+                        showToast(result.message || i18next.t('contact.error'), true);
+                    }
+                } catch (error) {
+                    console.error('Error submitting form:', error);
+                    showToast(i18next.t('contact.error'), true);
+                }
+            });
+
+            function showToast(message, isError = false) {
+                const toast = document.createElement('div');
+                toast.className = `toast ${isError ? 'error' : ''}`;
+                toast.textContent = message;
+                document.body.appendChild(toast);
+                setTimeout(() => {
+                    toast.classList.add('show');
+                }, 100);
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                    setTimeout(() => toast.remove(), 300);
+                }, 3000);
+            }
+
+            var gk_isXlsx = false;
+            var gk_xlsxFileLookup = {};
+            var gk_fileData = {};
+
+            function filledCell(cell) {
+                return cell !== '' && cell != null;
+            }
+
+            function loadFileData(filename) {
+                if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+                    try {
+                        var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                        var firstSheetName = workbook.SheetNames[0];
+                        var worksheet = workbook.Sheets[firstSheetName];
+                        var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                        var filteredData = jsonData.filter(row => row.some(filledCell));
+                        var headerRowIndex = filteredData.findIndex((row, index) =>
+                            row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                        );
+                        if (headerRowIndex === -1 || headerRowIndex > 25) {
+                            headerRowIndex = 0;
+                        }
+                        var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex));
+                        csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                        return csv;
+                    } catch (e) {
+                        console.error(e);
+                        return "";
+                    }
+                }
+                return gk_fileData[filename] || "";
+            }
+
+            initThemeSwitcher();
+        });
+    </script>
+</body>
+</html>

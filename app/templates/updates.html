@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="header.title">ISET Sfax Updates</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
+    <style>
+        :root {
+            --primary: #0A2463;
+            --primary-dark: #081A4A;
+            --primary-light: #1E40AF;
+            --secondary: #F59E0B;
+            --secondary-dark: #D97706;
+            --secondary-light: #FBBF24;
+            --accent: #E5E7EB;
+            --text-dark: #1F2937;
+            --text-light: #F9FAFB;
+            --background-light: #F9FAFB;
+            --background-dark: #111827;
+            --success: #10B981;
+            --info: #3B82F6;
+            --warning: #F59E0B;
+            --danger: #EF4444;
+            --text-muted: #6B7280;
+            --border-light: #D1D5DB;
+            --border-radius-sm: 8px;
+            --border-radius: 12px;
+            --border-radius-lg: 16px;
+            --border-radius-xl: 24px;
+            --box-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+            --box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            --box-shadow-md: 0 12px 24px rgba(0, 0, 0, 0.12);
+            --box-shadow-lg: 0 15px 30px rgba(0, 0, 0, 0.15);
+            --transition-fast: all 0.2s ease;
+            --transition: all 0.3s ease;
+            --transition-slow: all 0.5s ease;
+            --font-primary: 'Inter', 'Noto Sans Arabic', sans-serif;
+            --header-height: 80px;
+            --spacing-1: 4px;
+            --spacing-2: 8px;
+            --spacing-3: 12px;
+            --spacing-4: 16px;
+            --spacing-5: 20px;
+            --spacing-6: 24px;
+            --spacing-8: 32px;
+        }
+        .dark {
+            --primary: #1E40AF;
+            --primary-dark: #0A2463;
+            --primary-light: #3B82F6;
+            --secondary: #FBBF24;
+            --secondary-dark: #F59E0B;
+            --secondary-light: #FCD34D;
+            --accent: #1F2937;
+            --text-dark: #F9FAFB;
+            --text-light: #D1D5DB;
+            --background-light: #1F2937;
+            --background-dark: #F9FAFB;
+            --border-light: #374151;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-primary);
+        }
+        body {
+            background-color: var(--background-light);
+            background-image: url('/static/ise.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-attachment: fixed;
+            color: var(--text-dark);
+            line-height: 1.0;
+            transition: var(--transition);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-4);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            position: relative;
+        }
+        .dark body {
+            background-color: var(--background-dark);
+        }
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        .dark body::before {
+            background: rgba(31, 41, 55, 0.7);
+        }
+        body[lang="ar"] {
+            direction: rtl;
+            text-align: right;
+        }
+        a {
+            text-decoration: none;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+        a:hover {
+            color: var(--primary-light);
+        }
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--accent);
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-light);
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary);
+        }
+        .card {
+            background-color: var(--background-light);
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--box-shadow-md);
+            transition: var(--transition);
+            width: 100%;
+            max-width: 40rem;
+            padding: var(--spacing-8);
+            position: relative;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        .dark .card {
+            background: rgba(31, 41, 55, 0.95);
+        }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow-lg);
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-8);
+            border-bottom: 1px solid var(--border-light);
+            padding-bottom: var(--spacing-4);
+        }
+        .header h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .dark .header h1 {
+            color: var(--text-light);
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            box-shadow: var(--box-shadow-sm);
+        }
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.5s, height 0.5s;
+        }
+        .btn:active::after {
+            width: 300px;
+            height: 300px;
+            opacity: 0;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: var(--text-light);
+        }
+        .btn-primary:hover {
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            transform: translateY(-2px);
+            box-shadow: var(--box-shadow-md);
+        }
+        .btn-light {
+            background: var(--background-light);
+            color: var(--text-dark);
+            border: 1px solid var(--border-light);
+        }
+        .btn-light:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: var(--box-shadow-md);
+        }
+        .update {
+            margin-bottom: var(--spacing-5);
+            padding: var(--spacing-4);
+            background: var(--background-light);
+            border: 1px solid var(--border-light);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow-sm);
+        }
+        .dark .update {
+            background: var(--background-dark);
+            color: var(--text-light);
+            border-color: var(--border-light);
+        }
+        .update h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: var(--spacing-2);
+        }
+        .dark .update h3 {
+            color: var(--text-light);
+        }
+        .update p {
+            font-size: 0.9375rem;
+            color: var(--text-muted);
+        }
+        .dark .update p {
+            color: var(--text-light);
+        }
+        footer {
+            text-align: center;
+            margin-top: var(--spacing-8);
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            padding-top: var(--spacing-4);
+            border-top: 1px solid var(--border-light);
+        }
+        .dark footer {
+            color: var(--text-light);
+            border-color: var(--border-light);
+        }
+        .theme-toggle {
+            position: fixed;
+            top: var(--spacing-5);
+            right: var(--spacing-5);
+            background: var(--background-light);
+            color: var(--text-dark);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-3);
+            box-shadow: var(--box-shadow-sm);
+            transition: var(--transition);
+            cursor: pointer;
+            z-index: 1000;
+        }
+        .dark .theme-toggle {
+            background: var(--background-dark);
+            color: var(--text-light);
+        }
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: var(--box-shadow-md);
+        }
+        .language-selector {
+            position: fixed;
+            top: var(--spacing-5);
+            left: var(--spacing-5);
+            background: var(--background-light);
+            color: var(--text-dark);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-3);
+            box-shadow: var(--box-shadow-sm);
+            transition: var(--transition);
+            cursor: pointer;
+            z-index: 1000;
+            font-size: 0.875rem;
+        }
+        .dark .language-selector {
+            background: var(--background-dark);
+            color: var(--text-light);
+        }
+        .language-selector:hover {
+            transform: scale(1.1);
+            box-shadow: var(--box-shadow-md);
+        }
+        @media (max-width: 768px) {
+            body {
+                background-attachment: scroll;
+                background-position: center center;
+            }
+            body::before {
+                background: rgba(249, 250, 251, 0.85);
+            }
+            .dark body::before {
+                background: rgba(31, 41, 55, 0.85);
+            }
+            .card {
+                padding: var(--spacing-6);
+                max-width: 90%;
+            }
+            .header {
+                flex-direction: column;
+                gap: var(--spacing-4);
+                align-items: flex-start;
+            }
+            .header .d-flex {
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                gap: var(--spacing-3);
+            }
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            .update h3 {
+                font-size: 1.125rem;
+            }
+            .language-selector {
+                top: var(--spacing-10);
+            }
+        }
+        @media (max-width: 576px) {
+            .card {
+                padding: var(--spacing-4);
+            }
+            .btn {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9375rem;
+            }
+            .update {
+                padding: var(--spacing-3);
+            }
+        }
+        .text-primary { color: var(--primary) !important; }
+        .mb-3 { margin-bottom: 1rem !important; }
+        .mt-3 { margin-top: 1rem !important; }
+        .d-flex { display: flex !important; }
+        .justify-content-between { justify-content: space-between !important; }
+        .align-items-center { align-items: center !important; }
+        .gap-3 { gap: var(--spacing-3) !important; }
+        .gap-10 { gap: var(--spacing-8) !important; }
+    </style>
+</head>
+<body>
+    <select id="language-selector" class="language-selector">
+        <option value="en" data-i18n="header.lang_en">English</option>
+        <option value="fr" data-i18n="header.lang_fr">French</option>
+        <option value="ar" data-i18n="header.lang_ar">Arabic</option>
+    </select>
+    <div class="card">
+        <div class="header">
+            <h1><i class="fas fa-bell"></i> <span data-i18n="updates.title">Updates</span></h1>
+            <div class="d-flex align-items-center gap-10">
+                <a href="{{ url_for('main.dashboard_interface') }}" class="btn btn-primary">
+                    <i class="fas fa-arrow-left"></i> <span data-i18n="header.back">Back</span>
+                </a>
+                <a href="{{ url_for('main.updates_interface') }}" class="btn btn-light">
+                    <i class="fas fa-sync-alt"></i> <span data-i18n="updates.refresh">Refresh</span>
+                </a>
+               <a href="{{ url_for('main.tools_interface') }}" class="btn btn-light">
+                    <i class="fas fa-tools"></i> <span data-i18n="header.tools">Tools</span>
+                </a>
+                <a href="{{ url_for('main.support_interface') }}" class="btn btn-light">
+                    <i class="fas fa-headset"></i> <span data-i18n="header.support">Support</span>
+                </a>
+            </div>
+        </div>
+        <section>
+            <h2 data-i18n="updates.latest">Latest Updates</h2>
+            {% if updates %}
+            {% for update in updates %}
+            <div class="update">
+                <h3>{{ update.title }}</h3>
+                <p>{{ update.date }}</p>
+                <p>{{ update.description }}</p>
+            </div>
+            {% endfor %}
+            {% else %}
+            <p data-i18n="updates.none">No updates available at this time.</p>
+            {% endif %}
+        </section>
+        <footer>
+            <p data-i18n="footer.copyright">© 2025 ISET Sfax. All rights reserved.</p>
+        </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/i18next@21.9.2/dist/umd/i18next.min.js"></script>
+    <script>
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+            return null;
+        }
+        i18next.init({
+            lng: getCookie('language') || 'en',
+            resources: {
+                en: {
+                    translation: {
+                        'header.title': 'ISET Sfax Updates',
+                        'header.back': 'Back',
+                        'header.tools': 'Tools',
+                        'header.support': 'Support',
+                        'header.lang_en': 'English',
+                        'header.lang_fr': 'French',
+                        'header.lang_ar': 'Arabic',
+                        'updates.title': 'Updates',
+                        'updates.latest': 'Latest Updates',
+                        'updates.refresh': 'Refresh',
+                        'updates.none': 'No updates available at this time.',
+                        'footer.copyright': '© 2025 ISET Sfax. All rights reserved.'
+                    }
+                },
+                fr: {
+                    translation: {
+                        'header.title': 'Mises à jour ISET Sfax',
+                        'header.back': 'Retour',
+                        'header.tools': 'Outils',
+                        'header.support': 'Support',
+                        'header.lang_en': 'Anglais',
+                        'header.lang_fr': 'Français',
+                        'header.lang_ar': 'Arabe',
+                        'updates.title': 'Mises à jour',
+                        'updates.latest': 'Dernières mises à jour',
+                        'updates.refresh': 'Actualiser',
+                        'updates.none': 'Aucune mise à jour disponible pour le moment.',
+                        'footer.copyright': '© 2025 ISET Sfax. Tous droits réservés.'
+                    }
+                },
+                ar: {
+                    translation: {
+                        'header.title': 'تحديثات ISET صفاقس',
+                        'header.back': 'رجوع',
+                        'header.tools': 'الأدوات',
+                        'header.support': 'الدعم',
+                        'header.lang_en': 'الإنجليزية',
+                        'header.lang_fr': 'الفرنسية',
+                        'header.lang_ar': 'العربية',
+                        'updates.title': 'التحديثات',
+                        'updates.latest': 'أحدث التحديثات',
+                        'updates.refresh': 'تحديث',
+                        'updates.none': 'لا توجد تحديثات متاحة في الوقت الحالي.',
+                        'footer.copyright': '© 2025 ISET صفاقس. جميع الحقوق محفوظة.'
+                    }
+                }
+            }
+        }, (err, t) => {
+            if (err) {
+                console.error('i18next initialization failed:', err);
+                return;
+            }
+            function updateContent() {
+                document.querySelectorAll('[data-i18n]').forEach(element => {
+                    const key = element.getAttribute('data-i18n');
+                    element.innerHTML = t(key);
+                });
+                document.title = t('header.title');
+            }
+            updateContent();
+            const languageSelector = document.getElementById('language-selector');
+            languageSelector.value = i18next.language;
+            languageSelector.addEventListener('change', (e) => {
+                const newLang = e.target.value;
+                i18next.changeLanguage(newLang, () => {
+                    updateContent();
+                    document.cookie = `language=${newLang}; path=/; max-age=31536000`;
+                    document.documentElement.setAttribute('lang', newLang);
+                    document.body.setAttribute('lang', newLang);
+                });
+            });
+            const themeToggle = document.createElement('button');
+            themeToggle.className = 'theme-toggle';
+            themeToggle.innerHTML = '<i id="theme-icon" class="fas fa-moon"></i>';
+            document.body.appendChild(themeToggle);
+            themeToggle.addEventListener('click', () => {
+                document.body.classList.toggle('dark');
+                const isDark = document.body.classList.contains('dark');
+                document.getElementById('theme-icon').className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            });
+            document.addEventListener('DOMContentLoaded', () => {
+                const savedTheme = localStorage.getItem('theme');
+                const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                if (savedTheme === 'dark' || (!savedTheme && prefersDarkScheme)) {
+                    document.body.classList.add('dark');
+                    document.getElementById('theme-icon').className = 'fas fa-sun';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

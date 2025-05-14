@@ -1,0 +1,17 @@
+[
+  {
+    "role": "assistant",
+    "content": "Welcome to ISET Sfax AI Assistant!\n\nI'm here to help you with information about our institute. You can ask me about:\n\n- Academic programs and courses\n- Registration procedures\n- Academic calendar\n- Faculty information\n- Student services\n\nHow can I assist you today?",
+    "timestamp": "2025-04-29T22:19:06.439Z",
+    "intent": "welcome",
+    "entities": [],
+    "sentiment": {
+      "overall": "neutral",
+      "scores": {
+        "positive": 0.2,
+        "neutral": 0.7,
+        "negative": 0.1
+      }
+    }
+  }
+]

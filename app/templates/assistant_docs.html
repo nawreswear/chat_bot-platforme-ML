@@ -1,0 +1,1701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="header.title">ISET Sfax Chatbot Documentation</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <style>
+    :root {
+  /* Color palette - Professional blue theme */
+  --primary: #0056b3;
+  --primary-dark: #003b7a;
+  --primary-light: #2979d2;
+  --secondary: #ff9800;
+  --secondary-dark: #e68a00;
+  --secondary-light: #ffb74d;
+  --accent: #f5f7fa;
+  --text-dark: #1a2b4e;
+  --text-muted: #64748b; 
+  --text-light: #ffffff;
+  --background-light: #f8f9fa;
+  --background-dark: #131c2e;
+  --border-light: #e2e8f0;
+  --border-dark: #334155;
+  
+  /* Status colors */
+  --success: #10b981;
+  --success-light: #ecfdf5;
+  --success-dark: #065f46;
+  --info: #0ea5e9;
+  --info-light: #f0f9ff;
+  --info-dark: #0c4a6e;
+  --warning: #f59e0b;
+  --warning-light: #fffbeb;
+  --warning-dark: #78350f;
+  --danger: #ef4444;
+  --danger-light: #fef2f2;
+  --danger-dark: #7f1d1d;
+  
+  /* Spacing and dimensions */
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 20px;
+  --spacing-6: 24px;
+  --spacing-8: 32px;
+  --spacing-10: 40px;
+  --spacing-12: 48px;
+  --spacing-16: 64px;
+  
+  /* Border radius */
+  --border-radius-sm: 6px;
+  --border-radius: 8px;
+  --border-radius-lg: 12px;
+  --border-radius-xl: 16px;
+  --border-radius-2xl: 24px;
+  --border-radius-full: 9999px;
+  
+  /* Shadows */
+  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  
+  /* Typography */
+  --font-primary: 'Poppins', 'Noto Sans Arabic', sans-serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+  --font-size-5xl: 3rem;
+  
+  /* Transitions */
+  --transition-fast: all 0.2s ease;
+  --transition: all 0.3s ease;
+  --transition-slow: all 0.5s ease;
+  
+  /* Layout */
+  --header-height: 70px;
+  --container-max-width: 1280px;
+}
+
+/* Dark mode variables */
+.dark {
+  --primary: #2979d2;
+  --primary-dark: #0056b3;
+  --primary-light: #4b96e6;
+  --secondary: #ffb74d;
+  --secondary-dark: #ff9800;
+  --secondary-light: #ffc77d;
+  --accent: #1e293b;
+  --text-dark: #f1f5f9;
+  --text-muted: #94a3b8;
+  --text-light: #ffffff;
+  --background-light: #0f172a;
+  --background-dark: #f8f9fa;
+  --border-light: #334155;
+  --border-dark: #e2e8f0;
+  --success-light: #064e3b;
+  --info-light: #0c4a6e;
+  --warning-light: #78350f;
+  --danger-light: #7f1d1d;
+}
+
+/* Base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-primary);
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  scroll-padding-top: calc(var(--header-height) + 50px);
+}
+
+body {
+  background: linear-gradient(135deg, var(--background-light) 0%, #e9eef6 100%);
+  color: var(--text-dark);
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body.fade {
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.dark body {
+  background: linear-gradient(135deg, var(--background-light) 0%, #172138 100%);
+}
+
+/* RTL Support */
+body[lang="ar"] {
+  direction: rtl;
+  text-align: right;
+  font-family: 'Noto Sans Arabic', 'Poppins', sans-serif;
+}
+
+body[lang="ar"] .header-actions,
+body[lang="ar"] .language-switcher,
+body[lang="ar"] .footer-content,
+body[lang="ar"] nav {
+  flex-direction: row-reverse;
+}
+
+body[lang="ar"] .doc-section h2::after {
+  left: auto;
+  right: 0;
+}
+
+body[lang="ar"] .doc-section ul {
+  padding-left: 0;
+  padding-right: 1.5rem;
+}
+
+body[lang="ar"] .doc-section ul li {
+  padding-left: 0;
+  padding-right: 0.5rem;
+}
+
+body[lang="ar"] .doc-section ul li::before {
+  left: auto;
+  right: -1rem;
+}
+
+body[lang="ar"] .doc-section pre {
+  border-left: none;
+  border-right: 4px solid var(--primary);
+}
+
+body[lang="ar"] .highlight {
+  border-left: none;
+  border-right: 4px solid var(--primary);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 0.5em;
+  color: var(--text-dark);
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary);
+  transition: var(--transition);
+  position: relative;
+}
+
+a:hover {
+  color: var(--primary-dark);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--accent);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-light);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* Layout components */
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-6);
+  position: relative;
+}
+
+/* Header */
+.header {
+  background: linear-gradient(90deg, var(--primary-dark), var(--primary));
+  color: var(--text-light);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+  height: var(--header-height);
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at top right, rgba(255,255,255,0.1), transparent 70%);
+  pointer-events: none;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: var(--header-height);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+}
+
+.logo img {
+  height: 48px;
+  width: 48px;
+  object-fit: contain;
+  border-radius: var(--border-radius);
+  background: white;
+  padding: 4px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.logo:hover img {
+  transform: scale(1.05);
+}
+
+.logo h1 {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  margin: 0;
+  background: linear-gradient(90deg, #ffffff, #e6e9ed);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.header-actions {
+  display: flex;
+  gap: var(--spacing-3);
+  align-items: center;
+}
+
+/* Language switcher */
+.language-switcher {
+  display: flex;
+  gap: var(--spacing-2);
+  background: rgba(0, 0, 0, 0.1);
+  padding: 4px;
+  border-radius: var(--border-radius-full);
+}
+
+.language-btn {
+  background: transparent;
+  color: var(--text-light);
+  padding: 6px 12px;
+  border-radius: var(--border-radius-full);
+  border: none;
+  font-size: 0.9em;
+  cursor: pointer;
+  transition: var(--transition);
+  opacity: 0.7;
+}
+
+.language-btn.active {
+  background: rgba(255, 255, 255, 0.2);
+  opacity: 1;
+  box-shadow: var(--shadow-sm);
+}
+
+.language-btn:hover {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+/* Theme toggle */
+.theme-toggle-wrapper {
+  margin-right: 10px;
+}
+
+.theme-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+}
+
+.theme-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.theme-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: .4s;
+  border-radius: 34px;
+  overflow: hidden;
+}
+
+.theme-slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+  z-index: 2;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.theme-slider:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, rgba(255,255,255,0.1), transparent);
+  opacity: 0.5;
+  z-index: 1;
+}
+
+input:checked + .theme-icons + .theme-slider {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+input:checked + .theme-icons + .theme-slider:before {
+  transform: translateX(30px);
+}
+
+.theme-icons {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 8px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.theme-icons i {
+  font-size: 14px;
+  color: var(--text-light);
+  z-index: 3;
+}
+
+/* Button styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--border-radius-full);
+  font-weight: 600;
+  transition: var(--transition);
+  border: none;
+  cursor: pointer;
+  font-size: var(--font-size-sm);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  box-shadow: var(--shadow);
+  letter-spacing: 0.01em;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  pointer-events: none;
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.5s, height 0.5s;
+}
+
+.btn:active::after {
+  width: 300px;
+  height: 300px;
+  opacity: 0;
+}
+
+.btn i {
+  font-size: 0.9em;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  color: var(--text-light);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--primary-light), var(--primary));
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow);
+}
+
+.btn-logout {
+  background: linear-gradient(135deg, #6b7280, #4b5563);
+  color: var(--text-light);
+}
+
+.btn-logout:hover {
+  background: linear-gradient(135deg, #4b5563, #6b7280);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Nav styles */
+nav {
+  background: linear-gradient(90deg, var(--primary-dark), var(--primary));
+  padding: 1rem;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+  position: sticky;
+  top: var(--header-height);
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: var(--text-light);
+  font-weight: 600;
+  font-size: 1rem;
+  position: relative;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--border-radius-sm);
+  transition: var(--transition);
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--secondary);
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 80%;
+}
+
+nav a:hover {
+  color: var(--secondary);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Card styles */
+.card {
+  background-color: white;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid var(--border-light);
+  position: relative;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s forwards;
+  margin: var(--spacing-8) 0;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-xl);
+}
+
+.card-header {
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  color: var(--text-light);
+  padding: 1.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at top right, rgba(255,255,255,0.2), transparent 70%);
+  pointer-events: none;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  position: relative;
+}
+
+.card-title i {
+  color: var(--secondary);
+  font-size: 1.25rem;
+}
+
+.card-body {
+  padding: 2rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Documentation specific styles */
+.doc-section {
+  margin-bottom: 3rem;
+  animation: fadeIn 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+.doc-section:nth-child(1) { animation-delay: 0.1s; }
+.doc-section:nth-child(2) { animation-delay: 0.2s; }
+.doc-section:nth-child(3) { animation-delay: 0.3s; }
+.doc-section:nth-child(4) { animation-delay: 0.4s; }
+.doc-section:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.doc-section h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.doc-section h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--primary-light));
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.doc-section:hover h2::after {
+  width: 100px;
+}
+
+.doc-section p {
+  margin-bottom: 1.25rem;
+  color: var(--text-dark);
+  line-height: 1.7;
+}
+
+.doc-section ul {
+  list-style-type: none;
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.doc-section ul li {
+  margin-bottom: 0.75rem;
+  position: relative;
+  padding-left: 1.5rem;
+  line-height: 1.6;
+}
+
+.doc-section ul li::before {
+  content: '\f058';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  color: var(--primary);
+  position: absolute;
+  left: -0.5rem;
+  top: 0.2rem;
+  font-size: 1rem;
+  opacity: 0.8;
+  transition: var(--transition);
+}
+
+.doc-section ul li:hover::before {
+  color: var(--primary-light);
+  transform: scale(1.1);
+}
+
+.doc-section code {
+  background-color: var(--accent);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'Courier New', Courier, monospace;
+  color: var(--primary);
+  font-size: 0.9em;
+  transition: var(--transition);
+  border: 1px solid transparent;
+}
+
+.doc-section code:hover {
+  background-color: var(--primary-light);
+  color: var(--text-light);
+  border-color: var(--primary);
+}
+
+.doc-section pre {
+  background-color: var(--background-light);
+  padding: 1.25rem;
+  border-radius: var(--border-radius);
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid var(--primary);
+  transition: all 0.3s ease;
+  position: relative;
+  box-shadow: var(--shadow-md);
+}
+
+.doc-section pre::before {
+  content: 'Command';
+  position: absolute;
+  top: 0;
+  right: 1rem;
+  background: var(--primary);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  font-size: var(--font-size-xs);
+  border-radius: 0 0 var(--border-radius-sm) var(--border-radius-sm);
+  opacity: 0.9;
+}
+
+.doc-section pre:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+  background-color: #e0e7ff;
+}
+
+.highlight {
+  background: linear-gradient(to right, var(--primary-light), var(--primary));
+  background-clip: padding-box;
+  color: var(--text-light);
+  padding: 1.25rem;
+  border-radius: var(--border-radius);
+  margin: 1.5rem 0;
+  box-shadow: var(--shadow-md);
+  transition: transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.highlight::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at top right, rgba(255,255,255,0.2), transparent 70%);
+  pointer-events: none;
+}
+
+.highlight:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+.highlight code {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: var(--text-light);
+  border: none;
+}
+
+.highlight code:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  color: var(--text-light);
+}
+
+/* Footer styles */
+.footer {
+  background: linear-gradient(90deg, var(--primary-dark), var(--primary));
+  color: var(--text-light);
+  padding: var(--spacing-8) 0 var(--spacing-6);
+  margin-top: auto;
+  position: relative;
+  box-shadow: 0 -6px 25px rgba(0, 0, 0, 0.35);
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at bottom left, rgba(255,255,255,0.1), transparent 70%);
+  pointer-events: none;
+}
+
+.footer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(to right, var(--primary), var(--secondary), var(--primary));
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-6);
+  position: relative;
+  z-index: 1;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+}
+
+.footer-logo img {
+  height: 40px;
+  width: 40px;
+  object-fit: contain;
+  border-radius: var(--border-radius);
+  background: white;
+  padding: 4px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.footer-logo img:hover {
+  transform: scale(1.1);
+  box-shadow: var(--shadow-md);
+}
+
+.footer-logo span {
+  font-size: 1.2rem;
+  font-weight: 600;
+  background: linear-gradient(90deg, #fff, #e6e9ed);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.footer-tagline {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-top: var(--spacing-1);
+}
+
+.footer-social {
+  display: flex;
+  gap: var(--spacing-4);
+}
+
+.footer-social a {
+  color: var(--text-light);
+  font-size: 1.2rem;
+  transition: var(--transition);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-social a::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.2), transparent 70%);
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.footer-social a:hover::after {
+  opacity: 1;
+}
+
+.footer-social a:hover {
+  color: var(--secondary);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.footer-copyright {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  text-align: center;
+  margin-top: var(--spacing-6);
+  width: 100%;
+}
+
+/* Toast notification */
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--success);
+  color: var(--text-light);
+  padding: 15px 25px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.toast::before {
+  content: '\f058';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  font-size: 1.2rem;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.toast.error {
+  background: var(--danger);
+}
+
+.toast.error::before {
+  content: '\f057';
+}
+
+/* Error boundary */
+.error-boundary {
+  text-align: center;
+  padding: 3rem;
+  background: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  margin: 2rem 0;
+}
+
+.error-boundary h2 {
+  color: var(--danger);
+  margin-bottom: 1.5rem;
+}
+
+/* Dark mode styles */
+.dark .card {
+  background-color: var(--accent);
+  border-color: var(--border-light);
+}
+
+.dark .doc-section code {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark .doc-section pre {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.dark .doc-section pre:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.dark .highlight {
+  background: linear-gradient(to right, var(--primary-dark), var(--primary));
+}
+
+.dark .error-boundary {
+  background-color: var(--accent);
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+  .container {
+    padding-left: var(--spacing-4);
+    padding-right: var(--spacing-4);
+  }
+  
+  .card-body {
+    padding: 1.5rem;
+  }
+  
+  .doc-section h2 {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0.75rem 0;
+    height: auto;
+  }
+
+  .header-actions {
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  nav {
+    padding: 0.8rem;
+    gap: 0.75rem;
+    top: calc(var(--header-height) + 20px);
+  }
+
+  nav a {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.6rem;
+  }
+
+  .doc-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--spacing-4);
+  }
+
+  .footer-social {
+    justify-content: center;
+  }
+
+  .toast {
+    right: 10px;
+    left: 10px;
+    bottom: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .card-body {
+    padding: 1.25rem;
+  }
+
+  .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .language-switcher {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .language-btn {
+    flex: 1;
+    text-align: center;
+    min-width: 40px;
+  }
+  
+  .doc-section pre {
+    padding: 1rem;
+  }
+  
+  .doc-section pre::before {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+  }
+  
+  .highlight {
+    padding: 1rem;
+  }
+}
+
+/* Print styles */
+@media print {
+  .header,
+  .footer,
+  nav,
+  .theme-toggle-wrapper,
+  .language-switcher {
+    display: none !important;
+  }
+  
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  
+  .container {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+  
+  .card {
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
+    margin: 0 !important;
+  }
+  
+  .card-header {
+    background: #f0f0f0 !important;
+    color: black !important;
+  }
+  
+  .highlight {
+    background: #f0f0f0 !important;
+    color: black !important;
+    border: 1px solid #ddd !important;
+    box-shadow: none !important;
+  }
+  
+  .highlight code {
+    background: #e0e0e0 !important;
+    color: black !important;
+  }
+  
+  .doc-section pre {
+    background: #f8f8f8 !important;
+    border-left: 2px solid #ddd !important;
+    color: black !important;
+  }
+  
+  .doc-section code {
+    background: #f0f0f0 !important;
+    color: black !important;
+  }
+}
+
+/* Animations */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 86, 179, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(0, 86, 179, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 86, 179, 0);
+  }
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+/* Utility classes */
+.text-primary { color: var(--primary) !important; }
+.mb-3 { margin-bottom: 1rem !important; }
+.mt-3 { margin-top: 1rem !important; }
+.d-flex { display: flex !important; }
+.justify-content-between { justify-content: space-between !important; }
+.align-items-center { align-items: center !important; }
+    </style>
+</head>
+<body aria-live="polite">
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQghP9MPtQ4YU3UqysqQGnf0_NxGgrnOn7cjCao-MdKRQ72Jwitn1-l_midGtdBIbP8jVs&usqp=CAU" alt="ISET Sfax Logo">
+                    <h1 data-i18n="header.logo">ISET Sfax Chatbot</h1>
+                </div>
+                <div class="header-actions">
+                    <div class="language-switcher" role="navigation" aria-label="Language selection">
+                        <button class="language-btn" data-lang="en" aria-label="Switch to English" role="button">EN</button>
+                        <button class="language-btn" data-lang="fr" aria-label="Switch to French" role="button">FR</button>
+                        <button class="language-btn" data-lang="ar" aria-label="Switch to Arabic" role="button">AR</button>
+                    </div>
+                    <div class="theme-toggle-wrapper">
+                        <label class="theme-switch">
+                            <input type="checkbox" id="themeToggle">
+                            <div class="theme-icons">
+                                <i class="fas fa-sun"></i>
+                                <i class="fas fa-moon"></i>
+                            </div>
+                            <span class="theme-slider"></span>
+                        </label>
+                    </div>
+                    <a href="{{ url_for('main.index_interface') }}" class="btn btn-primary">
+                        <i class="fas fa-arrow-left"></i> <span data-i18n="header.back">Back to Chat</span>
+                    </a>
+                    <a href="{{ url_for('main.logout') }}" class="btn btn-logout">
+                        <i class="fas fa-sign-out-alt"></i> <span data-i18n="header.logout">Déconnexion</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <a href="#overview" data-i18n="nav.overview">Overview</a>
+        <a href="#features" data-i18n="nav.features">Features</a>
+        <a href="#usage" data-i18n="nav.usage">Usage</a>
+        <a href="#examples" data-i18n="nav.examples">Examples</a>
+        <a href="#technical" data-i18n="nav.technical">Technical Details</a>
+    </nav>
+
+    <main class="main">
+        <div class="container">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title"><i class="fas fa-book"></i> <span data-i18n="card.title">ISET Sfax Chatbot Documentation</span></h3>
+                </div>
+                <div class="card-body">
+                    <div class="doc-section" id="overview">
+                        <h2 data-i18n="doc.overview.title">Overview</h2>
+                        <p data-i18n="doc.overview.description">
+                            The ISET Sfax Chatbot is a sophisticated tool developed to assist students, faculty, and visitors with information about the Institut Supérieur des Études Technologiques de Sfax (ISET Sfax). Powered by Flask and integrated with machine learning and natural language processing, it provides answers to academic, administrative, and general queries, leveraging a comprehensive knowledge base and external APIs.
+                        </p>
+                        <p class="highlight" data-i18n="doc.overview.highlight">
+                            This documentation outlines the chatbot’s capabilities, usage, and technical architecture, tailored for users at ISET Sfax.
+                        </p>
+                    </div>
+
+                    <div class="doc-section" id="features">
+                        <h2 data-i18n="doc.features.title">Features</h2>
+                        <ul>
+                            <li data-i18n="doc.features.multilingual"><strong>Multilingual Support</strong>: Responds in English, French, Arabic, and Spanish based on detected language.</li>
+                            <li data-i18n="doc.features.knowledge_base"><strong>Knowledge Base Integration</strong>: Answers queries about ISET Sfax programs, admissions, events, and more using a JSON-based knowledge base.</li>
+                            <li data-i18n="doc.features.api_integration"><strong>External API Integration</strong>: Fetches real-time data for jokes, trivia, quotes, recipes, and more from public APIs.</li>
+                            <li data-i18n="doc.features.ml_capabilities"><strong>Machine Learning Capabilities</strong>: Supports classification, regression, and clustering tasks with uploaded datasets.</li>
+                            <li data-i18n="doc.features.authentication"><strong>Authentication</strong>: Secure user login with Flask-Login and SQLite for role-based access (user/admin).</li>
+                            <li data-i18n="doc.features.dashboard"><strong>Interactive Dashboard</strong>: Provides a user-friendly interface for chat and machine learning tasks.</li>
+                            <li data-i18n="doc.features.pdf_reports"><strong>PDF Report Generation</strong>: Generates detailed reports for machine learning results using FPDF.</li>
+                        </ul>
+                    </div>
+
+                    <div class="doc-section" id="usage">
+                        <h2 data-i18n="doc.usage.title">Usage</h2>
+                        <p data-i18n="doc.usage.access">
+                            Access the chatbot via the ISET Sfax student portal or the dedicated web interface at <a href="https://isetsf.rnu.tn">isetsf.rnu.tn</a>. After logging in, interact with the chatbot through the dashboard or chat interface.
+                        </p>
+                        <p data-i18n="doc.usage.basic_interaction"><strong>Basic Interaction</strong>: Type your query in the chat input field. The chatbot detects the language and responds accordingly. For example, ask about admission requirements or request a random fact.</p>
+                        <p data-i18n="doc.usage.advanced_commands"><strong>Advanced Commands</strong>: Use specific commands for machine learning tasks or API-based queries:</p>
+                        <pre>
+/task [classification|regression|clustering] --file [dataset]
+/api [joke|fact|quote|meal|cocktail]
+                        </pre>
+                        <p data-i18n="doc.usage.ml_tasks"><strong>Machine Learning Tasks</strong>: Upload a dataset (CSV, XLSX, JSON) and select a task (classification, regression, clustering) to receive model results and visualizations.</p>
+                    </div>
+
+                    <div class="doc-section" id="examples">
+                        <h2 data-i18n="doc.examples.title">Examples</h2>
+                        <p data-i18n="doc.examples.description">Try these example queries to explore the chatbot’s capabilities:</p>
+                        <ul>
+                            <li><code data-i18n="doc.examples.admission_fr">Quels sont les critères d'admission ?</code> <span data-i18n="doc.examples.admission_fr_result">→ Returns ISET Sfax admission requirements in French.</span></li>
+                            <li><code data-i18n="doc.examples.programs_en">What programs are offered at ISET Sfax?</code> <span data-i18n="doc.examples.programs_en_result">→ Lists available academic programs with links.</span></li>
+                            <li><code data-i18n="doc.examples.joke">Tell me a joke</code> <span data-i18n="doc.examples.joke_result">→ Fetches a random joke from the JokeAPI.</span></li>
+                            <li><code data-i18n="doc.examples.recipe">Show me a recipe</code> <span data-i18n="doc.examples.recipe_result">→ Provides a random meal recipe with instructions.</span></li>
+                            <li><code data-i18n="doc.examples.classification">/task classification --file dataset.csv</code> <span data-i18n="doc.examples.classification_result">→ Runs classification models and generates a report.</span></li>
+                            <li><code data-i18n="doc.examples.calendar_fr">Où puis-je trouver le calendrier académique ?</code> <span data-i18n="doc.examples.calendar_fr_result">→ Links to the academic calendar page.</span></li>
+                            <li><code data-i18n="doc.examples.cat_image">Image de chat</code> <span data-i18n="doc.examples.cat_image_result">→ Returns a random cat image URL.</span></li>
+                        </ul>
+                        <p class="highlight" data-i18n="doc.examples.highlight">For a full list of supported queries, type <code>help</code> or <code>aide</code> in the chat interface.</p>
+                    </div>
+
+                    <div class="doc-section" id="technical">
+                        <h2 data-i18n="doc.technical.title">Technical Details</h2>
+                        <p data-i18n="doc.technical.description">The chatbot is built using Flask, a Python web framework, with the following key components:</p>
+                        <ul>
+                            <li data-i18n="doc.technical.backend"><strong>Backend</strong>: Flask with Flask-Login for authentication and Flask-CORS for cross-origin requests.</li>
+                            <li data-i18n="doc.technical.database"><strong>Database</strong>: SQLite for user management (users.db).</li>
+                            <li data-i18n="doc.technical.nlp"><strong>NLP</strong>: Uses TfidfVectorizer and cosine similarity for matching queries to the knowledge base.</li>
+                            <li data-i18n="doc.technical.ml"><strong>Machine Learning</strong>: Scikit-learn for classification (LogisticRegression, RandomForestClassifier, etc.), regression, and clustering (KMeans, DBSCAN).</li>
+                            <li data-i18n="doc.technical.visualization"><strong>Visualization</strong>: Matplotlib for generating confusion matrices, PCA plots, and regression plots.</li>
+                            <li data-i18n="doc.technical.apis"><strong>External APIs</strong>: Integrates with Wikipedia, DuckDuckGo, and APIs for jokes, trivia, quotes, meals, cocktails, and more.</li>
+                            <li data-i18n="doc.technical.file_handling"><strong>File Handling</strong>: Supports dataset uploads in CSV, XLSX, and JSON formats, stored in the static/Uploads folder.</li>
+                            <li data-i18n="doc.technical.knowledge_base"><strong>Knowledge Base</strong>: JSON file (knowledge-base.json) with 70+ entries covering ISET Sfax programs, policies, and services.</li>
+                        </ul>
+                        <p data-i18n="doc.technical.architecture"><strong>Architecture</strong>: The app.py file defines routes for login, signup, dashboard, chat, and machine learning interfaces. It uses a Blueprint (main) for modular routing and handles requests with error logging.</p>
+                        <p data-i18n="doc.technical.deployment"><strong>Deployment</strong>: Runs on port 5000 in debug mode for development. For production, use a WSGI server like Gunicorn.</p>
+                        <p data-i18n="doc.technical.security"><strong>Security</strong>: Passwords are hashed using Werkzeug’s generate_password_hash, and user sessions are managed securely.</p>
+                        <p data-i18n="doc.technical.contact">For detailed setup instructions, contact the ISET Sfax IT team at it.support@isetsf.rnu.tn.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQghP9MPtQ4YU3UqysqQGnf0_NxGgrnOn7cjCao-MdKRQ72Jwitn1-l_midGtdBIbP8jVs&usqp=CAU" alt="ISET Sfax Logo">
+                    <div>
+                        <span data-i18n="footer.institute">ISET Sfax</span>
+                        <div class="footer-tagline" data-i18n="footer.tagline">Empowering Innovation through AI</div>
+                    </div>
+                </div>
+                <div class="footer-social">
+                    <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <div class="footer-copyright" data-i18n="footer.copyright">© 2025 ISET Sfax. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/i18next@21.9.2/dist/umd/i18next.min.js"></script>
+    <script>
+        // Theme Switcher
+        function initThemeSwitcher() {
+            const themeToggle = document.getElementById('themeToggle');
+            const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+            const currentTheme = localStorage.getItem('theme') || 
+                                (prefersDarkScheme.matches ? 'dark' : 'light');
+
+            if (currentTheme === 'dark') {
+                document.body.classList.add('dark');
+                if (themeToggle) themeToggle.checked = true;
+            }
+
+            if (themeToggle) {
+                themeToggle.addEventListener('change', function() {
+                    if (this.checked) {
+                        document.body.classList.add('dark');
+                        localStorage.setItem('theme', 'dark');
+                    } else {
+                        document.body.classList.remove('dark');
+                        localStorage.setItem('theme', 'light');
+                    }
+                });
+            }
+        }
+
+        // XLSX File Handling
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+
+        function filledCell(cell) {
+            return cell !== '' && cell != null;
+        }
+
+        function loadFileData(filename) {
+            if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+                try {
+                    var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                    var firstSheetName = workbook.SheetNames[0];
+                    var worksheet = workbook.Sheets[firstSheetName];
+
+                    var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                    var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                    var headerRowIndex = filteredData.findIndex((row, index) =>
+                        row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                    );
+                    if (headerRowIndex === -1 || headerRowIndex > 25) {
+                        headerRowIndex = 0;
+                    }
+
+                    var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex));
+                    csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                    return csv;
+                } catch (e) {
+                    console.error(e);
+                    return "";
+                }
+            }
+            return gk_fileData[filename] || "";
+        }
+
+        // Initialize i18next for multilingual support
+        document.addEventListener('DOMContentLoaded', () => {
+            i18next.init({
+                lng: getCookie('language') || 'en',
+                resources: {
+                    en: {
+                        translation: {
+                            'header.title': 'ISET Sfax Chatbot Documentation',
+                            'header.logo': 'ISET Sfax Chatbot',
+                            'header.back': 'Back to Chat',
+                            'header.logout': 'Logout',
+                            'nav.overview': 'Overview',
+                            'nav.features': 'Features',
+                            'nav.usage': 'Usage',
+                            'nav.examples': 'Examples',
+                            'nav.technical': 'Technical Details',
+                            'card.title': 'ISET Sfax Chatbot Documentation',
+                            'doc.overview.title': 'Overview',
+                            'doc.overview.description': 'The ISET Sfax Chatbot is a sophisticated tool developed to assist students, faculty, and visitors with information about the Institut Supérieur des Études Technologiques de Sfax (ISET Sfax). Powered by Flask and integrated with machine learning and natural language processing, it provides answers to academic, administrative, and general queries, leveraging a comprehensive knowledge base and external APIs.',
+                            'doc.overview.highlight': 'This documentation outlines the chatbot’s capabilities, usage, and technical architecture, tailored for users at ISET Sfax.',
+                            'doc.features.title': 'Features',
+                            'doc.features.multilingual': '<strong>Multilingual Support</strong>: Responds in English, French, Arabic, and Spanish based on detected language.',
+                            'doc.features.knowledge_base': '<strong>Knowledge Base Integration</strong>: Answers queries about ISET Sfax programs, admissions, events, and more using a JSON-based knowledge base.',
+                            'doc.features.api_integration': '<strong>External API Integration</strong>: Fetches real-time data for jokes, trivia, quotes, recipes, and more from public APIs.',
+                            'doc.features.ml_capabilities': '<strong>Machine Learning Capabilities</strong>: Supports classification, regression, and clustering tasks with uploaded datasets.',
+                            'doc.features.authentication': '<strong>Authentication</strong>: Secure user login with Flask-Login and SQLite for role-based access (user/admin).',
+                            'doc.features.dashboard': '<strong>Interactive Dashboard</strong>: Provides a user-friendly interface for chat and machine learning tasks.',
+                            'doc.features.pdf_reports': '<strong>PDF Report Generation</strong>: Generates detailed reports for machine learning results using FPDF.',
+                            'doc.usage.title': 'Usage',
+                            'doc.usage.access': 'Access the chatbot via the ISET Sfax student portal or the dedicated web interface at <a href="https://isetsf.rnu.tn">isetsf.rnu.tn</a>. After logging in, interact with the chatbot through the dashboard or chat interface.',
+                            'doc.usage.basic_interaction': '<strong>Basic Interaction</strong>: Type your query in the chat input field. The chatbot detects the language and responds accordingly. For example, ask about admission requirements or request a random fact.',
+                            'doc.usage.advanced_commands': '<strong>Advanced Commands</strong>: Use specific commands for machine learning tasks or API-based queries:',
+                            'doc.usage.ml_tasks': '<strong>Machine Learning Tasks</strong>: Upload a dataset (CSV, XLSX, JSON) and select a task (classification, regression, clustering) to receive model results and visualizations.',
+                            'doc.examples.title': 'Examples',
+                            'doc.examples.description': 'Try these example queries to explore the chatbot’s capabilities:',
+                            'doc.examples.admission_fr': 'Quels sont les critères d\'admission ?',
+                            'doc.examples.admission_fr_result': '→ Returns ISET Sfax admission requirements in French.',
+                            'doc.examples.programs_en': 'What programs are offered at ISET Sfax?',
+                            'doc.examples.programs_en_result': '→ Lists available academic programs with links.',
+                            'doc.examples.joke': 'Tell me a joke',
+                            'doc.examples.joke_result': '→ Fetches a random joke from the JokeAPI.',
+                            'doc.examples.recipe': 'Show me a recipe',
+                            'doc.examples.recipe_result': '→ Provides a random meal recipe with instructions.',
+                            'doc.examples.classification': '/task classification --file dataset.csv',
+                            'doc.examples.classification_result': '→ Runs classification models and generates a report.',
+                            'doc.examples.calendar_fr': 'Où puis-je trouver le calendrier académique ?',
+                            'doc.examples.calendar_fr_result': '→ Links to the academic calendar page.',
+                            'doc.examples.cat_image': 'Image de chat',
+                            'doc.examples.cat_image_result': '→ Returns a random cat image URL.',
+                            'doc.examples.highlight': 'For a full list of supported queries, type <code>help</code> or <code>aide</code> in the chat interface.',
+                            'doc.technical.title': 'Technical Details',
+                            'doc.technical.description': 'The chatbot is built using Flask, a Python web framework, with the following key components:',
+                            'doc.technical.backend': '<strong>Backend</strong>: Flask with Flask-Login for authentication and Flask-CORS for cross-origin requests.',
+                            'doc.technical.database': '<strong>Database</strong>: SQLite for user management (users.db).',
+                            'doc.technical.nlp': '<strong>NLP</strong>: Uses TfidfVectorizer and cosine similarity for matching queries to the knowledge base.',
+                            'doc.technical.ml': '<strong>Machine Learning</strong>: Scikit-learn for classification (LogisticRegression, RandomForestClassifier, etc.), regression, and clustering (KMeans, DBSCAN).',
+                            'doc.technical.visualization': '<strong>Visualization</strong>: Matplotlib for generating confusion matrices, PCA plots, and regression plots.',
+                            'doc.technical.apis': '<strong>External APIs</strong>: Integrates with Wikipedia, DuckDuckGo, and APIs for jokes, trivia, quotes, meals, cocktails, and more.',
+                            'doc.technical.file_handling': '<strong>File Handling</strong>: Supports dataset uploads in CSV, XLSX, and JSON formats, stored in the static/Uploads folder.',
+                            'doc.technical.knowledge_base': '<strong>Knowledge Base</strong>: JSON file (knowledge-base.json) with 70+ entries covering ISET Sfax programs, policies, and services.',
+                            'doc.technical.architecture': '<strong>Architecture</strong>: The app.py file defines routes for login, signup, dashboard, chat, and machine learning interfaces. It uses a Blueprint (main) for modular routing and handles requests with error logging.',
+                            'doc.technical.deployment': '<strong>Deployment</strong>: Runs on port 5000 in debug mode for development. For production, use a WSGI server like Gunicorn.',
+                            'doc.technical.security': '<strong>Security</strong>: Passwords are hashed using Werkzeug’s generate_password_hash, and user sessions are managed securely.',
+                            'doc.technical.contact': 'For detailed setup instructions, contact the ISET Sfax IT team at it.support@isetsf.rnu.tn.',
+                            'footer.institute': 'ISET Sfax',
+                            'footer.tagline': 'Empowering Innovation through AI',
+                            'footer.copyright': '© 2025 ISET Sfax. All rights reserved.',
+                            'language.changeSuccess': 'Language changed successfully!',
+                            'language.changeError': 'Error changing language. Please try again.',
+                            'error.fallback': 'Something went wrong. Please refresh the page.'
+                        }
+                    },
+                    fr: {
+                        translation: {
+                            'header.title': 'Documentation du Chatbot ISET Sfax',
+                            'header.logo': 'Chatbot ISET Sfax',
+                            'header.back': 'Retour au Chat',
+                            'header.logout': 'Déconnexion',
+                            'nav.overview': 'Vue d’ensemble',
+                            'nav.features': 'Fonctionnalités',
+                            'nav.usage': 'Utilisation',
+                            'nav.examples': 'Exemples',
+                            'nav.technical': 'Détails Techniques',
+                            'card.title': 'Documentation du Chatbot ISET Sfax',
+                            'doc.overview.title': 'Vue d’ensemble',
+                            'doc.overview.description': 'Le Chatbot ISET Sfax est un outil sophistiqué conçu pour aider les étudiants, les enseignants et les visiteurs avec des informations sur l’Institut Supérieur des Études Technologiques de Sfax (ISET Sfax). Propulsé par Flask et intégré avec l’apprentissage automatique et le traitement du langage naturel, il fournit des réponses aux questions académiques, administratives et générales, en s’appuyant sur une base de connaissances complète et des API externes.',
+                            'doc.overview.highlight': 'Cette documentation décrit les capacités, l’utilisation et l’architecture technique du chatbot, adaptée aux utilisateurs d’ISET Sfax.',
+                            'doc.features.title': 'Fonctionnalités',
+                            'doc.features.multilingual': '<strong>Support multilingue</strong> : Répond en anglais, français, arabe et espagnol selon la langue détectée.',
+                            'doc.features.knowledge_base': '<strong>Intégration de la base de connaissances</strong> : Répond aux questions sur les programmes, les admissions, les événements d’ISET Sfax, et plus encore, à l’aide d’une base de connaissances basée sur JSON.',
+                            'doc.features.api_integration': '<strong>Intégration d’API externes</strong> : Récupère des données en temps réel pour des blagues, des faits, des citations, des recettes, et plus encore à partir d’API publiques.',
+                            'doc.features.ml_capabilities': '<strong>Capacités d’apprentissage automatique</strong> : Prend en charge les tâches de classification, de régression et de clustering avec des ensembles de données téléchargés.',
+                            'doc.features.authentication': '<strong>Authentification</strong> : Connexion sécurisée des utilisateurs avec Flask-Login et SQLite pour un accès basé sur les rôles (utilisateur/admin).',
+                            'doc.features.dashboard': '<strong>Tableau de bord interactif</strong> : Fournit une interface conviviale pour les tâches de chat et d’apprentissage automatique.',
+                            'doc.features.pdf_reports': '<strong>Génération de rapports PDF</strong> : Génère des rapports détaillés pour les résultats d’apprentissage automatique à l’aide de FPDF.',
+                            'doc.usage.title': 'Utilisation',
+                            'doc.usage.access': 'Accédez au chatbot via le portail étudiant d’ISET Sfax ou l’interface web dédiée à <a href="https://isetsf.rnu.tn">isetsf.rnu.tn</a>. Après connexion, interagissez avec le chatbot via le tableau de bord ou l’interface de chat.',
+                            'doc.usage.basic_interaction': '<strong>Interaction de base</strong> : Tapez votre question dans le champ de saisie du chat. Le chatbot détecte la langue et répond en conséquence. Par exemple, demandez des informations sur les critères d’admission ou demandez un fait aléatoire.',
+                            'doc.usage.advanced_commands': '<strong>Commandes avancées</strong> : Utilisez des commandes spécifiques pour les tâches d’apprentissage automatique ou les requêtes basées sur API :',
+                            'doc.usage.ml_tasks': '<strong>Tâches d’apprentissage automatique</strong> : Téléchargez un ensemble de données (CSV, XLSX, JSON) et sélectionnez une tâche (classification, régression, clustering) pour recevoir les résultats des modèles et les visualisations.',
+                            'doc.examples.title': 'Exemples',
+                            'doc.examples.description': 'Essayez ces exemples de requêtes pour explorer les capacités du chatbot :',
+                            'doc.examples.admission_fr': 'Quels sont les critères d’admission ?',
+                            'doc.examples.admission_fr_result': '→ Retourne les critères d’admission d’ISET Sfax en français.',
+                            'doc.examples.programs_en': 'Quels programmes sont offerts à ISET Sfax ?',
+                            'doc.examples.programs_en_result': '→ Liste les programmes académiques disponibles avec des liens.',
+                            'doc.examples.joke': 'Raconte-moi une blague',
+                            'doc.examples.joke_result': '→ Récupère une blague aléatoire depuis l’API JokeAPI.',
+                            'doc.examples.recipe': 'Montre-moi une recette',
+                            'doc.examples.recipe_result': '→ Fournit une recette de repas aléatoire avec des instructions.',
+                            'doc.examples.classification': '/task classification --file dataset.csv',
+                            'doc.examples.classification_result': '→ Exécute des modèles de classification et génère un rapport.',
+                            'doc.examples.calendar_fr': 'Où puis-je trouver le calendrier académique ?',
+                            'doc.examples.calendar_fr_result': '→ Fournit un lien vers la page du calendrier académique.',
+                            'doc.examples.cat_image': 'Image de chat',
+                            'doc.examples.cat_image_result': '→ Retourne une URL d’image de chat aléatoire.',
+                            'doc.examples.highlight': 'Pour une liste complète des requêtes prises en charge, tapez <code>help</code> ou <code>aide</code> dans l’interface de chat.',
+                            'doc.technical.title': 'Détails Techniques',
+                            'doc.technical.description': 'Le chatbot est construit à l’aide de Flask, un framework web Python, avec les composants clés suivants :',
+                            'doc.technical.backend': '<strong>Backend</strong> : Flask avec Flask-Login pour l’authentification et Flask-CORS pour les requêtes cross-origin.',
+                            'doc.technical.database': '<strong>Base de données</strong> : SQLite pour la gestion des utilisateurs (users.db).',
+                            'doc.technical.nlp': '<strong>Traitement du langage naturel</strong> : Utilise TfidfVectorizer et la similarité cosinus pour faire correspondre les requêtes à la base de connaissances.',
+                            'doc.technical.ml': '<strong>Apprentissage automatique</strong> : Scikit-learn pour la classification (LogisticRegression, RandomForestClassifier, etc.), la régression et le clustering (KMeans, DBSCAN).',
+                            'doc.technical.visualization': '<strong>Visualisation</strong> : Matplotlib pour générer des matrices de confusion, des graphiques PCA et des graphiques de régression.',
+                            'doc.technical.apis': '<strong>API externes</strong> : Intègre Wikipédia, DuckDuckGo, et des API pour les blagues, les faits, les citations, les repas, les cocktails, et plus encore.',
+                            'doc.technical.file_handling': '<strong>Gestion des fichiers</strong> : Prend en charge le téléchargement d’ensembles de données aux formats CSV, XLSX et JSON, stockés dans le dossier static/Uploads.',
+                            'doc.technical.knowledge_base': '<strong>Base de connaissances</strong> : Fichier JSON (knowledge-base.json) avec plus de 70 entrées couvrant les programmes, les politiques et les services d’ISET Sfax.',
+                            'doc.technical.architecture': '<strong>Architecture</strong> : Le fichier app.py définit les routes pour la connexion, l’inscription, le tableau de bord, le chat et les interfaces d’apprentissage automatique. Il utilise un Blueprint (main) pour un routage modulaire et gère les requêtes avec journalisation des erreurs.',
+                            'doc.technical.deployment': '<strong>Déploiement</strong> : Fonctionne sur le port 5000 en mode débogage pour le développement. Pour la production, utilisez un serveur WSGI comme Gunicorn.',
+                            'doc.technical.security': '<strong>Sécurité</strong> : Les mots de passe sont hachés à l’aide de generate_password_hash de Werkzeug, et les sessions utilisateur sont gérées de manière sécurisée.',
+                            'doc.technical.contact': 'Pour des instructions de configuration détaillées, contactez l’équipe informatique d’ISET Sfax à it.support@isetsf.rnu.tn.',
+                            'footer.institute': 'ISET Sfax',
+                            'footer.tagline': 'Favoriser l’innovation grâce à l’IA',
+                            'footer.copyright': '© 2025 ISET Sfax. Tous droits réservés.',
+                            'language.changeSuccess': 'Langue changée avec succès !',
+                            'language.changeError': 'Erreur lors du changement de langue. Veuillez réessayer.',
+                            'error.fallback': 'Une erreur s’est produite. Veuillez actualiser la page.'
+                        }
+                    },
+                    ar: {
+                        translation: {
+                            'header.title': 'توثيق روبوت الدردشة ISET صفاقس',
+                            'header.logo': 'روبوت الدردشة ISET صفاقس',
+                            'header.back': 'العودة إلى الدردشة',
+                            'header.logout': 'تسجيل الخروج',
+                            'nav.overview': 'نظرة عامة',
+                            'nav.features': 'الميزات',
+                            'nav.usage': 'الاستخدام',
+                            'nav.examples': 'أمثلة',
+                            'nav.technical': 'التفاصيل التقنية',
+                            'card.title': 'توثيق روبوت الدردشة ISET صفاقس',
+                            'doc.overview.title': 'نظرة عامة',
+                            'doc.overview.description': 'روبوت الدردشة ISET صفاقس هو أداة متطورة تم تطويرها لمساعدة الطلاب، أعضاء هيئة التدريس، والزوار بالمعلومات حول المعهد العالي للدراسات التكنولوجية بصفاقس (ISET صفاقس). يعمل باستخدام Flask ومدمج مع التعلم الآلي ومعالجة اللغة الطبيعية، ويوفر إجابات للاستفسارات الأكاديمية، الإدارية، والعامة، مستفيدًا من قاعدة معرفية شاملة وواجهات برمجة التطبيقات الخارجية.',
+                            'doc.overview.highlight': 'يوضح هذا التوثيق قدرات روبوت الدردشة، استخدامه، والهندسة التقنية، مصمم خصيصًا لمستخدمي ISET صفاقس.',
+                            'doc.features.title': 'الميزات',
+                            'doc.features.multilingual': '<strong>الدعم متعدد اللغات</strong>: يجيب بالإنجليزية، الفرنسية، العربية، والإسبانية بناءً على اللغة المكتشفة.',
+                            'doc.features.knowledge_base': '<strong>تكامل قاعدة المعرفة</strong>: يجيب على الاستفسارات حول برامج ISET صفاقس، القبول، الفعاليات، وأكثر باستخدام قاعدة معرفية قائمة على JSON.',
+                            'doc.features.api_integration': '<strong>تكامل واجهات برمجة التطبيقات الخارجية</strong>: يجلب بيانات في الوقت الفعلي للنكات، الحقائق، الاقتباسات، الوصفات، وأكثر من واجهات برمجة التطبيقات العامة.',
+                            'doc.features.ml_capabilities': '<strong>قدرات التعلم الآلي</strong>: يدعم مهام التصنيف، الانحدار، والتجميع مع مجموعات البيانات المرفوعة.',
+                            'doc.features.authentication': '<strong>المصادقة</strong>: تسجيل دخول آمن للمستخدمين باستخدام Flask-Login وSQLite للوصول المستند إلى الأدوار (مستخدم/مدير).',
+                            'doc.features.dashboard': '<strong>لوحة تحكم تفاعلية</strong>: توفر واجهة سهلة الاستخدام لمهام الدردشة والتعلم الآلي.',
+                            'doc.features.pdf_reports': '<strong>إنشاء تقارير PDF</strong>: يولد تقارير مفصلة لنتائج التعلم الآلي باستخدام FPDF.',
+                            'doc.usage.title': 'الاستخدام',
+                            'doc.usage.access': 'الوصول إلى روبوت الدردشة عبر بوابة طلاب ISET صفاقس أو واجهة الويب المخصصة على <a href="https://isetsf.rnu.tn">isetsf.rnu.tn</a>. بعد تسجيل الدخول، تفاعل مع روبوت الدردشة من خلال لوحة التحكم أو واجهة الدردشة.',
+                            'doc.usage.basic_interaction': '<strong>التفاعل الأساسي</strong>: اكتب استفسارك في حقل إدخال الدردشة. يكتشف روبوت الدردشة اللغة ويجيب وفقًا لذلك. على سبيل المثال، اسأل عن متطلبات القبول أو اطلب حقيقة عشوائية.',
+                            'doc.usage.advanced_commands': '<strong>الأوامر المتقدمة</strong>: استخدم أوامر محددة لمهام التعلم الآلي أو الاستفسارات القائمة على واجهات برمجة التطبيقات:',
+                            'doc.usage.ml_tasks': '<strong>مهام التعلم الآلي</strong>: ارفع مجموعة بيانات (CSV، XLSX، JSON) واختر مهمة (تصنيف، انحدار، تجميع) لتلقي نتائج النماذج والتصورات.',
+                            'doc.examples.title': 'أمثلة',
+                            'doc.examples.description': 'جرب هذه الاستفسارات النموذجية لاستكشاف قدرات روبوت الدردشة:',
+                            'doc.examples.admission_fr': 'ما هي معايير القبول؟',
+                            'doc.examples.admission_fr_result': '→ يعيد متطلبات القبول لـ ISET صفاقس بالفرنسية.',
+                            'doc.examples.programs_en': 'ما هي البرامج المقدمة في ISET صفاقس؟',
+                            'doc.examples.programs_en_result': '→ يسرد البرامج الأكاديمية المتاحة مع الروابط.',
+                            'doc.examples.joke': 'أخبرني بنكتة',
+                            'doc.examples.joke_result': '→ يجلب نكتة عشوائية من JokeAPI.',
+                            'doc.examples.recipe': 'أرني وصفة',
+                            'doc.examples.recipe_result': '→ يوفر وصفة وجبة عشوائية مع التعليمات.',
+                            'doc.examples.classification': '/task classification --file dataset.csv',
+                            'doc.examples.classification_result': '→ يشغل نماذج التصنيف ويولد تقريرًا.',
+                            'doc.examples.calendar_fr': 'أين يمكنني العثور على التقويم الأكاديمي؟',
+                            'doc.examples.calendar_fr_result': '→ يوفر رابطًا لصفحة التقويم الأكاديمي.',
+                            'doc.examples.cat_image': 'صورة قطة',
+                            'doc.examples.cat_image_result': '→ يعيد رابط URL لصورة قطة عشوائية.',
+                            'doc.examples.highlight': 'للحصول على قائمة كاملة بالاستفسارات المدعومة، اكتب <code>help</code> أو <code>مساعدة</code> في واجهة الدردشة.',
+                            'doc.technical.title': 'التفاصيل التقنية',
+                            'doc.technical.description': 'تم بناء روبوت الدردشة باستخدام Flask، وهو إطار عمل ويب Python، مع المكونات الرئيسية التالية:',
+                            'doc.technical.backend': '<strong>الخلفية</strong>: Flask مع Flask-Login للمصادقة وFlask-CORS للطلبات عبر المصادر.',
+                            'doc.technical.database': '<strong>قاعدة البيانات</strong>: SQLite لإدارة المستخدمين (users.db).',
+                            'doc.technical.nlp': '<strong>معالجة اللغة الطبيعية</strong>: يستخدم TfidfVectorizer وتشابه الجيب لمطابقة الاستفسارات مع قاعدة المعرفة.',
+                            'doc.technical.ml': '<strong>التعلم الآلي</strong>: Scikit-learn للتصنيف (LogisticRegression، RandomForestClassifier، إلخ)، الانحدار، والتجميع (KMeans، DBSCAN).',
+                            'doc.technical.visualization': '<strong>التصور</strong>: Matplotlib لتوليد مصفوفات الارتباك، مخططات PCA، ومخططات الانحدار.',
+                            'doc.technical.apis': '<strong>واجهات برمجة التطبيقات الخارجية</strong>: يتكامل مع ويكيبيديا، DuckDuckGo، وواجهات برمجة التطبيقات للنكات، الحقائق، الاقتباسات، الوجبات، الكوكتيلات، وأكثر.',
+                            'doc.technical.file_handling': '<strong>معالجة الملفات</strong>: يدعم رفع مجموعات البيانات بصيغ CSV، XLSX، وJSON، المخزنة في مجلد static/Uploads.',
+                            'doc.technical.knowledge_base': '<strong>قاعدة المعرفة</strong>: ملف JSON (knowledge-base.json) يحتوي على أكثر من 70 إدخالًا تغطي برامج ISET صفاقس، السياسات، والخدمات.',
+                            'doc.technical.architecture': '<strong>الهندسة</strong>: يحدد ملف app.py المسارات لتسجيل الدخول، التسجيل، لوحة التحكم، الدردشة، وواجهات التعلم الآلي. يستخدم Blueprint (main) للتوجيه المعياري ويتعامل مع الطلبات مع تسجيل الأخطاء.',
+                            'doc.technical.deployment': '<strong>النشر</strong>: يعمل على المنفذ 5000 في وضع التصحيح للتطوير. للإنتاج، استخدم خادم WSGI مثل Gunicorn.',
+                            'doc.technical.security': '<strong>الأمان</strong>: يتم تشفير كلمات المرور باستخدام generate_password_hash من Werkzeug، وتتم إدارة جلسات المستخدم بشكل آمن.',
+                            'doc.technical.contact': 'للحصول على تعليمات إعداد مفصلة، اتصل بفريق تكنولوجيا المعلومات في ISET صفاقس على it.support@isetsf.rnu.tn.',
+                            'footer.institute': 'ISET صفاقس',
+                            'footer.tagline': 'تمكين الابتكار من خلال الذكاء الاصطناعي',
+                            'footer.copyright': '© 2025 ISET صفاقس. جميع الحقوق محفوظة.',
+                            'language.changeSuccess': 'تم تغيير اللغة بنجاح!',
+                            'language.changeError': 'خطأ أثناء تغيير اللغة. يرجى المحاولة مرة أخرى.',
+                            'error.fallback': 'حدث خطأ. يرجى تحديث الصفحة.'
+                        }
+                    }
+                }
+            }, () => {
+                updateLanguage(i18next.language);
+            });
+
+            // Function to display toast notifications
+            function showToast(message, isError = false) {
+                const toast = document.createElement('div');
+                toast.className = `toast ${isError ? 'error' : ''}`;
+                toast.textContent = message;
+                document.body.appendChild(toast);
+                setTimeout(() => toast.classList.add('show'), 100);
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                    setTimeout(() => toast.remove(), 300);
+                }, 3000);
+            }
+
+            // Function to set a cookie
+            function setCookie(name, value, days) {
+                const date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                document.cookie = `${name}=${value};expires=${date.toUTCString()};path=/`;
+            }
+
+            // Function to get a cookie
+            function getCookie(name) {
+                const value = `; ${document.cookie}`;
+                const parts = value.split(`; ${name}=`);
+                return parts.length === 2 ? parts.pop().split(';').shift() : null;
+            }
+
+            // Function to update language
+            async function updateLanguage(lang) {
+                try {
+                    document.body.classList.add('fade');
+                    await new Promise(resolve => setTimeout(resolve, 300));
+                    i18next.changeLanguage(lang, () => {
+                        document.documentElement.setAttribute('lang', lang);
+                        document.querySelectorAll('[data-i18n]').forEach(element => {
+                            element.innerHTML = i18next.t(element.getAttribute('data-i18n'));
+                        });
+                        document.querySelectorAll('.language-btn').forEach(btn => {
+                            btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+                        });
+                        setCookie('language', lang, 30);
+                        fetch('/save_language', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ language: lang })
+                        }).catch(error => console.error('Error saving language:', error));
+                        document.body.classList.remove('fade');
+                        showToast(i18next.t('language.changeSuccess'));
+                    });
+                } catch (error) {
+                    console.error('Error updating language:', error);
+                    showToast(i18next.t('language.changeError'), true);
+                    renderErrorBoundary();
+                }
+            }
+
+            // Function to render error boundary
+            function renderErrorBoundary() {
+                const mainContent = document.querySelector('.main');
+                mainContent.innerHTML = `
+                    <div class="error-boundary">
+                        <h2>${i18next.t('error.fallback')}</h2>
+                        <button class="btn btn-primary" onclick="location.reload()">Refresh</button>
+                    </div>
+                `;
+            }
+
+            // Load saved language or default to English
+            const savedLanguage = getCookie('language') || 'en';
+            updateLanguage(savedLanguage);
+
+            // Language switcher event listeners
+            const languageButtons = document.querySelectorAll('.language-btn');
+            languageButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const lang = button.getAttribute('data-lang');
+                    if (lang !== i18next.language) {
+                        updateLanguage(lang);
+                    }
+                });
+            });
+
+            // Initialize theme switcher
+            initThemeSwitcher();
+        });
+    </script>
+</body>
+</html>

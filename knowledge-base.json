@@ -1,0 +1,953 @@
+[
+    {
+        "question": {
+            "en": "What are the admission requirements?",
+            "fr": "Quels sont les critères d'admission ?",
+            "ar": "ما هي متطلبات القبول؟"
+        },
+        "answer": {
+            "en": "To join ISET Sfax, you must have completed high school with a recognized diploma (e.g., Tunisian Baccalaureate or equivalent) and submit a complete application file, including transcripts, a copy of your ID, and a recent photo, via the ISET online portal. Specific programs may require minimum grades or entrance exams. Visit our programs page for detailed eligibility criteria.",
+            "fr": "Pour rejoindre l'ISET Sfax, vous devez avoir terminé vos études secondaires avec un diplôme reconnu (par exemple, le baccalauréat tunisien ou équivalent) et soumettre un dossier complet, incluant relevés de notes, une copie de votre carte d'identité et une photo récente, via le portail en ligne de l'ISET. Certains programmes peuvent exiger des notes minimales ou des examens d'entrée. Visitez notre page de formations pour les critères d'éligibilité détaillés.",
+            "ar": "للالتحاق بـ المعاهد العليا للدراسات التكنولوجية صفاقس، يجب أن تكون قد أكملت الدراسة الثانوية بشهادة معترف بها (مثل البكالوريا التونسية أو ما يعادلها) وتقديم ملف طلب كامل، يتضمن كشوف الدرجات، نسخة من بطاقة هويتك، وصورة حديثة، عبر بوابة ISET الإلكترونية. قد تتطلب بعض البرامج درجات دنيا أو امتحانات قبول. زر صفحة برامجنا لمعايير الأهلية التفصيلية."
+        },
+        "intent": "admission",
+        "page_link": "https://isetsf.rnu.tn/fr/formations-top"
+    },
+    {
+        "question": {
+            "en": "How do I register for courses?",
+            "fr": "Comment m'inscrire aux cours ?",
+            "ar": "كيف يمكنني التسجيل في الدورات؟"
+        },
+        "answer": {
+            "en": "Course registration is straightforward! Log in to the ISET student portal with your credentials, select your courses from the available list, and confirm your choices before the deadline, typically one month before the semester starts. Ensure you've met any prerequisites and paid your tuition fees. For guidance, check the registration page or contact registrar@isetsf.rnu.tn.",
+            "fr": "L'inscription aux cours est simple ! Connectez-vous au portail étudiant ISET avec vos identifiants, sélectionnez vos cours dans la liste disponible et confirmez vos choix avant la date limite, généralement un mois avant le début du semestre. Assurez-vous d'avoir satisfait aux prérequis et réglé vos frais de scolarité. Pour plus d'informations, consultez la page d'inscription ou contactez registrar@isetsf.rnu.tn.",
+            "ar": "التسجيل في الدورات بسيط! سجل الدخول إلى بوابة الطلاب المعاهد العليا للدراسات التكنولوجية باستخدام بياناتك، اختر دوراتك من القائمة المتاحة، وأكد اختياراتك قبل الموعد النهائي، عادةً قبل شهر من بدء الفصل الدراسي. تأكد من استيفاء المتطلبات المسبقة ودفع الرسوم الدراسية. للحصول على الإرشاد، تحقق من صفحة التسجيل أو تواصل مع registrar@isetsf.rnu.tn."
+        },
+        "intent": "registration",
+        "page_link": "https://isetsf.rnu.tn/fr/registration"
+    },
+    {
+        "question": {
+            "en": "Where can I find the academic calendar?",
+            "fr": "Où puis-je trouver le calendrier académique ?",
+            "ar": "أين يمكنني العثور على التقويم الأكاديمي؟"
+        },
+        "answer": {
+            "en": "The academic calendar, outlining key dates like registration periods, exam sessions, and holidays, is accessible in the 'Student Zone' on our website. For example, the 2025-2026 semester typically starts in September and ends in June, with exams in January and June. Download the calendar for precise dates.",
+            "fr": "Le calendrier académique, qui détaille les dates clés telles que les périodes d'inscription, les sessions d'examens et les jours fériés, est accessible dans la 'Zone étudiant' sur notre site. Par exemple, le semestre 2025-2026 commence généralement en septembre et se termine en juin, avec des examens en janvier et juin. Téléchargez le calendrier pour les dates précises.",
+            "ar": "التقويم الأكاديمي، الذي يوضح التواريخ الرئيسية مثل فترات التسجيل، جلسات الامتحانات، والعطلات، متاح في 'منطقة الطلاب' على موقعنا الإلكتروني. على سبيل المثال، يبدأ الفصل الدراسي 2025-2026 عادةً في سبتمبر وينتهي في يونيو، مع امتحانات في يناير ويونيو. قم بتنزيل التقويم للحصول على التواريخ الدقيقة."
+        },
+        "intent": "calendar",
+        "page_link": "https://isetsf.rnu.tn/fr/calendar"
+    },
+    {
+        "question": {
+            "en": "What is the academic contact information?",
+            "fr": "Quelles sont les coordonnées académiques ?",
+            "ar": "ما هي معلومات الاتصال الأكاديمية؟"
+        },
+        "answer": {
+            "en": "For academic inquiries, reach out to our administrative team at contact@isetsf.rnu.tn or call +216 74 241 388. Our office is open Monday to Friday, 8 AM to 4 PM. Visit the 'Contact Us' page for more details or to submit an inquiry form.",
+            "fr": "Pour toute question académique, contactez notre équipe administrative à contact@isetsf.rnu.tn ou appelez le +216 74 241 388. Notre bureau est ouvert du lundi au vendredi, de 8h à 16h. Visitez la page 'Contactez-nous' pour plus de détails ou pour soumettre un formulaire de demande.",
+            "ar": "للاستفسارات الأكاديمية، تواصل مع فريقنا الإداري عبر contact@isetsf.rnu.tn أو اتصل على +216 74 241 388. مكتبنا مفتوح من الإثنين إلى الجمعة، من 8 صباحًا إلى 4 مساءً. زر صفحة 'اتصل بنا' لمزيد من التفاصيل أو لتقديم نموذج استفسار."
+        },
+        "intent": "contact",
+        "page_link": "https://isetsf.rnu.tn/fr/contactez-nous"
+    },
+    {
+        "question": {
+            "en": "What events or news are happening at ISET?",
+            "fr": "Quelles sont les actualités ou manifestations à l'ISET ?",
+            "ar": "ما هي الأحداث أو الأخبار التي تحدث في المعاهد العليا للدراسات التكنولوجية؟"
+        },
+        "answer": {
+            "en": "Stay informed about ISET Sfax's latest events, such as academic conferences, career fairs, and student festivals, by visiting our 'News and Events' page. Recent highlights include the 2025 Tech Innovation Summit and annual student gala. Subscribe to our newsletter for updates!",
+            "fr": "Restez informé des derniers événements de l'ISET Sfax, tels que les conférences académiques, les salons de l'emploi et les festivals étudiants, en visitant notre page 'Actualités et Manifestations'. Parmi les temps forts récents, citons le Sommet de l'Innovation Technologique 2025 et le gala annuel des étudiants. Abonnez-vous à notre newsletter pour les mises à jour !",
+            "ar": "ابقَ على اطلاع بأحدث الأحداث في المعاهد العليا للدراسات التكنولوجية صفاقس، مثل المؤتمرات الأكاديمية، معارض التوظيف، والمهرجانات الطلابية، من خلال زيارة صفحة 'الأخبار والأحداث'. تشمل النقاط البارزة الأخيرة قمة الابتكار التكنولوجي 2025 والحفل السنوي للطلاب. اشترك في نشرتنا الإخبارية للحصول على التحديثات!"
+        },
+        "intent": "actualites",
+        "page_link": "https://isetsf.rnu.tn/fr/actualites/manifestations"
+    },
+    {
+        "question": {
+            "en": "What programs are offered at ISET Sfax?",
+            "fr": "Quels programmes sont proposés à l'ISET Sfax ?",
+            "ar": "ما هي البرامج التي يقدمها المعاهد العليا للدراسات التكنولوجية صفاقس؟"
+        },
+        "answer": {
+            "en": "ISET Sfax offers diverse programs, including National Licenses in Computer Technology, Civil Engineering, and Economics, as well as Professional Master's degrees in fields like Cloud Computing and Supply Chain Management. All programs are accredited and designed for industry relevance. Explore our programs page for details.",
+            "fr": "L'ISET Sfax propose une gamme variée de programmes, incluant des Licences Nationales en Technologie de l'Informatique, Génie Civil et économie, ainsi que des Mastères Professionnels dans des domaines comme l'Informatique en Nuage et la Gestion de la Chaîne d'Approvisionnement. Tous les programmes sont accrédités et conçus pour répondre aux besoins de l'industrie. Explorez notre page de formations pour plus de détails.",
+            "ar": "يقدم المعاهد العليا للدراسات التكنولوجية صفاقس برامج متنوعة، تشمل الليسانس الوطنية في تكنولوجيا الحاسوب، الهندسة المدنية، والاقتصاد، بالإضافة إلى الماجستير المهني في مجالات مثل الحوسبة السحابية وإدارة سلسلة التوريد. جميع البرامج معتمدة ومصممة لتلبية احتياجات الصناعة. استكشف صفحة برامجنا للحصول على التفاصيل."
+        },
+        "intent": "programs",
+        "page_link": "https://isetsf.rnu.tn/fr/formations-top"
+    },
+    {
+        "question": {
+            "en": "Where can I find archived news?",
+            "fr": "Où puis-je trouver les actualités archivées ?",
+            "ar": "أين يمكنني العثور على الأخبار المؤرشفة؟"
+        },
+        "answer": {
+            "en": "Browse our 'News Archives' page for past announcements, such as previous academic events, partnership agreements, or student achievements. Archives date back to 2020 and are searchable by year or category.",
+            "fr": "Parcourez notre page 'Archives des annonces' pour consulter les annonces passées, telles que les événements académiques, les accords de partenariat ou les réussites étudiantes. Les archives remontent à 2020 et sont consultables par année ou catégorie.",
+            "ar": "تصفح صفحة 'أرشيف الأخبار' للإعلانات السابقة، مثل الأحداث الأكاديمية السابقة، اتفاقيات الشراكة، أو إنجازات الطلاب. يعود الأرشيف إلى عام 2020 ويمكن البحث فيه حسب السنة أو الفئة."
+        },
+        "intent": "archives",
+        "page_link": "https://isetsf.rnu.tn/fr/actualites/archives-des-annonces"
+    },
+    {
+        "question": {
+            "en": "How can I view tenders and consultations?",
+            "fr": "Comment consulter les appels d'offres et consultations ?",
+            "ar": "كيف يمكنني الاطلاع على المناقصات والاستشارات؟"
+        },
+        "answer": {
+            "en": "Our 'Tenders and Consultations' page lists current opportunities for businesses and researchers to collaborate with ISET Sfax. Recent tenders include IT infrastructure upgrades and research partnerships. Check the page regularly for deadlines and application details.",
+            "fr": "Notre page 'Appels d'offres et consultations' répertorie les opportunités actuelles pour les entreprises et chercheurs souhaitant collaborer avec l'ISET Sfax. Les appels récents incluent des mises à niveau des infrastructures informatiques et des partenariats de recherche. Consultez la page régulièrement pour les dates limites et les détails de candidature.",
+            "ar": "صفحة 'المناقصات والاستشارات' لدينا تسرد الفرص الحالية للشركات والباحثين للتعاون مع المعاهد العليا للدراسات التكنولوجية صفاقس. تشمل المناقصات الأخيرة تحديثات البنية التحتية لتكنولوجيا المعلومات وشراكات البحث. تحقق من الصفحة بانتظام لمعرفة المواعيد النهائية وتفاصيل التقديم."
+        },
+        "intent": "tenders",
+        "page_link": "https://isetsf.rnu.tn/fr/actualites/appels-doffres-et-consultations"
+    },
+    {
+        "question": {
+            "en": "What training programs are available at ISET Sfax?",
+            "fr": "Quels programmes de formation sont disponibles à l'ISET Sfax ?",
+            "ar": "ما هي برامج التدريب المتاحة في المعاهد العليا للدراسات التكنولوجية صفاقس؟"
+        },
+        "answer": {
+            "en": "ISET Sfax offers undergraduate and graduate programs, as well as continuing education and certifications in fields like IT, engineering, and management. Highlights include our Microsoft and SolidWorks certifications. Visit our training page for a full list and application details.",
+            "fr": "L'ISET Sfax propose des programmes de premier et deuxième cycle, ainsi que des formations continues et des certifications dans des domaines comme l'informatique, l'ingénierie et la gestion. Parmi les points forts, citons nos certifications Microsoft et SolidWorks. Visitez notre page de formations pour une liste complète et les détails de candidature.",
+            "ar": "يقدم المعاهد العليا للدراسات التكنولوجية صفاقس برامج البكالوريوس والدراسات العليا، بالإضافة إلى التعليم المستمر والشهادات في مجالات مثل تكنولوجيا المعلومات، الهندسة، والإدارة. تشمل النقاط البارزة شهادات Microsoft وSolidWorks. زر صفحة التدريب لدينا للحصول على القائمة الكاملة وتفاصيل التقديم."
+        },
+        "intent": "training",
+        "page_link": "https://isetsf.rnu.tn/fr/actualites/decouvrez-les-formations-assurees-par-l-iset-de-sfax-doffres-et-consultations"
+    },
+    {
+        "question": {
+            "en": "Who are ISET's academic partners?",
+            "fr": "Qui sont les partenaires académiques de l'ISET ?",
+            "ar": "من هم الشركاء الأكاديميون لـلمعاهد العليا للدراسات التكنولوجية؟"
+        },
+        "answer": {
+            "en": "ISET Sfax collaborates with global institutions like the University of Tunis and international universities in France and Germany, fostering exchange programs and joint research. Learn more about our academic partnerships on our dedicated page.",
+            "fr": "L'ISET Sfax collabore avec des institutions mondiales comme l'Université de Tunis et des universités internationales en France et en Allemagne, favorisant les programmes d'échange et la recherche conjointe. Découvrez nos partenariats académiques sur notre page dédiée.",
+            "ar": "يتعاون المعاهد العليا للدراسات التكنولوجية صفاقس مع مؤسسات عالمية مثل جامعة تونس والجامعات الدولية في فرنسا وألمانيا، مما يعزز برامج التبادل والبحث المشترك. تعرف على المزيد حول شراكاتنا الأكاديمية على صفحتنا المخصصة."
+        },
+        "intent": "academic_partners",
+        "page_link": "https://isetsf.rnu.tn/fr/actualites/partenaires-academiques"
+    },
+    {
+        "question": {
+            "en": "Who are ISET's professional partners?",
+            "fr": "Qui sont les partenaires professionnels de l'ISET ?",
+            "ar": "من هم الشركاء المهنيون لـلمعاهد العليا للدراسات التكنولوجية؟"
+        },
+        "answer": {
+            "en": "Our professional partners include leading companies like Tunisie Telecom and Sfax-based tech firms, offering internships and job placements. Explore our network of industry partners on our website for collaboration opportunities.",
+            "fr": "Nos partenaires professionnels incluent des entreprises de premier plan comme Tunisie Telecom et des entreprises technologiques basées à Sfax, offrant des stages et des placements professionnels. Découvrez notre réseau de partenaires industriels sur notre site pour des opportunités de collaboration.",
+            "ar": "يضم شركاؤنا المهنيون شركات رائدة مثل تونس تيليكوم وشركات تكنولوجية مقرها صفاقس، تقدم تدريبات وعروض عمل. استكشف شبكة شركائنا الصناعيين على موقعنا الإلكتروني للحصول على فرص التعاون."
+        },
+        "intent": "professional_partners",
+        "page_link": "https://isetsf.rnu.tn/fr/actualites/partenaires-professionnels"
+    },
+    {
+        "question": {
+            "en": "What is the structure of ISET's training programs?",
+            "fr": "Quelle est la structure des programmes de formation de l'ISET ?",
+            "ar": "ما هي هيكلية برامج التدريب في المعاهد العليا للدراسات التكنولوجية؟"
+        },
+        "answer": {
+            "en": "Our training programs are organized into National Licenses (3 years) and Professional Master's degrees (2 years), with specializations in economics, engineering, and IT. The organigram on our website details the curriculum and pathways for each program.",
+            "fr": "Nos programmes de formation sont organisés en Licences Nationales (3 ans) et Mastères Professionnels (2 ans), avec des spécialisations en économie, ingénierie et informatique. L'organigramme sur notre site détaille le curriculum et les parcours pour chaque programme.",
+            "ar": "تُنظم برامجنا التدريبية في ليسانس وطنية (3 سنوات) وماجستير مهني (سنتان)، مع تخصصات في الاقتصاد، الهندسة، وتكنولوجيا المعلومات. يوضح الهيكل التنظيمي على موقعنا الإلكتروني المنهج والمسارات لكل برنامج."
+        },
+        "intent": "training_structure",
+        "page_link": "https://isetsf.rnu.tn/fr/formation/organigramme-de-formation"
+    },
+    {
+        "question": {
+            "en": "What is the National License in Accounting and Finance?",
+            "fr": "Qu'est-ce que la Licence Nationale en Comptabilité et Finances ?",
+            "ar": "ما هي الليسانس الوطنية في المحاسبة والمالية؟"
+        },
+        "answer": {
+            "en": "This 3-year program trains students in financial reporting, auditing, and budgeting, with courses like Financial Accounting and Corporate Finance. Graduates are prepared for roles in banking and corporate finance. Visit our website for admission details.",
+            "fr": "Ce programme de 3 ans forme les étudiants à la comptabilité financière, l'audit et la budgétisation, avec des cours comme la Comptabilité Financière et la Finance d'Entreprise. Les diplômés sont préparés pour des rôles dans la banque et la finance d'entreprise. Visitez notre site pour les détails d'admission.",
+            "ar": "هذا البرنامج لمدة 3 سنوات يدرب الطلاب على التقارير المالية، التدقيق، والموازنة، مع دورات مثل المحاسبة المالية والمالية الشركات. الخريجون مستعدون لأدوار في البنوك والمالية الشركات. زر موقعنا الإلكتروني لتفاصيل القبول."
+        },
+        "intent": "accounting_finance",
+        "page_link": "https://isetsf.rnu.tn/fr/formation/licence-nationale/sciences-economiques-et-de-gestion/comptabilite-finances"
+    },
+    {
+        "question": {
+            "en": "What is the National License in Management?",
+            "fr": "Qu'est-ce que la Licence Nationale en Management ?",
+            "ar": "ما هي الليسانس الوطنية في الإدارة؟"
+        },
+        "answer": {
+            "en": "The National License in Management develops skills in leadership, marketing, and operations. The 3-year curriculum includes Strategic Management and Organizational Behavior, preparing students for managerial roles. Learn more on our program page.",
+            "fr": "La Licence Nationale en Management développe des compétences en leadership, marketing et opérations. Le curriculum de 3 ans inclut la Gestion Stratégique et le Comportement Organisationnel, préparant les étudiants à des rôles de gestion. En savoir plus sur notre page de programme.",
+            "ar": "الليسانس الوطنية في الإدارة تطور مهارات القيادة، التسويق، والعمليات. المنهج لمدة 3 سنوات يشمل الإدارة الاستراتيجية والسلوك التنظيمي، مما يُعد الطلاب لأدوار إدارية. تعرف على المزيد على صفحة برنامجنا."
+        },
+        "intent": "management",
+        "page_link": "https://isetsf.rnu.tn/fr/formation/licence-nationale/sciences-economiques-et-de-gestion/management"
+    },
+    {
+        "question": {
+            "en": "What is the National License in Commerce and Distribution?",
+            "fr": "Qu'est-ce que la Licence Nationale en Commerce et Distribution ?",
+            "ar": "ما هي الليسانس الوطنية في التجارة والتوزيع؟"
+        },
+        "answer": {
+            "en": "This program focuses on marketing, logistics, and retail management over 3 years, with courses like Supply Chain Management and Consumer Behavior. Graduates excel in sales and distribution roles. Explore the details online.",
+            "fr": "Ce programme se concentre sur le marketing, la logistique et la gestion du commerce de détail sur 3 ans, avec des cours comme la Gestion de la Chaîne d'Approvisionnement et le Comportement des Consommateurs. Les diplômés excellent dans les rôles de vente et de distribution. Découvrez les détails en ligne.",
+            "ar": "يركز هذا البرنامج على التسويق، اللوجستيات، وإدارة التجزئة على مدى 3 سنوات، مع دورات مثل إدارة سلسلة التوريد وسلوك المستهلك. يتفوق الخريجون في أدوار المبيعات والتوزيع. استكشف التفاصيل عبر الإنترنت."
+        },
+        "intent": "commerce_distribution",
+        "page_link": "https://isetsf.rnu.tn/fr/formation/licence-nationale/sciences-economiques-et-de-gestion/commerce-distribution"
+    },
+    {
+        "question": {
+            "en": "What is the National License in Computer Technology?",
+            "fr": "Qu'est-ce que la Licence Nationale en Technologie de l'Informatique ?",
+            "ar": "ما هي الليسانس الوطنية في تكنولوجيا الحاسوب؟"
+        },
+        "answer": {
+            "en": "This 3-year program covers programming, networking, and database management, with courses like Java Programming and Network Security. Graduates are ready for IT careers. Check the curriculum on our website.",
+            "fr": "Ce programme de 3 ans couvre la programmation, les réseaux et la gestion de bases de données, avec des cours comme la Programmation Java et la Sécurité des Réseaux. Les diplômés sont prêts pour des carrières en informatique. Consultez le curriculum sur notre site.",
+            "ar": "يغطي هذا البرنامج لمدة 3 سنوات البرمجة، الشبكات، وإدارة قواعد البيانات، مع دورات مثل برمجة Java وأمن الشبكات. الخريجون مستعدون لمهن تكنولوجيا المعلومات. تحقق من المنهج على موقعنا الإلكتروني."
+        },
+        "intent": "computer_technology",
+        "page_link": "https://isetsf.rnu.tn/fr/formation/licence-nationale/technologie-de-linformatique"
+    },
+    {
+        "question": {
+            "en": "What is the National License in Process Engineering?",
+            "fr": "Qu'est-ce que la Licence Nationale en Génie des Procédés ?",
+            "ar": "ما هي الليسانس الوطنية في هندسة العمليات؟"
+        },
+        "answer": {
+            "en": "The 3-year National License in Process Engineering teaches industrial process design and optimization, with courses like Thermodynamics and Process Simulation. Graduates work in manufacturing and energy sectors. Learn more online.",
+            "fr": "La Licence Nationale en Génie des Procédés, d'une durée de 3 ans, enseigne la conception et l'optimisation des processus industriels, avec des cours comme la Thermodynamique et la Simulation de Processus. Les diplômés travaillent dans les secteurs de la fabrication et de l'énergie. En savoir plus en ligne.",
+            "ar": "الليسانس الوطنية في هندسة العمليات لمدة 3 سنوات تعلم تصميم وتحسين العمليات الصناعية، مع دورات مثل الديناميكا الحرارية ومحاكاة العمليات. يعمل الخريجون في قطاعات التصنيع والطاقة. تعرف على المزيد عبر الإنترنت."
+        },
+        "intent": "process_engineering",
+        "page_link": "https://isetsf.rnu.tn/fr/formation/licence-nationale/genie-des-procedes"
+    },
+    {
+        "question": {
+            "en": "What is the National License in Civil Engineering?",
+            "fr": "Qu'est-ce que la Licence Nationale en Génie Civil ?",
+            "ar": "ما هي الليسانس الوطنية في الهندسة المدنية؟"
+        },
+        "answer": {
+            "en": "This 3-year program trains students in structural design and construction management, with courses like Structural Analysis and Project Management. Graduates pursue careers in infrastructure development. Visit our page for details.",
+            "fr": "Ce programme de 3 ans forme les étudiants à la conception structurelle et à la gestion de la construction, avec des cours comme l'Analyse Structurelle et la Gestion de Projets. Les diplômés poursuivent des carrières dans le développement des infrastructures. Visitez notre page pour plus de détails.",
+            "ar": "يدرب هذا البرنامج لمدة 3 سنوات الطلاب على التصميم الهيكلي وإدارة البناء، مع دورات مثل تحليل الهياكل وإدارة المشاريع. يسعى الخريجون إلى مهن في تطوير البنية التحتية. زر صفحتنا للحصول على التفاصيل."
+        },
+        "intent": "civil_engineering",
+        "page_link": "https://isetsf.rnu.tn/fr/formation/licence-nationale/genie-civil"
+    },
+    {
+        "question": {
+            "en": "What is the Professional Master's in System Administration, Security, and Cloud Computing?",
+            "fr": "Qu'est-ce que le Mastère Professionnel en Administration des Systèmes, Sécurité et Cloud Computing ?",
+            "ar": "ما هو الماجستير المهني في إدارة النظام، الأمن، والحوسبة السحابية؟"
+        },
+        "answer": {
+            "en": "This 2-year Master's program focuses on cloud infrastructure, cybersecurity, and system administration, with courses like Cloud Architecture and Ethical Hacking. It's ideal for IT professionals. Discover the curriculum online.",
+            "fr": "Ce programme de Mastère de 2 ans se concentre sur l'infrastructure cloud, la cybersécurité et l'administration des systèmes, avec des cours comme l'Architecture Cloud et le Hacking éthique. Il est idéal pour les professionnels de l'informatique. Découvrez le curriculum en ligne.",
+            "ar": "يركز برنامج الماجستير لمدة سنتين على البنية التحتية السحابية، الأمن السيبراني، وإدارة النظام، مع دورات مثل هندسة السحابة والقرصنة الأخلاقية. إنه مثالي لمحترفي تكنولوجيا المعلومات. اكتشف المنهج عبر الإنترنت."
+        },
+        "intent": "system_administration",
+        "page_link": "https://isetsf.rnu.tn/fr/formation/mastere-professionnel/administration-des-systemes-securite-et-cloud-computing-asscc"
+    },
+    {
+        "question": {
+            "en": "What is the Professional Master's in Software and Network Systems Development?",
+            "fr": "Qu'est-ce que le Mastère Professionnel en Développement des Systèmes Informatiques et Réseaux ?",
+            "ar": "ما هو الماجستير المهني في تطوير أنظمة الحاسوب والشبكات؟"
+        },
+        "answer": {
+            "en": "This 2-year program trains experts in software development and network management, with courses like Advanced Programming and Network Protocols. Graduates work as developers or network engineers. Learn more on our website.",
+            "fr": "Ce programme de 2 ans forme des experts en développement logiciel et gestion de réseaux, avec des cours comme la Programmation Avancée et les Protocoles de Réseaux. Les diplômés travaillent comme développeurs ou ingénieurs réseaux. En savoir plus sur notre site.",
+            "ar": "يدرب هذا البرنامج لمدة سنتين خبراء في تطوير البرمجيات وإدارة الشبكات، مع دورات مثل البرمجة المتقدمة وبروتوكولات الشبكة. يعمل الخريجون كمطورين أو مهندسي شبكات. تعرف على المزيد على موقعنا الإلكتروني."
+        },
+        "intent": "software_networks",
+        "page_link": "https://isetsf.rnu.tn/fr/formation/mastere-professionnel/developpement-des-systemes-informatiques-et-reseaux-dsir"
+    },
+    {
+        "question": {
+            "en": "What is the Professional Master's in Industrial Process Instrumentation?",
+            "fr": "Qu'est-ce que le Mastère Professionnel en Instrumentation des Processus et Procédés Industriels ?",
+            "ar": "ما هو الماجستير المهني في أجهزة العمليات والعمليات الصناعية؟"
+        },
+        "answer": {
+            "en": "This 2-year Master's focuses on automation, control systems, and industrial instrumentation, with courses like Process Control and Sensor Technology. Graduates work in manufacturing and automation. Visit our page for details.",
+            "fr": "Ce Mastère de 2 ans se concentre sur l'automatisation, les systèmes de contrôle et l'instrumentation industrielle, avec des cours comme le Contrôle des Processus et la Technologie des Capteurs. Les diplômés travaillent dans la fabrication et l'automatisation. Visitez notre page pour plus de détails.",
+            "ar": "يركز هذا الماجستير لمدة سنتين على الأتمتة، أنظمة التحكم، والأجهزة الصناعية، مع دورات مثل التحكم في العمليات وتكنولوجيا الحساسات. يعمل الخريجون في التصنيع والأتمتة. زر صفحتنا للحصول على التفاصيل."
+        },
+        "intent": "industrial_instrumentation",
+        "page_link": "https://isetsf.rnu.tn/fr/formation/mastere-professionnel/instrumentation-des-processus-et-procedes-industriels-ippi"
+    },
+    {
+        "question": {
+            "en": "What is the Professional Master's in Innovation and Supply Chain Management?",
+            "fr": "Qu'est-ce que le Mastère Professionnel en Innovation et Gestion de la Chaîne d'Approvisionnement ?",
+            "ar": "ما هو الماجستير المهني في الابتكار وإدارة سلسلة التوريد؟"
+        },
+        "answer": {
+            "en": "This 2-year program develops expertise in logistics, procurement, and innovation, with courses like Supply Chain Optimization and Innovation Management. It's perfect for logistics professionals. Explore the program online.",
+            "fr": "Ce programme de 2 ans développe une expertise en logistique, approvisionnement et innovation, avec des cours comme l'Optimisation de la Chaîne d'Approvisionnement et la Gestion de l'Innovation. Il est parfait pour les professionnels de la logistique. Découvrez le programme en ligne.",
+            "ar": "يطور هذا البرنامج لمدة سنتين خبرة في اللوجستيات، الشراء، والابتكار، مع دورات مثل تحسين سلسلة التوريد وإدارة الابتكار. إنه مثالي لمحترفي اللوجستيات. استكشف البرنامج عبر الإنترنت."
+        },
+        "intent": "supply_chain",
+        "page_link": "https://isetsf.rnu.tn/fr/formation/mastere-professionnel/innovation-et-supply-chain-management-iscm"
+    },
+    {
+        "question": {
+            "en": "What is the Professional Master's in Integrated Quality, Safety, and Environmental Management?",
+            "fr": "Qu'est-ce que le Mastère Professionnel en Management Intégré Qualité, Sécurité, Santé au Travail et Environnement ?",
+            "ar": "ما هو الماجستير المهني في إدارة الجودة والسلامة والبيئة المتكاملة؟"
+        },
+        "answer": {
+            "en": "This 2-year Master's teaches integrated management systems for quality, safety, and sustainability, with courses like ISO Standards and Risk Management. Graduates work in compliance and safety roles. Learn more on our website.",
+            "fr": "Ce Mastère de 2 ans enseigne les systèmes de management intégré pour la qualité, la sécurité et la durabilité, avec des cours comme les Normes ISO et la Gestion des Risques. Les diplômés travaillent dans des rôles de conformité et de sécurité. En savoir plus sur notre site.",
+            "ar": "يُعلم هذا الماجستير لمدة سنتين أنظمة الإدارة المتكاملة للجودة، السلامة، والاستدامة، مع دورات مثل معايير ISO وإدارة المخاطر. يعمل الخريجون في أدوار الامتثال والسلامة. تعرف على المزيد على موقعنا الإلكتروني."
+        },
+        "intent": "integrated_management",
+        "page_link": "https://isetsf.rnu.tn/fr/formation/mastere-professionnel/management-integre-qualite-securite-sante-au-travail-et-environnement-miqsse"
+    },
+    {
+        "question": {
+            "en": "What is the distance learning National License in Computer Technology?",
+            "fr": "Qu'est-ce que la Licence Nationale en Technologie de l'Informatique à distance ?",
+            "ar": "ما هي الليسانس الوطنية في تكنولوجيا الحاسوب عن بُعد؟"
+        },
+        "answer": {
+            "en": "This 3-year distance learning program offers flexibility for IT students, covering programming and networking via online platforms. It's ideal for working professionals. Visit our page for enrollment details.",
+            "fr": "Ce programme de 3 ans en apprentissage à distance offre une flexibilité pour les étudiants en informatique, couvrant la programmation et les réseaux via des plateformes en ligne. Il est idéal pour les professionnels en activité. Visitez notre page pour les détails d'inscription.",
+            "ar": "يوفر هذا البرنامج لمدة 3 سنوات عن بُعد مرونة لطلاب تكنولوجيا المعلومات، يغطي البرمجة والشبكات عبر منصات عبر الإنترنت. إنه مثالي للمحترفين العاملين. زر صفحتنا لتفاصيل التسجيل."
+        },
+        "intent": "distance_it_license",
+        "page_link": "https://isetsf.rnu.tn/fr/formation/formation-continue-a-distance/licence-nationale/technologie-de-linformatique"
+    },
+    {
+        "question": {
+            "en": "What is the distance learning Professional Master's in Software and Network Systems Development?",
+            "fr": "Qu'est-ce que le Mastère Professionnel en Développement des Systèmes Informatiques et Réseaux à distance ?",
+            "ar": "ما هو الماجستير المهني في تطوير أنظمة الحاسوب والشبكات عن بُعد؟"
+        },
+        "answer": {
+            "en": "This 2-year distance Master's trains software and network experts through online courses, covering topics like Cloud Development and Network Security. Learn more online.",
+            "fr": "Ce Mastère de 2 ans à distance forme des experts en logiciels et réseaux via des cours en ligne, couvrant des sujets comme le Développement Cloud et la Sécurité des Réseaux. En savoir plus en ligne.",
+            "ar": "يدرب هذا الماجستير لمدة سنتين عن بُعد خبراء البرمجيات والشبكات من خلال دورات عبر الإنترنت، يغطي مواضيع مثل تطوير السحابة وأمن الشبكات. تعرف على المزيد عبر الإنترنت."
+        },
+        "intent": "distance_software_master",
+        "page_link": "https://isetsf.rnu.tn/fr/formation/formation-continue-a-distance/mastere-professionnel/developpement-des-systemes-informatiques-et-reseaux-dsir"
+    },
+    {
+        "question": {
+            "en": "What is the distance learning Professional Master's in Innovation and Supply Chain Management?",
+            "fr": "Qu'est-ce que le Mastère Professionnel en Innovation et Gestion de la Chaîne d'Approvisionnement à distance ?",
+            "ar": "ما هو الماجستير المهني في الابتكار وإدارة سلسلة التوريد عن بُعد؟"
+        },
+        "answer": {
+            "en": "This 2-year distance program focuses on logistics and innovation, with online courses like Supply Chain Analytics and Innovation Strategies. It's designed for remote learners. Check the details on our website.",
+            "fr": "Ce programme de 2 ans à distance se concentre sur la logistique et l'innovation, avec des cours en ligne comme l'Analyse de la Chaîne d'Approvisionnement et les Stratégies d'Innovation. Il est conçu pour les apprenants à distance. Consultez les détails sur notre site.",
+            "ar": "يركز هذا البرنامج لمدة سنتين عن بُعد على اللوجستيات والابتكار، مع دورات عبر الإنترنت مثل تحليلات سلسلة التوريد واستراتيجيات الابتكار. إنه مصمم للمتعلمين عن بُعد. تحقق من التفاصيل على موقعنا الإلكتروني."
+        },
+        "intent": "distance_supply_chain",
+        "page_link": "https://isetsf.rnu.tn/fr/formation/formation-continue-a-distance/mastere-professionnel/innovation-et-supply-chain-management-iscm"
+    },
+    {
+        "question": {
+            "en": "Who are the distinguished alumni of ISET?",
+            "fr": "Qui sont les lauréats distingués de l'ISET ?",
+            "ar": "من هم الخريجون المتميزون في المعاهد العليا للدراسات التكنولوجية؟"
+        },
+        "answer": {
+            "en": "Our alumni include leaders in tech, engineering, and business, such as award-winning engineers and startup founders. Visit our 'Distinguished Alumni' page to read their success stories and career paths.",
+            "fr": "Nos anciens élèves incluent des leaders en technologie, ingénierie et affaires, tels que des ingénieurs primés et des fondateurs de startups. Visitez notre page 'Lauréats' pour lire leurs histoires de succès et parcours professionnels.",
+            "ar": "يشمل خريجونا قادة في التكنولوجيا، الهندسة، والأعمال، مثل المهندسين الحائزين على جوائز ومؤسسي الشركات الناشئة. زر صفحة 'الخريجين المتميزين' لقراءة قصص نجاحهم ومساراتهم المهنية."
+        },
+        "intent": "alumni",
+        "page_link": "https://isetsf.rnu.tn/fr/formation/laureats"
+    },
+    {
+        "question": {
+            "en": "How do I apply for a Professional Master's program?",
+            "fr": "Comment postuler à un programme de Mastère Professionnel ?",
+            "ar": "كيف يمكنني التقديم لبرنامج الماجستير المهني؟"
+        },
+        "answer": {
+            "en": "Apply online via our portal by submitting your academic transcripts, a CV, and a motivation letter. Deadlines are typically in July for the fall semester. Check eligibility and steps on our Master's application page.",
+            "fr": "Postulez en ligne via notre portail en soumettant vos relevés de notes, un CV et une lettre de motivation. Les dates limites sont généralement en juillet pour le semestre d'automne. Vérifiez l'éligibilité et les étapes sur notre page de candidature au Mastère.",
+            "ar": "قدم طلبك عبر الإنترنت من خلال بوابتنا بتقديم كشوف درجاتك الأكاديمية، سيرة ذاتية، وخطاب تحفيز. المواعيد النهائية عادةً في يوليو للفصل الدراسي الخريفي. تحقق من الأهلية والخطوات على صفحة تقديم طلب الماجستير."
+        },
+        "intent": "master_application",
+        "page_link": "https://isetsf.rnu.tn/fr/formation/candidature-en-mastere-professionnel"
+    },
+    {
+        "question": {
+            "en": "What is ISET's quality management approach?",
+            "fr": "Quelle est l'approche de l'ISET en matière de management de la qualité ?",
+            "ar": "ما هي نهج المعاهد العليا للدراسات التكنولوجية في إدارة الجودة؟"
+        },
+        "answer": {
+            "en": "Our quality management approach follows ISO 9001 standards, ensuring excellence in teaching, research, and services. We conduct regular audits and student feedback surveys. Learn more on our 'Quality Approach' page.",
+            "fr": "Notre approche de management de la qualité suit les normes ISO 9001, garantissant l'excellence dans l'enseignement, la recherche et les services. Nous réalisons des audits réguliers et des enquêtes de satisfaction des étudiants. En savoir plus sur notre page 'Démarche Qualité'.",
+            "ar": "نهجنا في إدارة الجودة يتبع معايير ISO 9001، مما يضمن التميز في التعليم، البحث، والخدمات. نجري تدقيقات منتظمة واستطلاعات آراء الطلاب. تعرف على المزيد على صفحة 'نهج الجودة'."
+        },
+        "intent": "quality_management",
+        "page_link": "https://isetsf.rnu.tn/fr/management-qualite/demarche-qualite"
+    },
+    {
+        "question": {
+            "en": "What is ISET's quality policy?",
+            "fr": "Quelle est la politique qualité de l'ISET ?",
+            "ar": "ما هي سياسة الجودة في المعاهد العليا للدراسات التكنولوجية؟"
+        },
+        "answer": {
+            "en": "Our quality policy commits to continuous improvement, student satisfaction, and industry alignment. It's guided by our Quality Assurance Committee. Read the full policy on our website.",
+            "fr": "Notre politique qualité s'engage à l'amélioration continue, la satisfaction des étudiants et l'alignement avec l'industrie. Elle est guidée par notre Comité d'Assurance Qualité. Lisez la politique complète sur notre site.",
+            "ar": "تلتزم سياسة الجودة لدينا بالتحسين المستمر، رضا الطلاب، والتوافق مع الصناعة. يرشدها لجنة ضمان الجودة لدينا. اقرأ السياسة الكاملة على موقعنا الإلكتروني."
+        },
+        "intent": "quality_policy",
+        "page_link": "https://isetsf.rnu.tn/fr/management-qualite/politique-qualite"
+    },
+    {
+        "question": {
+            "en": "What is ISET's social responsibility approach?",
+            "fr": "Quelle est l'approche de l'ISET en matière de responsabilité sociétale ?",
+            "ar": "ما هو نهج المعاهد العليا للدراسات التكنولوجية في المسؤولية الاجتماعية؟"
+        },
+        "answer": {
+            "en": "We promote sustainability through green campus initiatives, community outreach, and inclusive education. Recent projects include solar energy adoption and local charity drives. Learn more on our page.",
+            "fr": "Nous promouvons la durabilité à travers des initiatives de campus vert, des actions communautaires et une éducation inclusive. Les projets récents incluent l'adoption de l'énergie solaire et des campagnes caritatives locales. En savoir plus sur notre page.",
+            "ar": "نعزز الاستدامة من خلال مبادرات الحرم الجامعي الأخضر، التوعية المجتمعية، والتعليم الشامل. تشمل المشاريع الأخيرة تبني الطاقة الشمسية وحملات خيرية محلية. تعرف على المزيد على صفحتنا."
+        },
+        "intent": "social_responsibility",
+        "page_link": "https://isetsf.rnu.tn/fr/management-qualite/responsabilite-societale"
+    },
+    {
+        "question": {
+            "en": "What is ISET's strategic plan?",
+            "fr": "Quel est le plan stratégique de l'ISET ?",
+            "ar": "ما هي الخطة الاستراتيجية لـلمعاهد العليا للدراسات التكنولوجية؟"
+        },
+        "answer": {
+            "en": "Our 2023-2028 strategic plan focuses on digital transformation, international partnerships, and employability. Key goals include expanding online learning and research centers. Explore the plan online.",
+            "fr": "Notre plan stratégique 2023-2028 met l'accent sur la transformation numérique, les partenariats internationaux et l'employabilité. Les objectifs clés incluent l'expansion de l'apprentissage en ligne et des centres de recherche. Découvrez le plan en ligne.",
+            "ar": "تركز خطتنا الاستراتيجية لعام 2023-2028 على التحول الرقمي، الشراكات الدولية، وقابلية التوظيف. تشمل الأهداف الرئيسية توسيع التعليم عبر الإنترنت ومراكز البحث. استكشف الخطة عبر الإنترنت."
+        },
+        "intent": "strategic_plan",
+        "page_link": "https://isetsf.rnu.tn/fr/management-qualite/plan-strategique"
+    },
+    {
+        "question": {
+            "en": "How are complaints handled at ISET?",
+            "fr": "Comment les réclamations sont-elles traitées à l'ISET ?",
+            "ar": "كيف يتم التعامل مع الشكاوى في المعاهد العليا للدراسات التكنولوجية؟"
+        },
+        "answer": {
+            "en": "Complaints are submitted via an online form and reviewed by our Quality Unit within 7 days. We ensure fair resolution and follow-up. Visit our 'Complaint Handling' page for the process.",
+            "fr": "Les réclamations sont soumises via un formulaire en ligne et examinées par notre Unité Qualité sous 7 jours. Nous garantissons une résolution équitable et un suivi. Visitez notre page 'Traitement des réclamations' pour le processus.",
+            "ar": "تُقدم الشكاوى عبر نموذج عبر الإنترنت وتُراجع بواسطة وحدة الجودة لدينا خلال 7 أيام. نحن نضمن حلًا عادلًا ومتابعة. زر صفحة 'معالجة الشكاوى' لمعرفة العملية."
+        },
+        "intent": "complaints",
+        "page_link": "https://isetsf.rnu.tn/fr/management-qualite/traitement-des-reclamations"
+    },
+    {
+        "question": {
+            "en": "What is the Monitoring and Vigilance Unit at ISET?",
+            "fr": "Qu'est-ce que la Cellule de Suivi et de Veille à l'ISET ?",
+            "ar": "ما هي وحدة الرصد واليقظة في المعاهد العليا للدراسات التكنولوجيةT؟"
+        },
+        "answer": {
+            "en": "The Monitoring and Vigilance Unit oversees quality compliance and risk management, conducting regular assessments. It reports to the Quality Committee. Learn more on our website.",
+            "fr": "La Cellule de Suivi et de Veille supervise la conformité qualité et la gestion des risques, réalisant des évaluations régulières. Elle rend compte au Comité Qualité. En savoir plus sur notre site.",
+            "ar": "تشرف وحدة الرصد واليقظة على الامتثال للجودة وإدارة المخاطر، وتجري تقييمات منتظمة. تتقدم بتقاريرها إلى لجنة الجودة. تعرف على المزيد على موقعنا الإلكتروني."
+        },
+        "intent": "monitoring_unit",
+        "page_link": "https://isetsf.rnu.tn/fr/management-qualite/cellule-de-suivi-et-de-veille-csv"
+    },
+    {
+        "question": {
+            "en": "What is the EPST at ISET?",
+            "fr": "Qu'est-ce que l'EPST à l'ISET ?",
+            "ar": "ما هو EPST في ISET؟"
+        },
+        "answer": {
+            "en": "The EPST (Évaluation des Programmes et Structures de Formation) evaluates training programs to ensure they meet national standards. It supports accreditation efforts. Visit our page for details.",
+            "fr": "L'EPST (Évaluation des Programmes et Structures de Formation) évalue les programmes de formation pour garantir leur conformité aux normes nationales. Il soutient les efforts d'accréditation. Visitez notre page pour plus de détails.",
+            "ar": "يُقيّم EPST (تقييم البرامج والهياكل التدريبية) برامج التدريب لضمان توافقها مع المعايير الوطنية. يدعم جهود الاعتماد. زر صفحتنا للحصول على التفاصيل."
+        },
+        "intent": "epst",
+        "page_link": "https://isetsf.rnu.tn/fr/management-qualite/epst"
+    },
+    {
+        "question": {
+            "en": "What accreditations does ISET hold?",
+            "fr": "Quelles accréditations l'ISET détient-il ?",
+            "ar": "ما هي الاعتمادات التي يحملها المعاهد العليا للدراسات التكنولوجية؟"
+        },
+        "answer": {
+            "en": "ISET Sfax is accredited by the Tunisian Ministry of Higher Education and recognized by international bodies for select programs. Our engineering and IT degrees meet EU standards. Learn more on our 'Accreditation' page.",
+            "fr": "L'ISET Sfax est accrédité par le Ministère tunisien de l'Enseignement Supérieur et reconnu par des organismes internationaux pour certains programmes. Nos diplômes en ingénierie et informatique respectent les normes européennes. En savoir plus sur notre page 'Accréditation'.",
+            "ar": "المعاهد العليا للدراسات التكنولوجية صفاقس معتمد من قبل وزارة التعليم العالي التونسية ومعترف به من قبل هيئات دولية لبرامج مختارة. تتوافق شهاداتنا في الهندسة وتكنولوجيا المعلومات مع معايير الاتحاد الأوروبي. تعرف على المزيد على صفحة 'الاعتماد'."
+        },
+        "intent": "accreditation",
+        "page_link": "https://isetsf.rnu.tn/fr/management-qualite/accreditation"
+    },
+    {
+        "question": {
+            "en": "How does ISET combat plagiarism?",
+            "fr": "Comment l'ISET lutte-t-il contre le plagiat ?",
+            "ar": "كيف يحارب المعاهد العليا للدراسات التكنولوجية الانتحال؟"
+        },
+        "answer": {
+            "en": "We use Turnitin software and strict academic policies to detect and prevent plagiarism. Students receive training on academic integrity. Visit our page for our anti-plagiarism guidelines.",
+            "fr": "Nous utilisons le logiciel Turnitin et des politiques académiques strictes pour détecter et prévenir le plagiat. Les étudiants reçoivent une formation sur l'intégrité académique. Visitez notre page pour nos lignes directrices anti-plagiat.",
+            "ar": "نستخدم برنامج Turnitin وسياسات أكاديمية صارمة للكشف عن الانتحال ومنعه. يتلقى الطلاب تدريبًا على النزاهة الأكاديمية. زر صفحتنا للحصول على إرشادات مكافحة الانتحال."
+        },
+        "intent": "plagiarism",
+        "page_link": "https://isetsf.rnu.tn/fr/management-qualite/lutte-contre-le-plagiat"
+    },
+    {
+        "question": {
+            "en": "What is the PAQ-DGSE project at ISET?",
+            "fr": "Qu'est-ce que le projet PAQ-DGSE à l'ISET ?",
+            "ar": "ما هو مشروع PAQ-DGSE في ISET؟"
+        },
+        "answer": {
+            "en": "The PAQ-DGSE project, funded by the Ministry, enhances governance, teaching, and research through four domains. It runs from 2023-2026. Learn about it on our project page.",
+            "fr": "Le projet PAQ-DGSE, financé par le Ministère, améliore la gouvernance, l'enseignement et la recherche à travers quatre domaines. Il se déroule de 2023 à 2026. En savoir plus sur notre page de projet.",
+            "ar": "مشروع PAQ-DGSE، الممول من الوزارة، يعزز الحوكمة، التعليم، والبحث من خلال أربعة مجالات. يستمر من 2023 إلى 2026. تعرف عليه على صفحة مشروعنا."
+        },
+        "intent": "paq_dgse",
+        "page_link": "https://isetsf.rnu.tn/fr/projets-et-partenariats/paq/paq-dgse/presentation-du-projet"
+    },
+    {
+        "question": {
+            "en": "What is the focus of Domain 1 in the PAQ-DGSE project?",
+            "fr": "Quel est l'objectif du Domaine 1 dans le projet PAQ-DGSE ?",
+            "ar": "ما هو تركيز المجال 1 في مشروع PAQ-DGSE؟"
+        },
+        "answer": {
+            "en": "Domain 1 improves institutional governance through better decision-making and transparency, including digital dashboards for management. Visit our page for details.",
+            "fr": "Le Domaine 1 améliore la gouvernance institutionnelle grâce à une meilleure prise de décision et transparence, incluant des tableaux de bord numériques pour la gestion. Visitez notre page pour plus de détails.",
+            "ar": "يحسن المجال 1 الحوكمة المؤسسية من خلال اتخاذ قرارات أفضل والشفافية، بما في ذلك لوحات المعلومات الرقمية للإدارة. زر صفحتنا للحصول على التفاصيل."
+        },
+        "intent": "paq_dgse_domain1",
+        "page_link": "https://isetsf.rnu.tn/fr/projets-et-partenariats/paq/paq-dgse/domaine-1-gestion-et-gouvernance"
+    },
+    {
+        "question": {
+            "en": "What is the focus of Domain 2 in the PAQ-DGSE project?",
+            "fr": "Quel est l'objectif du Domaine 2 dans le projet PAQ-DGSE ?",
+            "ar": "ما هو تركيز المجال 2 في مشروع PAQ-DGSE؟"
+        },
+        "answer": {
+            "en": "Domain 2 enhances training programs and employability by aligning curricula with industry needs and expanding internships. Learn more on our website.",
+            "fr": "Le Domaine 2 améliore les programmes de formation et l'employabilité en alignant les curriculums sur les besoins de l'industrie et en élargissant les stages. En savoir plus sur notre site.",
+            "ar": "يعزز المجال 2 برامج التدريب وقابلية التوظيف من خلال مواءمة المناهج مع احتياجات الصناعة وتوسيع التدريبات. تعرف على المزيد على موقعنا الإلكتروني."
+        },
+        "intent": "paq_dgse_domain2",
+        "page_link": "https://isetsf.rnu.tn/fr/projets-et-partenariats/paq/paq-dgse/domaine-2-formation-employabilite"
+    },
+    {
+        "question": {
+            "en": "What is the focus of Domain 3 in the PAQ-DGSE project?",
+            "fr": "Quel est l'objectif du Domaine 3 dans le projet PAQ-DGSE ?",
+            "ar": "ما هو تركيز المجال 3 في مشروع PAQ-DGSE؟"
+        },
+        "answer": {
+            "en": "Domain 3 promotes research and innovation through new labs and industry partnerships, focusing on AI and renewable energy. Visit our page for more information.",
+            "fr": "Le Domaine 3 promeut la recherche et l'innovation à travers de nouveaux laboratoires et partenariats industriels, en se concentrant sur l'IA et les énergies renouvelables. Visitez notre page pour plus d'informations.",
+            "ar": "يعزز المجال 3 البحث والابتكار من خلال مختبرات جديدة وشراكات صناعية، مع التركيز على الذكاء الاصطناعي والطاقة المتجددة. زر صفحتنا لمزيد من المعلومات."
+        },
+        "intent": "paq_dgse_domain3",
+        "page_link": "https://isetsf.rnu.tn/fr/projets-et-partenariats/paq/paq-dgse/domaine-3-recherche-et-innovation"
+    },
+    {
+        "question": {
+            "en": "What is the focus of Domain 4 in the PAQ-DGSE project?",
+            "fr": "Quel est l'objectif du Domaine 4 dans le projet PAQ-DGSE ?",
+            "ar": "ما هو تركيز المجال 4 في مشروع PAQ-DGSE؟"
+        },
+        "answer": {
+            "en": "Domain 4 improves student life with better facilities, clubs, and mental health support, including a new student center. Learn more online.",
+            "fr": "Le Domaine 4 améliore la vie étudiante avec de meilleures installations, clubs et soutien à la santé mentale, incluant un nouveau centre étudiant. En savoir plus en ligne.",
+            "ar": "يحسن المجال 4 حياة الطلاب من خلال مرافق أفضل، أندية، ودعم الصحة العقلية، بما في ذلك مركز طلابي جديد. تعرف على المزيد عبر الإنترنت."
+        },
+        "intent": "paq_dgse_domain4",
+        "page_link": "https://isetsf.rnu.tn/fr/projets-et-partenariats/paq/paq-dgse/domaine-4-vie-universitaire"
+    },
+    {
+        "question": {
+            "en": "What is the PAQ-COCO-ISCM project?",
+            "fr": "Qu'est-ce que le projet PAQ-COCO-ISCM ?",
+            "ar": "ما هو مشروع PAQ-COCO-ISCM؟"
+        },
+        "answer": {
+            "en": "The PAQ-COCO-ISCM project supports supply chain innovation through training and research, focusing on logistics tech. It includes industry workshops. Visit our page for details.",
+            "fr": "Le projet PAQ-COCO-ISCM soutient l'innovation dans la chaîne d'approvisionnement à travers la formation et la recherche, en se concentrant sur la technologie logistique. Il inclut des ateliers industriels. Visitez notre page pour plus de détails.",
+            "ar": "يدعم مشروع PAQ-COCO-ISCM الابتكار في سلسلة التوريد من خلال التدريب والبحث، مع التركيز على تكنولوجيا اللوجستيات. يشمل ورش عمل صناعية. زر صفحتنا للحصول على التفاصيل."
+        },
+        "intent": "paq_coco_iscm",
+        "page_link": "https://isetsf.rnu.tn/fr/projets-et-partenariats/paq/paq-coco-iscm/presentation-du-projet"
+    },
+    {
+        "question": {
+            "en": "What is the Creativity Lab in the PAQ-COCO-ISCM project?",
+            "fr": "Qu'est-ce que le Creativity Lab dans le projet PAQ-COCO-ISCM ?",
+            "ar": "ما هو مختبر الإبداع في مشروع PAQ-COCO-ISCM؟"
+        },
+        "answer": {
+            "en": "The Creativity Lab fosters innovation with workshops, hackathons, and prototyping spaces for supply chain solutions. It's open to students and professionals. Learn more on our website.",
+            "fr": "Le Creativity Lab favorise l'innovation avec des ateliers, des hackathons et des espaces de prototypage pour des solutions de chaîne d'approvisionnement. Il est ouvert aux étudiants et professionnels. En savoir plus sur notre site.",
+            "ar": "يعزز مختبر الإبداع الابتكار من خلال ورش العمل، هاكاثونات، ومساحات النماذج الأولية لحلول سلسلة التوريد. إنه مفتوح للطلاب والمحترفين. تعرف على المزيد على موقعنا الإلكتروني."
+        },
+        "intent": "creativity_lab",
+        "page_link": "https://isetsf.rnu.tn/fr/projets-et-partenariats/paq/paq-coco-iscm/creativity-lab"
+    },
+    {
+        "question": {
+            "en": "What is the PAQ-4C project?",
+            "fr": "Qu'est-ce que le projet PAQ-4C ?",
+            "ar": "ما هو مشروع PAQ-4C؟"
+        },
+        "answer": {
+            "en": "The PAQ-4C project enhances career services through job fairs, resume workshops, and industry networking events. It's part of our 4C Center. Visit our page for more information.",
+            "fr": "Le projet PAQ-4C améliore les services de carrière à travers des salons de l'emploi, des ateliers de CV et des événements de réseautage industriel. Il fait partie de notre Centre 4C. Visitez notre page pour plus d'informations.",
+            "ar": "يعزز مشروع PAQ-4C خدمات التوظيف من خلال معارض الوظائف، ورش عمل السيرة الذاتية، وفعاليات التواصل الصناعي. إنه جزء من مركز 4C الخاص بنا. زر صفحتنا لمزيد من المعلومات."
+        },
+        "intent": "paq_4c",
+        "page_link": "https://isetsf.rnu.tn/fr/projets-et-partenariats/paq/paq-4c"
+    },
+    {
+        "question": {
+            "en": "What is the PAQ-PRICE project?",
+            "fr": "Qu'est-ce que le projet PAQ-PRICE ?",
+            "ar": "ما هو مشروع PAQ-PRICE؟"
+        },
+        "answer": {
+            "en": "The PAQ-PRICE project funds research in cutting-edge fields like IoT and green tech, supporting faculty and student projects. Learn more online.",
+            "fr": "Le projet PAQ-PRICE finance la recherche dans des domaines de pointe comme l'IoT et les technologies vertes, soutenant les projets des professeurs et étudiants. En savoir plus en ligne.",
+            "ar": "يمول مشروع PAQ-PRICE البحوث في مجالات متطورة مثل إنترنت الأشياء والتكنولوجيا الخضراء، داعمًا مشاريع الأساتذة والطلاب. تعرف على المزيد عبر الإنترنت."
+        },
+        "intent": "paq_price",
+        "page_link": "https://isetsf.rnu.tn/fr/projets-et-partenariats/paq/paq-price"
+    },
+    {
+        "question": {
+            "en": "What is the PAQ-POST-PFE project?",
+            "fr": "Qu'est-ce que le projet PAQ-POST-PFE ?",
+            "ar": "ما هو مشروع PAQ-POST-PFE؟"
+        },
+        "answer": {
+            "en": "The PAQ-POST-PFE project helps students transition to careers after final internships, offering job placement support and alumni mentoring. Visit our page for details.",
+            "fr": "Le projet PAQ-POST-PFE aide les étudiants à passer à la vie professionnelle après les stages de fin d'études, offrant un soutien à l'insertion professionnelle et un mentorat des anciens. Visitez notre page pour plus de détails.",
+            "ar": "يساعد مشروع PAQ-POST-PFE الطلاب على الانتقال إلى المهن بعد التدريبات النهائية، مقدمًا دعمًا للتوظيف وإرشاد الخريجين. زر صفحتنا للحصول على التفاصيل."
+        },
+        "intent": "paq_post_pfe",
+        "page_link": "https://isetsf.rnu.tn/fr/projets-et-partenariats/paq/paq-post-pfe"
+    },
+    {
+        "question": {
+            "en": "How can companies create a professional account with ISET?",
+            "fr": "Comment les entreprises peuvent-elles créer un compte professionnel avec l'ISET ?",
+            "ar": "كيف يمكن للشركات إنشاء حساب مهني مع المعاهد العليا للدراسات التكنولوجية؟"
+        },
+        "answer": {
+            "en": "Companies can register for a professional account via our portal to access internship postings, recruitment tools, and partnership opportunities. Submit your company details and await approval within 48 hours. Visit our page for the process.",
+            "fr": "Les entreprises peuvent s'inscrire pour un compte professionnel via notre portail pour accéder aux offres de stages, outils de recrutement et opportunités de partenariat. Soumettez les détails de votre entreprise et attendez l'approbation sous 48 heures. Visitez notre page pour le processus.",
+            "ar": "يمكن للشركات التسجيل للحصول على حساب مهني عبر بوابتنا للوصول إلى إعلانات التدريب، أدوات التوظيف، وفرص الشراكة. قدم تفاصيل شركتك وانتظر الموافقة خلال 48 ساعة. زر صفحتنا لمعرفة العملية."
+        },
+        "intent": "professional_account",
+        "page_link": "https://isetsf.rnu.tn/fr/entreprises/demande-de-compte-professionnel"
+    },
+    {
+        "question": {
+            "en": "What are industrial visits at ISET?",
+            "fr": "Que sont les visites industrielles à l'ISET ?",
+            "ar": "ما هي الزيارات الصناعية في المعاهد العليا للدراسات التكنولوجية؟"
+        },
+        "answer": {
+            "en": "Industrial visits allow students to tour facilities like manufacturing plants and tech firms, gaining practical insights. Recent visits included Tunisie Telecom's data center. Learn more on our website.",
+            "fr": "Les visites industrielles permettent aux étudiants de visiter des installations comme des usines et des entreprises technologiques, acquérant des connaissances pratiques. Les visites récentes incluent le centre de données de Tunisie Telecom. En savoir plus sur notre site.",
+            "ar": "تتيح الزيارات الصناعية للطلاب جولات في مرافق مثل مصانع التصنيع والشركات التكنولوجية، مما يكسبهم رؤى عملية. شملت الزيارات الأخيرة مركز بيانات تونس تيليكوم. تعرف على المزيد على موقعنا الإلكتروني."
+        },
+        "intent": "industrial_visits",
+        "page_link": "https://isetsf.rnu.tn/fr/entreprises/visites-industrielles"
+    },
+    {
+        "question": {
+            "en": "What services does the Technological Research Center offer?",
+            "fr": "Quels services offre le Centre de Recherche Technologique ?",
+            "ar": "ما هي الخدمات التي يقدمها مركز البحوث التكنولوجية؟"
+        },
+        "answer": {
+            "en": "The Technological Research Center provides R&D support, product testing, and consulting for industries like IT and engineering. Recent projects include AI-driven logistics solutions. Visit our page for details.",
+            "fr": "Le Centre de Recherche Technologique offre un soutien à la R&D, des tests de produits et des services de conseil pour des industries comme l'informatique et l'ingénierie. Les projets récents incluent des solutions logistiques basées sur l'IA. Visitez notre page pour plus de détails.",
+            "ar": "يوفر مركز البحوث التكنولوجية دعم البحث والتطوير، اختبار المنتجات، والاستشارات للصناعات مثل تكنولوجيا المعلومات والهندسة. تشمل المشاريع الأخيرة حلول لوجستية مدعومة بالذكاء الاصطناعي. زر صفحتنا للحصول على التفاصيل."
+        },
+        "intent": "research_center",
+        "page_link": "https://isetsf.rnu.tn/fr/entreprises/centre-de-recherche-technologique"
+    },
+    {
+        "question": {
+            "en": "What is the National License in Banking and Finance at ISET Sfax?",
+            "fr": "Qu'est-ce que la Licence Nationale en Banque et Finances à l'ISET Sfax ?",
+            "ar": "ما هي الليسانس الوطنية في البنوك والمالية في المعاهد العليا للدراسات التكنولوجية صفاقس؟"
+        },
+        "answer": {
+            "en": "The National License in Accounting and Finance, often aligned with banking, is a 3-year program focusing on financial reporting, auditing, banking operations, and budgeting. Courses include Financial Accounting, Corporate Finance, and Banking Principles. Graduates are equipped for careers in banking, financial analysis, and corporate finance. Visit our program page for admission details and curriculum.",
+            "fr": "La Licence Nationale en Comptabilité et Finances, souvent alignée sur la banque, est un programme de 3 ans axé sur la comptabilité financière, l'audit, les opérations bancaires et la budgétisation. Les cours incluent la Comptabilité Financière, la Finance d'Entreprise et les Principes Bancaires. Les diplômés sont préparés pour des carrières dans la banque, l'analyse financière et la finance d'entreprise. Visitez notre page de programme pour les détails d'admission et le curriculum.",
+            "ar": "الليسانس الوطنية في المحاسبة والمالية، التي غالبًا ما تتماشى مع البنوك، هي برنامج مدته 3 سنوات يركز على التقارير المالية، التدقيق، العمليات البنكية، والموازنة. تشمل الدورات المحاسبة المالية، المالية الشركات، ومبادئ البنوك. الخريجون مجهزون لمهن في البنوك، التحليل المالي، والمالية الشركات. زر صفحة برنامجنا لتفاصيل القبول والمنهج."
+        },
+        "intent": "banking_finance",
+        "page_link": "https://isetsf.rnu.tn/fr/formation/licence-nationale/sciences-economiques-et-de-gestion/comptabilite-finances"
+    },
+    {
+        "question": {
+            "en": "Who are the teachers at ISET Sfax?",
+            "fr": "Qui sont les enseignants à l'ISET Sfax ?",
+            "ar": "من هم المعلمون في المعاهد العليا للدراسات التكنولوجية صفاقس؟"
+        },
+        "answer": {
+            "en": "ISET Sfax employs 67 highly qualified faculty members, primarily technologues, specializing in IT, engineering, economics, and management. For a detailed list of teachers, visit the 'Liste des Enseignants' section in the Student Zone or contact the administration at iset.sfax@sfax.r-iset.tn. Faculty details may require login credentials.",
+            "fr": "L'ISET Sfax compte 67 enseignants hautement qualifiés, principalement des technologues, spécialisés en informatique, ingénierie, économie et gestion. Pour une liste détaillée des enseignants, visitez la section 'Liste des Enseignants' dans la Zone Étudiant ou contactez l'administration à iset.sfax@sfax.r-iset.tn. Les détails du corps enseignant peuvent nécessiter des identifiants de connexion.",
+            "ar": "يوظف المعاهد العليا للدراسات التكنولوجية صفاقس 67 عضو هيئة تدريس مؤهلين تأهيلاً عاليًا، معظمهم من التكنولوجيين، متخصصين في تكنولوجيا المعلومات، الهندسة، الاقتصاد، والإدارة. للحصول على قائمة مفصلة بالمعلمين، زر قسم 'قائمة المعلمين' في منطقة الطلاب أو تواصل مع الإدارة على iset.sfax@sfax.r-iset.tn. قد تتطلب تفاصيل الهيئة التدريسية بيانات تسجيل الدخول."
+        },
+        "intent": "faculty",
+        "page_link": "https://isetsf.rnu.tn/fr/iset-sfax-en-chiffres/liste-des-enseignants"
+    },
+    {
+        "question": {
+            "en": "What are the student clubs and activities at ISET Sfax?",
+            "fr": "Quels sont les clubs et activités estudiantins à l'ISET Sfax ?",
+            "ar": "ما هي الأندية والأنشطة الطلابية في المعاهد العليا للدراسات التكنولوجية صفاقس؟"
+        },
+        "answer": {
+            "en": "ISET Sfax hosts five student clubs, including the Association of Innovation and Technology (AIT), Association of Research, Development, and Innovation (ARDI), and the Sports Association (ASUIS). Activities include hackathons, cultural festivals, and sports tournaments. Check the 'Student Life' page for event schedules and club details.",
+            "fr": "L'ISET Sfax accueille cinq clubs étudiants, dont l'Association d'Innovation et Technologie (AIT), l'Association de Recherche, Développement et Innovation (ARDI) et l'Association Sportive (ASUIS). Les activités incluent des hackathons, des festivals culturels et des tournois sportifs. Consultez la page 'Vie Étudiante' pour les horaires des événements et les détails des clubs.",
+            "ar": "يستضيف المعاهد العليا للدراسات التكنولوجية صفاقس خمسة أندية طلابية، بما في ذلك جمعية الابتكار والتكنولوجيا (AIT)، جمعية البحث والتطوير والابتكار (ARDI)، والجمعية الرياضية (ASUIS). تشمل الأنشطة هاكاثونات، مهرجانات ثقافية، وبطولات رياضية. تحقق من صفحة 'حياة الطلاب' لجدول الأحداث وتفاصيل الأندية."
+        },
+        "intent": "student_clubs",
+        "page_link": "https://isetsf.rnu.tn/fr/vie-etudiante/clubs-et-activites"
+    },
+    {
+        "question": {
+            "en": "What are the tuition fees and financial aid options at ISET Sfax?",
+            "fr": "Quels sont les frais de scolarité et les options d'aide financière à l'ISET Sfax ?",
+            "ar": "ما هي الرسوم الدراسية وخيارات المساعدة المالية في المعاهد العليا للدراسات التكنولوجية صفاقس؟"
+        },
+        "answer": {
+            "en": "Tuition fees vary by program, typically ranging from 200 to 500 TND per year for Tunisian students. International students may pay higher rates. Financial aid includes merit-based scholarships, government grants, and student loans. Visit the 'Financial Aid' page for application details and eligibility.",
+            "fr": "Les frais de scolarité varient selon le programme, généralement entre 200 et 500 TND par an pour les étudiants tunisiens. Les étudiants internationaux peuvent payer des tarifs plus élevés. L'aide financière comprend des bourses au mérite, des subventions gouvernementales et des prêts étudiants. Visitez la page 'Aide Financière' pour les détails de candidature et l'éligibilité.",
+            "ar": "تختلف الرسوم الدراسية حسب البرنامج، وتتراوح عادة بين 200 و500 دينار تونسي سنويًا للطلاب التونسيين. قد يدفع الطلاب الدوليون رسومًا أعلى. تشمل المساعدات المالية المنح الدراسية القائمة على الجدارة، المنح الحكومية، والقروض الطلابية. زر صفحة 'المساعدة المالية' لتفاصيل التقديم والأهلية."
+        },
+        "intent": "tuition_financial_aid",
+        "page_link": "https://isetsf.rnu.tn/fr/admission/aide-financiere"
+    },
+    {
+        "question": {
+            "en": "What facilities are available at ISET Sfax?",
+            "fr": "Quelles sont les installations disponibles à l'ISET Sfax ?",
+            "ar": "ما هي المرافق المتوفرة في المعاهد العليا للدراسات التكنولوجية صفاقس؟"
+        },
+        "answer": {
+            "en": "ISET Sfax offers modern facilities, including computer labs, engineering workshops, a library with digital resources, and a new student center. The campus supports green initiatives like solar energy. Explore the 'Campus Facilities' page for more details.",
+            "fr": "L'ISET Sfax propose des installations modernes, y compris des laboratoires informatiques, des ateliers d'ingénierie, une bibliothèque avec des ressources numériques et un nouveau centre étudiant. Le campus soutient des initiatives vertes comme l'énergie solaire. Explorez la page 'Installations du Campus' pour plus de détails.",
+            "ar": "يقدم المعاهد العليا للدراسات التكنولوجية صفاقس مرافق حديثة، بما في ذلك مختبرات الحاسوب، ورش الهندسة، مكتبة بموارد رقمية، ومركز طلابي جديد. يدعم الحرم الجامعي مبادرات خضراء مثل الطاقة الشمسية. استكشف صفحة 'مرافق الحرم الجامعي' لمزيد من التفاصيل."
+        },
+        "intent": "campus_facilities",
+        "page_link": "https://isetsf.rnu.tn/fr/vie-etudiante/installations-campus"
+    },
+    {
+        "question": {
+            "en": "What international exchange programs are available at ISET Sfax?",
+            "fr": "Quels programmes d'échange international sont disponibles à l'ISET Sfax ?",
+            "ar": "ما هي برامج التبادل الدولي المتوفرة في المعاهد العليا للدراسات التكنولوجية صفاقس؟"
+        },
+        "answer": {
+            "en": "ISET Sfax offers exchange programs with universities in France, Germany, and other countries, allowing students to study abroad for one semester or year. Programs focus on IT, engineering, and management. Visit the 'International Exchange' page for eligibility and application details.",
+            "fr": "L'ISET Sfax propose des programmes d'échange avec des universités en France, en Allemagne et dans d'autres pays, permettant aux étudiants d'étudier à l'étranger pendant un semestre ou une année. Les programmes se concentrent sur l'informatique, l'ingénierie et la gestion. Visitez la page 'Échange International' pour l'éligibilité et les détails de candidature.",
+            "ar": "يقدم المعاهد العليا للدراسات التكنولوجية صفاقس برامج تبادل مع جامعات في فرنسا، ألمانيا، ودول أخرى، مما يتيح للطلاب الدراسة في الخارج لمدة فصل دراسي أو عام. تركز البرامج على تكنولوجيا المعلومات، الهندسة، والإدارة. زر صفحة 'التبادل الدولي' للأهلية وتفاصيل التقديم."
+        },
+        "intent": "international_exchange",
+        "page_link": "https://isetsf.rnu.tn/fr/projets-et-partenariats/echange-international"
+    }, {
+        "question": {
+            "en": "What career services and job placement support does ISET Sfax offer?",
+            "fr": "Quels services de carrière et de placement professionnel propose l'ISET Sfax ?",
+            "ar": "ما هي خدمات التوظيف ودعم التوظيف التي يقدمها المعاهد العليا للدراسات التكنولوجية صفاقس؟"
+        },
+        "answer": {
+            "en": "ISET Sfax’s Career Center organizes job fairs, resume workshops, and mock interviews to prepare students for the job market. Partnerships with companies like Tunisie Telecom facilitate internships and job placements, with over 70% of graduates employed within six months. Visit the 'Career Services' page for upcoming events and resources.",
+            "fr": "Le Centre de Carrière de l'ISET Sfax organise des salons de l'emploi, des ateliers de CV et des simulations d'entretiens pour préparer les étudiants au marché du travail. Les partenariats avec des entreprises comme Tunisie Telecom facilitent les stages et les placements professionnels, avec plus de 70 % des diplômés employés dans les six mois. Visitez la page 'Services de Carrière' pour les événements à venir et les ressources.",
+            "ar": "يقوم مركز التوظيف في المعاهد العليا للدراسات التكنولوجية صفاقس بتنظيم معارض الوظائف، ورش عمل السيرة الذاتية، ومحاكاة المقابلات لإعداد الطلاب لسوق العمل. تسهل الشراكات مع شركات مثل تونس تيليكوم التدريب والتوظيف، حيث يتم توظيف أكثر من 70% من الخريجين خلال ستة أشهر. زر صفحة 'خدمات التوظيف' للاطلاع على الأحداث القادمة والموارد."
+        },
+        "intent": "career_services",
+        "page_link": "https://isetsf.rnu.tn/fr/vie-etudiante/services-de-carriere"
+    },
+    {
+        "question": {
+            "en": "What research opportunities are available for students at ISET Sfax?",
+            "fr": "Quelles opportunités de recherche sont disponibles pour les étudiants à l'ISET Sfax ?",
+            "ar": "ما هي فرص البحث المتاحة للطلاب في المعاهد العليا للدراسات التكنولوجية صفاقس؟"
+        },
+        "answer": {
+            "en": "Students can participate in research through the Technological Research Center, working on projects like AI and renewable energy. Opportunities include undergraduate research assistantships and thesis collaborations with faculty. Visit the 'Student Research' page for application details and current projects.",
+            "fr": "Les étudiants peuvent participer à la recherche via le Centre de Recherche Technologique, travaillant sur des projets comme l'IA et les énergies renouvelables. Les opportunités incluent des assistantships de recherche pour undergraduates et des collaborations de thèse avec les professeurs. Visitez la page 'Recherche Étudiante' pour les détails de candidature et les projets en cours.",
+            "ar": "يمكن للطلاب المشاركة في البحوث من خلال مركز البحوث التكنولوجية، والعمل على مشاريع مثل الذكاء الاصطناعي والطاقة المتجددة. تشمل الفرص مساعدات بحثية للطلاب الجامعيين وتعاونات أطروحة مع أعضاء هيئة التدريس. زر صفحة 'البحث الطلابي' لتفاصيل التقديم والمشاريع الحالية."
+        },
+        "intent": "student_research",
+        "page_link": "https://isetsf.rnu.tn/fr/recherche/recherche-etudiante"
+    },
+    {
+        "question": {
+            "en": "What online learning platforms does ISET Sfax use for distance education?",
+            "fr": "Quelles plateformes d'apprentissage en ligne l'ISET Sfax utilise-t-il pour l'éducation à distance ?",
+            "ar": "ما هي منصات التعليم عبر الإنترنت التي يستخدمها المعاهد العليا للدراسات التكنولوجية صفاقس للتعليم عن بُعد؟"
+        },
+        "answer": {
+            "en": "ISET Sfax uses Moodle for course delivery, supplemented by Microsoft Teams for live sessions and Google Classroom for assignments. These platforms support distance learning programs in IT and management. Visit the 'Distance Learning' page for access instructions and technical support.",
+            "fr": "L'ISET Sfax utilise Moodle pour la diffusion des cours, complété par Microsoft Teams pour les sessions en direct et Google Classroom pour les devoirs. Ces plateformes soutiennent les programmes d'apprentissage à distance en informatique et gestion. Visitez la page 'Apprentissage à Distance' pour les instructions d'accès et le support technique.",
+            "ar": "يستخدم المعاهد العليا للدراسات التكنولوجية صفاقس منصة Moodle لتوصيل الدورات، مدعومة بـ Microsoft Teams للجلسات المباشرة و Google Classroom للواجبات. تدعم هذه المنصات برامج التعليم عن بُعد في تكنولوجيا المعلومات والإدارة. زر صفحة 'التعلم عن بُعد' للحصول على تعليمات الوصول والدعم الفني."
+        },
+        "intent": "online_learning_platforms",
+        "page_link": "https://isetsf.rnu.tn/fr/formation/formation-continue-a-distance/plateformes"
+    },
+    {
+        "question": {
+            "en": "How does ISET Sfax support its alumni network and mentorship?",
+            "fr": "Comment l'ISET Sfax soutient-il son réseau d'anciens élèves et le mentorat ?",
+            "ar": "كيف يدعم المعاهد العليا للدراسات التكنولوجية صفاقس شبكة خريجيه والإرشاد؟"
+        },
+        "answer": {
+            "en": "The ISET Sfax Alumni Association connects graduates through networking events, job boards, and mentorship programs. Alumni mentor current students via the PAQ-POST-PFE project, offering career guidance. Visit the 'Alumni Network' page to join or explore mentorship opportunities.",
+            "fr": "L'Association des Anciens de l'ISET Sfax connecte les diplômés à travers des événements de réseautage, des tableaux d'offres d'emploi et des programmes de mentorat. Les anciens mentorent les étudiants actuels via le projet PAQ-POST-PFE, offrant des conseils de carrière. Visitez la page 'Réseau des Anciens' pour rejoindre ou explorer les opportunités de mentorat.",
+            "ar": "تربط جمعية خريجي المعاهد العليا للدراسات التكنولوجية صفاقس الخريجين من خلال فعاليات التواصل، لوحات الوظائف، وبرامج الإرشاد. يقوم الخريجون بإرشاد الطلاب الحاليين عبر مشروع PAQ-POST-PFE، مقدمين إرشادات مهنية. زر صفحة 'شبكة الخريجين' للانضمام أو استكشاف فرص الإرشاد."
+        },
+        "intent": "alumni_network",
+        "page_link": "https://isetsf.rnu.tn/fr/formation/reseau-des-anciens"
+    },
+    {
+        "question": {
+            "en": "What safety and support services are available at ISET Sfax?",
+            "fr": "Quels services de sécurité et de soutien sont disponibles à l'ISET Sfax ?",
+            "ar": "ما هي خدمات السلامة والدعم المتوفرة في المعاهد العليا للدراسات التكنولوجية صفاقس؟"
+        },
+        "answer": {
+            "en": "ISET Sfax ensures campus safety with 24/7 security, emergency protocols, and a health center offering medical and counseling services. Mental health support is available through the Domain 4 PAQ-DGSE initiative. Visit the 'Support Services' page for contact details and resources.",
+            "fr": "L'ISET Sfax garantit la sécurité du campus avec une surveillance 24/7, des protocoles d'urgence et un centre de santé offrant des services médicaux et de conseil. Le soutien à la santé mentale est disponible via l'initiative Domaine 4 PAQ-DGSE. Visitez la page 'Services de Soutien' pour les contacts et ressources.",
+            "ar": "يضمن المعاهد العليا للدراسات التكنولوجية صفاقس سلامة الحرم الجامعي بأمن على مدار الساعة، وبروتوكولات الطوارئ، ومركز صحي يقدم خدمات طبية وإرشادية. يتوفر دعم الصحة العقلية من خلال مبادرة المجال 4 PAQ-DGSE. زر صفحة 'خدمات الدعم' للحصول على تفاصيل الاتصال والموارد."
+        },
+        "intent": "safety_support",
+        "page_link": "https://isetsf.rnu.tn/fr/vie-etudiante/services-de-soutien"
+    },
+    {
+        "question": {
+            "en": "What do I do if I forgot my ISET portal password?",
+            "fr": "Que faire si j'ai oublié mon mot de passe du portail ISET ?",
+            "ar": "ماذا أفعل إذا نسيت كلمة مرور بوابة ISET؟"
+        },
+        "answer": {
+            "en": "Click 'Forgot Password' on the login page, enter your student email, and follow the reset link sent within minutes. Contact IT support if issues persist. Visit our page for assistance.",
+            "fr": "Cliquez sur 'Mot de passe oublié' sur la page de connexion, entrez votre e-mail étudiant et suivez le lien de réinitialisation envoyé en quelques minutes. Contactez le support informatique en cas de problèmes persistants. Visitez notre page pour de l'aide.",
+            "ar": "انقر على 'نسيت كلمة المرور' في صفحة تسجيل الدخول، أدخل بريدك الإلكتروني الطلابي، واتبع رابط إعادة التعيين المرسل خلال دقائق. تواصل مع دعم تكنولوجيا المعلومات إذا استمرت المشكلات. زر صفحتنا للحصول على المساعدة."
+        },
+        "intent": "forgot_password",
+        "page_link": "https://isetsf.rnu.tn/fr/forgot-password"
+    },
+    {
+        "question": {
+            "en": "How do I log in to the ISET portal?",
+            "fr": "Comment me connecter au portail ISET ?",
+            "ar": "كيف يمكنني تسجيل الدخول إلى بوابة ISET؟"
+        },
+        "answer": {
+            "en": "Use your student ID and password to log in to the ISET portal for course registration and grades. New students receive credentials during orientation. Visit our login page for help.",
+            "fr": "Utilisez votre identifiant étudiant et votre mot de passe pour vous connecter au portail ISET pour l'inscription aux cours et les notes. Les nouveaux étudiants reçoivent leurs identifiants lors de l'orientation. Visitez notre page de connexion pour de l'aide.",
+            "ar": "استخدم رقم الطالب وكلمة المرور لتسجيل الدخول إلى بوابة ISET لتسجيل الدورات والاطلاع على الدرجات. يتلقى الطلاب الجدد بيانات الدخول خلال التوجيه. زر صفحة تسجيل الدخول للحصول على المساعدة."
+        },
+        "intent": "login",
+        "page_link": "https://isetsf.rnu.tn/fr/login"
+    },
+    {
+        "question": {
+            "en": "How does the 4C Center support student entrepreneurs?",
+            "fr": "Comment le Centre 4C soutient-il les étudiants entrepreneurs ?",
+            "ar": "كيف يدعم مركز 4C الطلاب رواد الأعمال؟"
+        },
+        "answer": {
+            "en": "The 4C Center offers incubation programs, pitch competitions, and access to investors for student startups. Recent winners secured seed funding. Visit our page for details.",
+            "fr": "Le Centre 4C propose des programmes d'incubation, des compétitions de pitch et un accès aux investisseurs pour les startups étudiantes. Les récents gagnants ont obtenu un financement initial. Visitez notre page pour plus de détails.",
+            "ar": "يقدم مركز 4C برامج حضانة، مسابقات عرض الأفكار، ووصولاً إلى المستثمرين للشركات الناشئة الطلابية. حصل الفائزون الأخيرون على تمويل أولي. زر صفحتنا للحصول على التفاصيل."
+        },
+        "intent": "4c_entrepreneur",
+        "page_link": "https://isetsf.rnu.tn/fr/centre-4c/etudiant-entrepreneur"
+    },
+    {
+        "question": {
+            "en": "What is the activity plan of the 4C Center?",
+            "fr": "Quel est le plan d'activités du Centre 4C ?",
+            "ar": "ما هو خطة أنشطة مركز 4C؟"
+        },
+        "answer": {
+            "en": "The 4C Center’s 2025 plan includes job fairs, coding bootcamps, and entrepreneurship seminars, with events every month. Check the schedule online for registration details.",
+            "fr": "Le plan 2025 du Centre 4C inclut des salons de l'emploi, des bootcamps de codage et des séminaires d'entrepreneuriat, avec des événements chaque mois. Consultez le calendrier en ligne pour les détails d'inscription.",
+            "ar": "تشمل خطة مركز 4C لعام 2025 معارض التوظيف، معسكرات البرمجة، وندوات ريادة الأعمال، مع فعاليات شهرية. تحقق من الجدول عبر الإنترنت لتفاصيل التسجيل."
+        },
+        "intent": "4c_activity_plan",
+        "page_link": "https://isetsf.rnu.tn/fr/centre-4c/plan-dactivites"
+    },
+    {
+        "question": {
+            "en": "What certifications does the 4C Center offer?",
+            "fr": "Quelles certifications propose le Centre 4C ?",
+            "ar": "ما هي الشهادات التي يقدمها مركز 4C؟"
+        },
+        "answer": {
+            "en": "The 4C Center offers certifications in project management (PMP), Cisco networking, and more, with flexible schedules. Visit our page for the full catalog and registration.",
+            "fr": "Le Centre 4C propose des certifications en gestion de projet (PMP), réseaux Cisco, et plus, avec des horaires flexibles. Visitez notre page pour le catalogue complet et l'inscription.",
+            "ar": "يقدم مركز 4C شهادات في إدارة المشاريع (PMP)، شبكات Cisco، وغيرها، مع جداول زمنية مرنة. زر صفحتنا للحصول على الكتالوج الكامل والتسجيل."
+        },
+        "intent": "4c_certifications",
+        "page_link": "https://isetsf.rnu.tn/fr/centre-4c/formations-certifiantes"
+    },
+    {
+        "question": {
+            "en": "What is the 4C Center at ISET?",
+            "fr": "Qu'est-ce que le Centre 4C à l'ISET ?",
+            "ar": "ما هو مركز 4C في ISET؟"
+        },
+        "answer": {
+            "en": "The 4C Center (Career, Competencies, Certifications, and Creativity) supports students with career services, certifications, and innovation labs. It hosts 50+ events annually. Learn more on our website.",
+            "fr": "Le Centre 4C (Carrière, Compétences, Certifications et Créativité) soutient les étudiants avec des services de carrière, des certifications et des laboratoires d'innovation. Il organise plus de 50 événements par an. En savoir plus sur notre site.",
+            "ar": "مركز 4C (المهنة، الكفاءات، الشهادات، والإبداع) يدعم الطلاب بخدمات التوجيه المهني، الشهادات، ومختبرات الابتكار. يستضيف أكثر من 50 فعالية سنويًا. تعرف على المزيد عبر موقعنا."
+        },
+        "intent": "4c_center",
+        "page_link": "https://isetsf.rnu.tn/fr/centre-4c/presentation"
+    },
+    {
+        "question": {
+            "en": "How does ISET support student entrepreneurs?",
+            "fr": "Comment l'ISET soutient-il les étudiants entrepreneurs ?",
+            "ar": "كيف يدعم ISET الطلاب رواد الأعمال؟"
+        },
+        "answer": {
+            "en": "Our 4C Center provides mentorship, startup workshops, and funding pitches for student entrepreneurs. Recent successes include a student-led logistics app. Visit our page for details.",
+            "fr": "Notre Centre 4C offre du mentorat, des ateliers de startup et des pitches de financement pour les étudiants entrepreneurs. Parmi les succès récents, une application logistique dirigée par des étudiants. Visitez notre page pour plus de détails.",
+            "ar": "يوفر مركز 4C لدينا الإرشاد، وورش عمل للشركات الناشئة، وعروض تمويل للطلاب رواد الأعمال. تشمل النجاحات الأخيرة تطبيق لوجستي بقيادة الطلاب. زر صفحتنا للحصول على التفاصيل."
+        },
+        "intent": "student_entrepreneur",
+        "page_link": "https://isetsf.rnu.tn/fr/vie-universitaire/etudiant-entrepreneur"
+    }
+]

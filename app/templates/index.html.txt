@@ -1,0 +1,2356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="header.title">ISET Sfax AI Platform</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #001A4D;
+            --primary-dark: #00123A;
+            --primary-light: #0033A0;
+            --secondary: #FF9900;
+            --secondary-dark: #FF8000;
+            --secondary-light: #FFAD33;
+            --accent: #E6E9ED;
+            --text-dark: #333333;
+            --text-light: #FFFFFF;
+            --background-light: #F8F9FA;
+            --background-dark: #1a2533;
+            --success: #28a745;
+            --info: #17a2b8;
+            --warning: #ffc107;
+            --danger: #dc3545;
+            --border-radius-sm: 6px;
+            --border-radius: 12px;
+            --border-radius-lg: 16px;
+            --border-radius-xl: 24px;
+            --box-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            --box-shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --box-shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --transition-fast: all 0.2s ease;
+            --transition: all 0.3s ease;
+            --transition-slow: all 0.5s ease;
+            --font-primary: 'Poppins', 'Noto Sans Arabic', sans-serif;
+            --header-height: 70px;
+            --spacing-1: 4px;
+            --spacing-2: 8px;
+            --spacing-3: 12px;
+            --spacing-4: 16px;
+            --spacing-5: 20px;
+            --spacing-6: 24px;
+            --spacing-8: 32px;
+        }
+
+        .dark {
+            --primary: #0033A0;
+            --primary-dark: #001A4D;
+            --primary-light: #0047B3;
+            --secondary: #FFAD33;
+            --secondary-dark: #FF9900;
+            --secondary-light: #FFBF66;
+            --accent: #1a2533;
+            --text-dark: #FFFFFF;
+            --text-light: #E6E9ED;
+            --background-light: #1a2533;
+            --background-dark: #F8F9FA;
+            --border-light: #334155;
+            --border-dark: #e2e8f0;
+            --success-light: #064e3b;
+            --info-light: #0c4a6e;
+            --warning-light: #78350f;
+            --danger-light: #7f1d1d;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-primary);
+        }
+
+        body {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e2e6ea 100%);
+            color: var(--text-dark);
+            line-height: 1.6;
+            transition: var(--transition);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+      
+
+        body[lang="ar"] {
+            direction: rtl;
+            text-align: right;
+            font-family: 'Noto Sans Arabic', 'Poppins', sans-serif;
+        }
+
+        body[lang="ar"] .header-actions,
+        body[lang="ar"] .hero-actions,
+        body[lang="ar"] .hero-stats,
+        body[lang="ar"] .card-actions,
+        body[lang="ar"] .card-stats,
+        body[lang="ar"] .card-features,
+        body[lang="ar"] .card-tags,
+        body[lang="ar"] .tabs,
+        body[lang="ar"] .tabs-actions,
+        body[lang="ar"] .section-header,
+        body[lang="ar"] .footer-links,
+        body[lang="ar"] .footer-social,
+        body[lang="ar"] .footer-bottom-links,
+        body[lang="ar"] .help-actions,
+        body[lang="ar"] .updates-list,
+        body[lang="ar"] .update-content,
+        body[lang="ar"] .notification-content {
+            flex-direction: row-reverse;
+        }
+
+        body[lang="ar"] .section-title::after {
+            left: auto;
+            right: 0;
+        }
+
+        body[lang="ar"] .footer-column h3::after {
+            left: auto;
+            right: 0;
+        }
+
+        body[lang="ar"] .user-dropdown {
+            right: auto;
+            left: 0;
+        }
+
+        body[lang="ar"] .search-icon {
+            left: auto;
+            right: 1rem;
+        }
+
+        body[lang="ar"] .search-input {
+            padding-left: 1.5rem;
+            padding-right: 3rem;
+        }
+
+        body[lang="ar"] .notification {
+            right: auto;
+            left: 2rem;
+            border-left: none;
+            border-right: 4px solid var(--primary);
+        }
+
+        body[lang="ar"] .tab-indicator {
+            left: auto;
+            right: 0;
+        }
+
+        body[lang="ar"] .timeline-line {
+            left: auto;
+            right: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--primary-dark);
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--accent);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-light);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary);
+        }
+
+        .header {
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+            color: var(--text-light);
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.35);
+            transition: var(--transition);
+            height: var(--header-height);
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at top right, rgba(255,255,255,0.2), transparent 70%);
+            pointer-events: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            position: relative;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: var(--header-height);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo img {
+            height: 60px;
+            width: 60px;
+            object-fit: contain;
+            border-radius: var(--border-radius);
+            background: white;
+            padding: 0px;
+            box-shadow: var(--box-shadow-sm);
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 1.5rem;
+            margin-right: 2rem;
+        }
+
+        .nav-link {
+            color: var(--text-light);
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-link:hover {
+            color: var(--text-light);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--text-light);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .nav-link.active {
+            font-weight: 600;
+        }
+
+        .user-profile {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .user-profile-btn {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+            color: var(--text-light);
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+        }
+
+        .user-profile-btn i {
+            font-size: 1.2rem;
+        }
+
+        .user-profile-btn:hover {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.2));
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15), inset 0 1px 1px rgba(255, 255, 255, 0.3);
+        }
+
+        .user-profile-btn:active {
+            transform: scale(0.95);
+        }
+
+        .dark .user-profile-btn {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.3));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+        }
+
+        .dark .user-profile-btn:hover {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.2));
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+        }
+
+        .user-dropdown {
+            position: absolute;
+            top: calc(100% + 0.5rem);
+            right: 0;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow-md);
+            min-width: 200px;
+            z-index: 1000;
+            display: none;
+            flex-direction: column;
+            border: 1px solid var(--accent);
+        }
+
+        .user-dropdown.show {
+            display: flex;
+        }
+
+        .user-info {
+            padding: 1rem;
+            border-bottom: 1px solid var(--accent);
+        }
+
+        .user-info h4 {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .user-info p {
+            margin: 0.25rem 0 0;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .user-dropdown a {
+            padding: 0.75rem 1rem;
+            color: var(--text-dark);
+            transition: var(--transition);
+        }
+
+        .user-dropdown a:hover {
+            background: var(--accent);
+            color: var(--primary);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.5s, height 0.5s;
+        }
+
+        .btn:active::after {
+            width: 300px;
+            height: 300px;
+            opacity: 0;
+        }
+
+        .btn-icon {
+            padding: 0.6rem;
+            border-radius: 50%;
+            width: auto;
+            height: auto;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--text-light);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+        }
+
+        .btn-light {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            backdrop-filter: blur(5px);
+        }
+
+        .btn-light:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--accent);
+            color: var(--text-dark);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--accent);
+            transform: translateY(-2px);
+            border-color: var(--primary);
+        }
+
+        .btn-success {
+            background-color: var(--success);
+            color: white;
+        }
+
+        .btn-success:hover {
+            background-color: var(--success);
+            filter: brightness(1.1);
+            transform: translateY(-2px);
+        }
+
+        select.btn-dark {
+            background: var(--primary-dark);
+            color: var(--text-light);
+            padding: 0.6rem 1rem;
+            border-radius: 30px;
+            border: none;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        select.btn-dark:hover {
+            background: var(--primary-light);
+        }
+
+        .hero {
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+            color: var(--text-light);
+            padding: 4rem 0;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.35);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            margin-top: 3rem;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .hero-stat {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero-stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .search-container {
+            position: relative;
+            margin: 2rem 0;
+            max-width: 600px;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            padding-left: 3rem;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--accent);
+            background-color: var(--background-light);
+            color: var(--text-dark);
+            font-size: 1rem;
+            transition: var(--transition);
+            box-shadow: var(--box-shadow);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0, 26, 77, 0.1);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+        }
+
+        .main {
+            flex: 1;
+            padding: 2rem 0;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--primary);
+            border-radius: 3px;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            max-width: 700px;
+        }
+
+        .breadcrumbs {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb-item {
+            display: flex;
+            align-items: center;
+        }
+
+        .breadcrumb-separator {
+            margin: 0 0.25rem;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--accent);
+            padding-bottom: 0;
+            overflow-x: auto;
+            scrollbar-width: thin;
+            position: relative;
+        }
+
+        .tab {
+            padding: 0.75rem 1.25rem;
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+            color: var(--text-muted);
+            white-space: nowrap;
+            border-bottom: 2px solid transparent;
+            background-color: transparent;
+        }
+
+        .tab:hover {
+            color: var(--primary);
+        }
+
+        .tab.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+            background-color: transparent;
+        }
+
+        .tab-indicator {
+            position: absolute;
+            bottom: -1px;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .card-grid.list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            border: 1px solid var(--accent);
+            position: relative;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.5s forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-header {
+            background: var(--primary);
+            color: var(--text-light);
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .card-title i {
+            color: var(--secondary);
+            font-size: 1.2rem;
+        }
+
+        .card-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 0.5rem;
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .tag i {
+            font-size: 0.7rem;
+        }
+
+        .tag-admin {
+            background-color: var(--danger-light);
+            color: var(--danger);
+        }
+
+        .tag-user {
+            background-color: var(--success-light);
+            color: var(--success);
+        }
+
+        .tag-ml {
+            background-color: var(--info-light);
+            color: var(--info);
+        }
+
+        .tag-new {
+            background-color: var(--warning-light);
+            color: var(--warning);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 5px rgba(245, 158, 11, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(245, 158, 11, 0);
+            }
+        }
+
+        .card-body {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 200px;
+        }
+
+        .card-description {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .card-preview {
+            background-color: var(--accent);
+            border-radius: var(--border-radius);
+            height: 180px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            position: relative;
+            box-shadow: var(--box-shadow-sm);
+            border: 1px solid var(--accent);
+        }
+
+        .card-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .card-preview:hover img {
+            transform: scale(1.05);
+        }
+
+        .card-preview::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent 70%, rgba(0, 0, 0, 0.2));
+            pointer-events: none;
+        }
+
+        .card-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            background-color: var(--accent);
+            padding: 0.4rem 0.75rem;
+            border-radius: var(--border-radius-sm);
+            transition: var(--transition);
+        }
+
+        .card-feature:hover {
+            background-color: var(--accent);
+            color: var(--text-dark);
+        }
+
+        .card-feature i {
+            color: var(--primary);
+            font-size: 0.8rem;
+        }
+
+        .card-footer {
+            padding: 1.5rem;
+            border-top: 1px solid var(--accent);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-stats {
+            display: flex;
+            gap: 1rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .card-stat {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .status-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--border-radius-sm);
+            font-size: 0.75rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .status-online {
+            background-color: var(--success-light);
+            color: var(--success);
+        }
+
+        .status-offline {
+            background-color: var(--danger-light);
+            color: var(--danger);
+        }
+
+        .status-maintenance {
+            background-color: var(--warning-light);
+            color: var(--warning);
+        }
+
+        .whats-new {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: var(--box-shadow);
+            border: 1px solid var(--accent);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .whats-new::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+            border-radius: 50%;
+            opacity: 0.5;
+        }
+
+        .updates-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .update-item {
+            display: flex;
+            gap: 1rem;
+            position: relative;
+        }
+
+        .update-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            flex-shrink: 0;
+        }
+
+        .update-content {
+            flex: 1;
+        }
+
+        .update-title {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .update-date {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .update-description {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-top: 0.5rem;
+        }
+
+        .timeline-line {
+            position: absolute;
+            top: 40px;
+            left: 20px;
+            bottom: -20px;
+            width: 2px;
+            background-color: var(--accent);
+        }
+
+        .help-section {
+            margin-top: 3rem;
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--box-shadow);
+            border: 1px solid var(--accent);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .help-section::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+            border-radius: 50%;
+            opacity: 0.5;
+        }
+
+        .help-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .help-text {
+            flex: 1;
+        }
+
+        .help-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .help-text p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .help-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .help-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100px;
+            height: 100px;
+            background-color: var(--accent);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .notification {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 1rem;
+            box-shadow: var(--box-shadow-lg);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            max-width: 350px;
+            transform: translateX(calc(100% + 2rem));
+            transition: transform 0.3s ease;
+            z-index: 1000;
+            border-left: 4px solid var(--primary);
+        }
+
+        .notification.show {
+            transform: translateX(0);
+        }
+
+        .notification-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+        }
+
+        .notification-content {
+            flex: 1;
+        }
+
+        .notification-title {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .notification-message {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .notification-close {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 1rem;
+            padding: 0.25rem;
+            transition: var(--transition);
+        }
+
+        .notification-close:hover {
+            color: var(--text-dark);
+        }
+
+        .footer {
+            background-color: var(--primary-dark);
+            color: var(--text-light);
+            padding: 3rem 0 2rem;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .footer-logo img {
+            height: 70px;
+            width: 70px;
+            object-fit: contain;
+            border-radius: var(--border-radius);
+            background: white;
+            padding: 5px;
+        }
+
+        .footer-logo h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .footer-description {
+            color: var(--text-light);
+            opacity: 0.8;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background-color: var(--secondary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .footer-column h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background-color: var(--secondary);
+            border-radius: 2px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .footer-link {
+            color: var(--text-light);
+            opacity: 0.8;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-link:hover {
+            color: var(--secondary);
+            opacity: 1;
+            transform: translateX(3px);
+        }
+
+        .footer-link i {
+            font-size: 0.75rem;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 1024px) {
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .hero-stats {
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-nav {
+                display: none;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+                align-items: center;
+            }
+            
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .help-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .help-actions {
+                justify-content: center;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+            
+            .footer-bottom-links {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-actions {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .hero-actions .btn {
+                width: 100%;
+            }
+            
+            .tabs {
+                justify-content: flex-start;
+            }
+            
+            .card-footer {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .card-actions {
+                width: 100%;
+            }
+            
+            .card-actions .btn {
+                flex: 1;
+                text-align: center;
+            }
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .animate-delay-1 {
+            animation-delay: 0.1s;
+        }
+
+        .animate-delay-2 {
+            animation-delay: 0.2s;
+        }
+
+        .animate-delay-3 {
+            animation-delay: 0.3s;
+        }
+
+        .animate-delay-4 {
+            animation-delay: 0.4s;
+        }
+
+        .animate-delay-5 {
+            animation-delay: 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="/static/islogoet_.jpg" alt="ISET Sfax Logo">
+                    <h1 data-i18n="header.title">ISET Sfax AI Platform</h1>
+                </div>
+                <div class="header-nav">
+                    <a href="#" class="nav-link active" data-i18n="nav.home">Home</a>
+                    <a href="/tools" class="nav-link" data-i18n="nav.tools">Tools</a>
+                    <a href="/documentation" class="nav-link" data-i18n="nav.documentation">Documentation</a>
+                    <a href="/support" class="nav-link" data-i18n="nav.support">Support</a>
+                </div>
+                <div class="header-actions">
+                    <button id="theme-toggle" class="btn btn-light btn-icon" aria-label="Toggle Dark Mode" data-i18n="[title]header.toggle_theme">
+                        <i class="fas fa-moon" id="theme-icon"></i>
+                    </button>
+                    <select id="language-selector" class="btn btn-dark">
+                        <option value="en" data-i18n="header.lang_en">English</option>
+                        <option value="fr" data-i18n="header.lang_fr">Français</option>
+                        <option value="ar" data-i18n="header.lang_ar">العربية</option>
+                    </select>
+                    <button id="notification-btn" class="btn btn-light btn-icon" aria-label="Notifications" data-i18n="[title]header.notifications">
+                        <i class="fas fa-bell"></i>
+                    </button>
+                    <div class="user-profile">
+                        <button id="user-profile-btn" class="user-profile-btn" aria-label="User Profile" data-i18n="[title]header.user_profile">
+                            <i class="fas fa-user"></i>
+                        </button>
+                        <div id="user-dropdown" class="user-dropdown">
+                            <div class="user-info">
+                                <h4>{{ current_user.username }}</h4>
+                                <p data-i18n="header.user_role">Role: {{ current_user.role | capitalize }}</p>
+                            </div>
+                            <a href="{{ url_for('main.logout') }}" data-i18n="header.logout">Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title" data-i18n="hero.title">Welcome to ISET Sfax AI Platform</h1>
+                <p class="hero-subtitle" data-i18n="hero.subtitle">Access our suite of AI-powered tools and interfaces designed to enhance your educational and administrative experience</p>
+                <div class="hero-actions">
+                    <a href="#tools" class="btn btn-light" data-i18n="hero.explore_tools">Explore Tools</a>
+                    <a href="/documentation" class="btn btn-outline" data-i18n="hero.view_docs">View Documentation</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <div class="hero-stat-value" data-i18n="hero.stats.tools_value">3</div>
+                        <div class="hero-stat-label" data-i18n="hero.stats.tools_label">AI Tools</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-value" data-i18n="hero.stats.availability_value">24/7</div>
+                        <div class="hero-stat-label" data-i18n="hero.stats.availability_label">Availability</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-value" data-i18n="hero.stats.security_value">100%</div>
+                        <div class="hero-stat-label" data-i18n="hero.stats.security_label">Secure</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="main">
+        <div class="container">
+            <div class="breadcrumbs">
+                <div class="breadcrumb-item">
+                    <a href="/" data-i18n="breadcrumbs.home">Home</a>
+                </div>
+                <div class="breadcrumb-separator">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+                <div class="breadcrumb-item" data-i18n="breadcrumbs.platform">AI Platform</div>
+            </div>
+
+            <div class="search-container">
+                <input type="text" id="search-input" class="search-input" data-i18n="[placeholder]search.placeholder">
+                <i class="fas fa-search search-icon"></i>
+            </div>
+
+            <section class="section whats-new">
+                <div class="section-header">
+                    <h2 class="section-title" data-i18n="whats_new.title">What's New</h2>
+                    <a href="/updates" class="btn btn-outline" data-i18n="whats_new.view_all">View All Updates</a>
+                </div>
+                <div class="updates-list">
+                    <div class="update-item">
+                        <div class="update-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <div class="update-content">
+                            <div class="update-title">
+                                <span data-i18n="whats_new.automl_title">New AutoML Pro Features</span>
+                                <span class="tag tag-new"><i class="fas fa-star"></i> <span data-i18n="whats_new.tag_new">New</span></span>
+                            </div>
+                            <div class="update-date" data-i18n="whats_new.automl_date">May 5, 2025</div>
+                            <p class="update-description" data-i18n="whats_new.automl_description">Enhanced model training capabilities with support for custom datasets and improved visualization tools.</p>
+                        </div>
+                        <div class="timeline-line"></div>
+                    </div>
+                    <div class="update-item">
+                        <div class="update-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="update-content">
+                            <div class="update-title" data-i18n="whats_new.analytics_title">Dashboard Analytics Upgrade</div>
+                            <div class="update-date" data-i18n="whats_new.analytics_date">April 28, 2025</div>
+                            <p class="update-description" data-i18n="whats_new.analytics_description">Improved analytics dashboard with real-time data processing and customizable reports.</p>
+                        </div>
+                        <div class="timeline-line"></div>
+                    </div>
+                    <div class="update-item">
+                        <div class="update-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="update-content">
+                            <div class="update-title" data-i18n="whats_new.chatbot_title">Chatbot Knowledge Base Expansion</div>
+                            <div class="update-date" data-i18n="whats_new.chatbot_date">April 15, 2025</div>
+                            <p class="update-description" data-i18n="whats_new.chatbot_description">Added 500+ new entries to the chatbot knowledge base covering academic programs and campus services.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="tools" class="section">
+                <div class="section-header">
+                    <h2 class="section-title" data-i18n="tools.title">AI Tools</h2>
+                    <div class="tabs-actions">
+                        <button id="grid-view" class="btn btn-icon btn-outline active" aria-label="Grid View" data-i18n="[title]tools.grid_view">
+                            <i class="fas fa-th-large"></i>
+                        </button>
+                        <button id="list-view" class="btn btn-icon btn-outline" aria-label="List View" data-i18n="[title]tools.list_view">
+                            <i class="fas fa-list"></i>
+                        </button>
+                    </div>
+                </div>
+                <p class="section-subtitle" data-i18n="tools.subtitle">Access our suite of AI-powered tools and interfaces designed to enhance your educational and administrative experience</p>
+
+                <div class="tabs">
+                    <div class="tab active" data-filter="all" data-i18n="tools.tab_all">All Tools</div>
+                    {% if current_user.role == 'admin' %}
+                    <div class="tab" data-filter="admin" data-i18n="tools.tab_admin">Admin Tools</div>
+                    {% endif %}
+                    <div class="tab" data-filter="user" data-i18n="tools.tab_user">User Tools</div>
+                    <div class="tab" data-filter="ml" data-i18n="tools.tab_ml">Machine Learning</div>
+                    <div class="tab-indicator"></div>
+                </div>
+
+                <div class="card-grid">
+                    <!-- Chat Admin Interface Card -->
+                    {% if current_user.role == 'admin' %}
+                    <div class="card" data-category="admin" style="animation-delay: 0.1s;">
+                        <div class="status-badge status-online">
+                            <i class="fas fa-circle"></i> <span data-i18n="tools.status_online">Online</span>
+                        </div>
+                        <div class="card-header">
+                            <h3 class="card-title"><i class="fas fa-cogs"></i> <span data-i18n="tools.admin_title">Chatbot Admin</span></h3>
+                            <div class="card-tags">
+                                <span class="tag tag-admin"><i class="fas fa-lock"></i> <span data-i18n="tools.tag_admin">Admin</span></span>
+                                <span class="tag tag-ml"><i class="fas fa-robot"></i> <span data-i18n="tools.tag_ai">AI</span></span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-description" data-i18n="tools.admin_description">Comprehensive admin interface for managing the chatbot knowledge base, viewing analytics, and configuring system settings.</p>
+                            <div class="card-preview">
+                                <img src="/static/65d293150279b6edf041aeb40652cb82.jpg" alt="Chat Admin Interface Preview" onerror="this.src='https://via.placeholder.com/600x300?text=Chat+Admin+Interface'">
+                            </div>
+                            <div class="card-features">
+                                <div class="card-feature">
+                                    <i class="fas fa-database"></i>
+                                    <span data-i18n="tools.admin_feature_knowledge">Knowledge Base</span>
+                                </div>
+                                <div class="card-feature">
+                                    <i class="fas fa-chart-pie"></i>
+                                    <span data-i18n="tools.admin_feature_analytics">Analytics</span>
+                                </div>
+                                <div class="card-feature">
+                                    <i class="fas fa-cog"></i>
+                                    <span data-i18n="tools.admin_feature_settings">Settings</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-stats">
+                                <div class="card-stat">
+                                    <i class="fas fa-clock"></i>
+                                    <span data-i18n="tools.admin_updated">Updated 2 days ago</span>
+                                </div>
+                            </div>
+                            <div class="card-actions">
+                                <a href="/chat_interface" class="btn btn-primary" data-i18n="tools.open_interface">Open Interface</a>
+                                <a href="/chat_docs" class="btn btn-outline btn-icon" title="Documentation" data-i18n="[title]tools.view_docs">
+                                    <i class="fas fa-book"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    <!-- Dashboard Card -->
+                    <div class="card" data-category="user" style="animation-delay: 0.2s;">
+                        <div class="status-badge status-online">
+                            <i class="fas fa-circle"></i> <span data-i18n="tools.status_online">Online</span>
+                        </div>
+                        <div class="card-header">
+                            <h3 class="card-title"><i class="fas fa-robot"></i> <span data-i18n="tools.assistant_title">AI Assistant</span></h3>
+                            <div class="card-tags">
+                                <span class="tag tag-user"><i class="fas fa-user"></i> <span data-i18n="tools.tag_user">User</span></span>
+                                <span class="tag tag-ml"><i class="fas fa-robot"></i> <span data-i18n="tools.tag_ai">AI</span></span>
+                                <span class="tag tag-new"><i class="fas fa-star"></i> <span data-i18n="tools.tag_updated">Updated</span></span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-description" data-i18n="tools.assistant_description">Interactive AI assistant that provides information about ISET Sfax programs, courses, services, and answers student questions.</p>
+                            <div class="card-preview">
+                                <img src="/static/dashboard_preview.jpg" alt="Dashboard Preview" onerror="this.src='https://via.placeholder.com/600x300?text=AI+Assistant+Dashboard'">
+                            </div>
+                            <div class="card-features">
+                                <div class="card-feature">
+                                    <i class="fas fa-comments"></i>
+                                    <span data-i18n="tools.assistant_feature_chat">Chat Interface</span>
+                                </div>
+                                <div class="card-feature">
+                                    <i class="fas fa-language"></i>
+                                    <span data-i18n="tools.assistant_feature_multilang">Multi-language</span>
+                                </div>
+                                <div class="card-feature">
+                                    <i class="fas fa-link"></i>
+                                    <span data-i18n="tools.assistant_feature_links">Resource Links</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-stats">
+                                <div class="card-stat">
+                                    <i class="fas fa-clock"></i>
+                                    <span data-i18n="tools.assistant_updated">Updated today</span>
+                                </div>
+                            </div>
+                            <div class="card-actions">
+                                <a href="/dashboard" class="btn btn-primary" data-i18n="tools.open_interface">Open Interface</a>
+                                <a href="/assistant_docs" class="btn btn-outline btn-icon" title="Documentation" data-i18n="[title]tools.view_docs">
+                                    <i class="fas fa-book"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Machine Learning Interface Card -->
+                    <div class="card" data-category="ml user" style="animation-delay: 0.3s;">
+                        <div class="status-badge status-online">
+                            <i class="fas fa-circle"></i> <span data-i18n="tools.status_online">Online</span>
+                        </div>
+                        <div class="card-header">
+                            <h3 class="card-title"><i class="fas fa-brain"></i> <span data-i18n="tools.automl_title">AutoML Pro</span></h3>
+                            <div class="card-tags">
+                                <span class="tag tag-user"><i class="fas fa-user"></i> <span data-i18n="tools.tag_user">User</span></span>
+                                <span class="tag tag-ml"><i class="fas fa-brain"></i> <span data-i18n="tools.tag_ml">Machine Learning</span></span>
+                                <span class="tag tag-new"><i class="fas fa-star"></i> <span data-i18n="tools.tag_new">New</span></span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-description" data-i18n="tools.automl_description">Advanced machine learning platform for data analysis, model training, and predictive analytics with an intuitive interface.</p>
+                            <div class="card-preview">
+                                <img src="/static/33f87ef86d9207b5905856e623e8a3ed.jpg" alt="Machine Learning Interface Preview" onerror="this.src='https://via.placeholder.com/600x300?text=AutoML+Pro+Interface'">
+                            </div>
+                            <div class="card-features">
+                                <div class="card-feature">
+                                    <i class="fas fa-chart-line"></i>
+                                    <span data-i18n="tools.automl_feature_analysis">Data Analysis</span>
+                                </div>
+                                <div class="card-feature">
+                                    <i class="fas fa-cogs"></i>
+                                    <span data-i18n="tools.automl_feature_training">Model Training</span>
+                                </div>
+                                <div class="card-feature">
+                                    <i class="fas fa-file-export"></i>
+                                    <span data-i18n="tools.automl_feature_export">Export Results</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-stats">
+                                <div class="card-stat">
+                                    <i class="fas fa-clock"></i>
+                                    <span data-i18n="tools.automl_updated">Updated 3 days ago</span>
+                                </div>
+                            </div>
+                            <div class="card-actions">
+                                <a href="/machine_interface" class="btn btn-primary" data-i18n="tools.open_interface">Open Interface</a>
+                                <a href="/ml_docs" class="btn btn-outline btn-icon" title="Documentation" data-i18n="[title]tools.view_docs">
+                                    <i class="fas fa-book"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="help-section">
+                <div class="help-content">
+                    <div class="help-icon">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                    <div class="help-text">
+                        <h3 data-i18n="help.title">Need Help?</h3>
+                        <p data-i18n="help.description">Check out our comprehensive documentation to learn more about our AI platform and how to use each tool effectively. If you need further assistance, our support team is available to help.</p>
+                        <div class="help-actions">
+                            <a href="/documentation" class="btn btn-outline" data-i18n="help.view_docs">View Documentation</a>
+                            <a href="/support" class="btn btn-primary" data-i18n="help.contact_support">Contact Support</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="/static/iset_logo.jpg" alt="ISET Sfax Logo">
+                        <h2 data-i18n="footer.title">ISET Sfax</h2>
+                    </div>
+                    <p class="footer-description" data-i18n="footer.description">
+                        The Higher Institute of Technological Studies of Sfax (ISET Sfax) is dedicated to providing quality education and innovative technological solutions.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link" aria-label="Facebook" data-i18n="[aria-label]footer.social_facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter" data-i18n="[aria-label]footer.social_twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn" data-i18n="[aria-label]footer.social_linkedin">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram" data-i18n="[aria-label]footer.social_instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3 data-i18n="footer.quick_links">Quick Links</h3>
+                    <div class="footer-links">
+                        <a href="/" class="footer-link"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.link_home">Home</span></a>
+                        <a href="/about" class="footer-link"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.link_about">About Us</span></a>
+                        <a href="/tools" class="footer-link"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.link_tools">AI Tools</span></a>
+                        <a href="/documentation" class="footer-link"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.link_docs">Documentation</span></a>
+                        <a href="/contact" class="footer-link"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.link_contact">Contact</span></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3 data-i18n="footer.resources">Resources</h3>
+                    <div class="footer-links">
+                        <a href="/tutorials" class="footer-link"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.link_tutorials">Tutorials</span></a>
+                        <a href="/faq" class="footer-link"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.link_faq">FAQ</span></a>
+                        <a href="/support" class="footer-link"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.link_support">Support</span></a>
+                        <a href="/blog" class="footer-link"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.link_blog">Blog</span></a>
+                        <a href="/updates" class="footer-link"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.link_updates">Updates</span></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3 data-i18n="footer.contact_us">Contact Us</h3>
+                    <div class="footer-links">
+                        <a href="mailto:contact@isetsf.rnu.tn" class="footer-link"><i class="fas fa-envelope"></i> contact@isetsf.rnu.tn</a>
+                        <a href="tel:+21674241403" class="footer-link"><i class="fas fa-phone"></i> +216 74 241 403</a>
+                        <a href="#" class="footer-link"><i class="fas fa-map-marker-alt"></i> <span data-i18n="footer.contact_address">Route de Mahdia Km 2.5, Sfax</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <i class="far fa-copyright"></i> <span data-i18n="footer.copyright">2025 ISET Sfax. All rights reserved.</span>
+                </div>
+                <div class="footer-bottom-links">
+                    <a href="/privacy" class="footer-bottom-link" data-i18n="footer.link_privacy">Privacy Policy</a>
+                    <a href="/terms" class="footer-bottom-link" data-i18n="footer.link_terms">Terms of Service</a>
+                    <a href="/sitemap" class="footer-bottom-link" data-i18n="footer.link_sitemap">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="notification" class="notification">
+        <div class="notification-icon">
+            <i class="fas fa-info-circle"></i>
+        </div>
+        <div class="notification-content">
+            <div class="notification-title" data-i18n="notification.welcome_title">Welcome to ISET Sfax AI Platform</div>
+            <div class="notification-message" data-i18n="notification.welcome_message">Explore our AI tools and discover new features.</div>
+        </div>
+        <button class="notification-close" aria-label="Close notification" data-i18n="[aria-label]notification.close">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/i18next@21.9.2/dist/umd/i18next.min.js"></script>
+<script>
+    // Utility function to get cookie value
+    function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+        return null;
+    }
+
+    // Initialize i18next
+    i18next.init({
+        lng: getCookie('language') || 'en',
+        resources: {
+            en: {
+                translation: {
+                    'header.title': 'ISET Sfax AI Platform',
+                    'header.toggle_theme': 'Toggle Dark Mode',
+                    'header.notifications': 'Notifications',
+                    'header.user_profile': 'User Profile',
+                    'header.user_role': 'Role: {{ role }}',
+                    'header.logout': 'Logout',
+                    'header.lang_en': 'English',
+                    'header.lang_fr': 'French',
+                    'header.lang_ar': 'Arabic',
+                    'nav.home': 'Home',
+                    'nav.tools': 'Tools',
+                    'nav.documentation': 'Documentation',
+                    'nav.support': 'Support',
+                    'hero.title': 'Welcome to ISET Sfax AI Platform',
+                    'hero.subtitle': 'Access our suite of AI-powered tools and interfaces designed to enhance your educational and administrative experience',
+                    'hero.explore_tools': 'Explore Tools',
+                    'hero.view_docs': 'View Documentation',
+                    'hero.stats.tools_value': '3',
+                    'hero.stats.tools_label': 'AI Tools',
+                    'hero.stats.availability_value': '24/7',
+                    'hero.stats.availability_label': 'Availability',
+                    'hero.stats.security_value': '100%',
+                    'hero.stats.security_label': 'Secure',
+                    'breadcrumbs.home': 'Home',
+                    'breadcrumbs.platform': 'AI Platform',
+                    'search.placeholder': 'Search for tools, features, or documentation...',
+                    'whats_new.title': 'What\'s New',
+                    'whats_new.view_all': 'View All Updates',
+                    'whats_new.automl_title': 'New AutoML Pro Features',
+                    'whats_new.automl_date': 'May 5, 2025',
+                    'whats_new.automl_description': 'Enhanced model training capabilities with support for custom datasets and improved visualization tools.',
+                    'whats_new.analytics_title': 'Dashboard Analytics Upgrade',
+                    'whats_new.analytics_date': 'April 28, 2025',
+                    'whats_new.analytics_description': 'Improved analytics dashboard with real-time data processing and customizable reports.',
+                    'whats_new.chatbot_title': 'Chatbot Knowledge Base Expansion',
+                    'whats_new.chatbot_date': 'April 15, 2025',
+                    'whats_new.chatbot_description': 'Added 500+ new entries to the chatbot knowledge base covering academic programs and campus services.',
+                    'whats_new.tag_new': 'New',
+                    'tools.title': 'AI Tools',
+                    'tools.subtitle': 'Access our suite of AI-powered tools and interfaces designed to enhance your educational and administrative experience',
+                    'tools.grid_view': 'Grid View',
+                    'tools.list_view': 'List View',
+                    'tools.tab_all': 'All Tools',
+                    'tools.tab_admin': 'Admin Tools',
+                    'tools.tab_user': 'User Tools',
+                    'tools.tab_ml': 'Machine Learning',
+                    'tools.status_online': 'Online',
+                    'tools.status_offline': 'Offline',
+                    'tools.admin_title': 'Chatbot Admin',
+                    'tools.admin_description': 'Comprehensive admin interface for managing the chatbot knowledge base, viewing analytics, and configuring system settings.',
+                    'tools.admin_feature_knowledge': 'Knowledge Base',
+                    'tools.admin_feature_analytics': 'Analytics',
+                    'tools.admin_feature_settings': 'Settings',
+                    'tools.admin_updated': 'Updated 2 days ago',
+                    'tools.assistant_title': 'AI Assistant',
+                    'tools.assistant_description': 'Interactive AI assistant that provides information about ISET Sfax programs, courses, services, and answers student questions.',
+                    'tools.assistant_feature_chat': 'Chat Interface',
+                    'tools.assistant_feature_multilang': 'Multi-language',
+                    'tools.assistant_feature_links': 'Resource Links',
+                    'tools.assistant_updated': 'Updated today',
+                    'tools.automl_title': 'AutoML Pro',
+                    'tools.automl_description': 'Advanced machine learning platform for data analysis, model training, and predictive analytics with an intuitive interface.',
+                    'tools.automl_feature_analysis': 'Data Analysis',
+                    'tools.automl_feature_training': 'Model Training',
+                    'tools.automl_feature_export': 'Export Results',
+                    'tools.automl_updated': 'Updated 3 days ago',
+                    'tools.tag_admin': 'Admin',
+                    'tools.tag_user': 'User',
+                    'tools.tag_ml': 'Machine Learning',
+                    'tools.tag_ai': 'AI',
+                    'tools.tag_new': 'New',
+                    'tools.tag_updated': 'Updated',
+                    'tools.open_interface': 'Open Interface',
+                    'tools.view_docs': 'Documentation',
+                    'help.title': 'Need Help?',
+                    'help.description': 'Check out our comprehensive documentation to learn more about our AI platform and how to use each tool effectively. If you need further assistance, our support team is available to help.',
+                    'help.view_docs': 'View Documentation',
+                    'help.contact_support': 'Contact Support',
+                    'footer.title': 'ISET Sfax',
+                    'footer.description': 'The Higher Institute of Technological Studies of Sfax (ISET Sfax) is dedicated to providing quality education and innovative technological solutions.',
+                    'footer.social_facebook': 'Facebook',
+                    'footer.social_twitter': 'Twitter',
+                    'footer.social_linkedin': 'LinkedIn',
+                    'footer.social_instagram': 'Instagram',
+                    'footer.quick_links': 'Quick Links',
+                    'footer.link_home': 'Home',
+                    'footer.link_about': 'About Us',
+                    'footer.link_tools': 'AI Tools',
+                    'footer.link_docs': 'Documentation',
+                    'footer.link_contact': 'Contact',
+                    'footer.resources': 'Resources',
+                    'footer.link_tutorials': 'Tutorials',
+                    'footer.link_faq': 'FAQ',
+                    'footer.link_support': 'Support',
+                    'footer.link_blog': 'Blog',
+                    'footer.link_updates': 'Updates',
+                    'footer.contact_us': 'Contact Us',
+                    'footer.contact_address': 'Route de Mahdia Km 2.5, Sfax',
+                    'footer.copyright': '2025 ISET Sfax. All rights reserved.',
+                    'footer.link_privacy': 'Privacy Policy',
+                    'footer.link_terms': 'Terms of Service',
+                    'footer.link_sitemap': 'Sitemap',
+                    'notification.welcome_title': 'Welcome to ISET Sfax AI Platform',
+                    'notification.welcome_message': 'Explore our AI tools and discover new features.',
+                    'notification.language_changed': 'Language changed to {{ language }}',
+                    'notification.settings_updated': 'Settings updated successfully',
+                    'notification.no_notifications': 'You have no new notifications',
+                    'notification.offline_title': 'Connection Lost',
+                    'notification.offline_message': 'You are currently offline. Some features may not be available.',
+                    'notification.close': 'Close notification'
+                }
+            },
+            fr: {
+                translation: {
+                    'header.title': 'Plateforme IA ISET Sfax',
+                    'header.toggle_theme': 'Basculer le mode sombre',
+                    'header.notifications': 'Notifications',
+                    'header.user_profile': 'Profil utilisateur',
+                    'header.user_role': 'Rôle : {{ role }}',
+                    'header.logout': 'Déconnexion',
+                    'header.lang_en': 'Anglais',
+                    'header.lang_fr': 'Français',
+                    'header.lang_ar': 'Arabe',
+                    'nav.home': 'Accueil',
+                    'nav.tools': 'Outils',
+                    'nav.documentation': 'Documentation',
+                    'nav.support': 'Support',
+                    'hero.title': 'Bienvenue sur la plateforme IA ISET Sfax',
+                    'hero.subtitle': 'Accédez à notre suite d’outils et d’interfaces alimentés par l’IA, conçus pour améliorer votre expérience éducative et administrative',
+                    'hero.explore_tools': 'Explorer les outils',
+                    'hero.view_docs': 'Voir la documentation',
+                    'hero.stats.tools_value': '3',
+                    'hero.stats.tools_label': 'Outils IA',
+                    'hero.stats.availability_value': '24/7',
+                    'hero.stats.availability_label': 'Disponibilité',
+                    'hero.stats.security_value': '100%',
+                    'hero.stats.security_label': 'Sécurisé',
+                    'breadcrumbs.home': 'Accueil',
+                    'breadcrumbs.platform': 'Plateforme IA',
+                    'search.placeholder': 'Rechercher des outils, fonctionnalités ou documentation...',
+                    'whats_new.title': 'Quoi de neuf',
+                    'whats_new.view_all': 'Voir toutes les mises à jour',
+                    'whats_new.automl_title': 'Nouvelles fonctionnalités AutoML Pro',
+                    'whats_new.automl_date': '5 mai 2025',
+                    'whats_new.automl_description': 'Capacités de formation de modèles améliorées avec prise en charge des ensembles de données personnalisés et outils de visualisation améliorés.',
+                    'whats_new.analytics_title': 'Mise à niveau du tableau de bord analytique',
+                    'whats_new.analytics_date': '28 avril 2025',
+                    'whats_new.analytics_description': 'Tableau de bord analytique amélioré avec traitement de données en temps réel et rapports personnalisables.',
+                    'whats_new.chatbot_title': 'Expansion de la base de connaissances du chatbot',
+                    'whats_new.chatbot_date': '15 avril 2025',
+                    'whats_new.chatbot_description': 'Ajout de plus de 500 nouvelles entrées à la base de connaissances du chatbot couvrant les programmes académiques et les services du campus.',
+                    'whats_new.tag_new': 'Nouveau',
+                    'tools.title': 'Outils IA',
+                    'tools.subtitle': 'Accédez à notre suite d’outils et d’interfaces alimentés par l’IA, conçus pour améliorer votre expérience éducative et administrative',
+                    'tools.grid_view': 'Vue grille',
+                    'tools.list_view': 'Vue liste',
+                    'tools.tab_all': 'Tous les outils',
+                    'tools.tab_admin': 'Outils administrateurs',
+                    'tools.tab_user': 'Outils utilisateurs',
+                    'tools.tab_ml': 'Apprentissage automatique',
+                    'tools.status_online': 'En ligne',
+                    'tools.status_offline': 'Hors ligne',
+                    'tools.admin_title': 'Administration du chatbot',
+                    'tools.admin_description': 'Interface d’administration complète pour gérer la base de connaissances du chatbot, consulter les analyses et configurer les paramètres du système.',
+                    'tools.admin_feature_knowledge': 'Base de connaissances',
+                    'tools.admin_feature_analytics': 'Analyses',
+                    'tools.admin_feature_settings': 'Paramètres',
+                    'tools.admin_updated': 'Mis à jour il y a 2 jours',
+                    'tools.assistant_title': 'Assistant IA',
+                    'tools.assistant_description': 'Assistant IA interactif qui fournit des informations sur les programmes, cours, services de l’ISET Sfax et répond aux questions des étudiants.',
+                    'tools.assistant_feature_chat': 'Interface de chat',
+                    'tools.assistant_feature_multilang': 'Multilingue',
+                    'tools.assistant_feature_links': 'Liens de ressources',
+                    'tools.assistant_updated': 'Mis à jour aujourd’hui',
+                    'tools.automl_title': 'AutoML Pro',
+                    'tools.automl_description': 'Plateforme d’apprentissage automatique avancée pour l’analyse de données, la formation de modèles et l’analyse prédictive avec une interface intuitive.',
+                    'tools.automl_feature_analysis': 'Analyse de données',
+                    'tools.automl_feature_training': 'Formation de modèles',
+                    'tools.automl_feature_export': 'Exporter les résultats',
+                    'tools.automl_updated': 'Mis à jour il y a 3 jours',
+                    'tools.tag_admin': 'Administrateur',
+                    'tools.tag_user': 'Utilisateur',
+                    'tools.tag_ml': 'Apprentissage automatique',
+                    'tools.tag_ai': 'IA',
+                    'tools.tag_new': 'Nouveau',
+                    'tools.tag_updated': 'Mis à jour',
+                    'tools.open_interface': 'Ouvrir l’interface',
+                    'tools.view_docs': 'Documentation',
+                    'help.title': 'Besoin d’aide ?',
+                    'help.description': 'Consultez notre documentation complète pour en savoir plus sur notre plateforme IA et comment utiliser chaque outil efficacement. Si vous avez besoin d’une assistance supplémentaire, notre équipe de support est disponible pour vous aider.',
+                    'help.view_docs': 'Voir la documentation',
+                    'help.contact_support': 'Contacter le support',
+                    'footer.title': 'ISET Sfax',
+                    'footer.description': 'L’Institut Supérieur des Études Technologiques de Sfax (ISET Sfax) est dédié à fournir une éducation de qualité et des solutions technologiques innovantes.',
+                    'footer.social_facebook': 'Facebook',
+                    'footer.social_twitter': 'Twitter',
+                    'footer.social_linkedin': 'LinkedIn',
+                    'footer.social_instagram': 'Instagram',
+                    'footer.quick_links': 'Liens rapides',
+                    'footer.link_home': 'Accueil',
+                    'footer.link_about': 'À propos',
+                    'footer.link_tools': 'Outils IA',
+                    'footer.link_docs': 'Documentation',
+                    'footer.link_contact': 'Contact',
+                    'footer.resources': 'Ressources',
+                    'footer.link_tutorials': 'Tutoriels',
+                    'footer.link_faq': 'FAQ',
+                    'footer.link_support': 'Support',
+                    'footer.link_blog': 'Blog',
+                    'footer.link_updates': 'Mises à jour',
+                    'footer.contact_us': 'Nous contacter',
+                    'footer.contact_address': 'Route de Mahdia Km 2.5, Sfax',
+                    'footer.copyright': '2025 ISET Sfax. Tous droits réservés.',
+                    'footer.link_privacy': 'Politique de confidentialité',
+                    'footer.link_terms': 'Conditions d’utilisation',
+                    'footer.link_sitemap': 'Plan du site',
+                    'notification.welcome_title': 'Bienvenue sur la plateforme IA ISET Sfax',
+                    'notification.welcome_message': 'Explorez nos outils IA et découvrez de nouvelles fonctionnalités.',
+                    'notification.language_changed': 'Langue changée en {{ language }}',
+                    'notification.settings_updated': 'Paramètres mis à jour avec succès',
+                    'notification.no_notifications': 'Vous n’avez aucune nouvelle notification',
+                    'notification.offline_title': 'Connexion perdue',
+                    'notification.offline_message': 'Vous êtes actuellement hors ligne. Certaines fonctionnalités peuvent ne pas être disponibles.',
+                    'notification.close': 'Fermer la notification'
+                }
+            },
+            ar: {
+                translation: {
+                    'header.title': 'منصة الذكاء الاصطناعي ISET صفاقس',
+                    'header.toggle_theme': 'تبديل الوضع الداكن',
+                    'header.notifications': 'الإشعارات',
+                    'header.user_profile': 'ملف المستخدم',
+                    'header.user_role': 'الدور: {{ role }}',
+                    'header.logout': 'تسجيل الخروج',
+                    'header.lang_en': 'الإنجليزية',
+                    'header.lang_fr': 'الفرنسية',
+                    'header.lang_ar': 'العربية',
+                    'nav.home': 'الرئيسية',
+                    'nav.tools': 'الأدوات',
+                    'nav.documentation': 'الوثائق',
+                    'nav.support': 'الدعم',
+                    'hero.title': 'مرحبًا بكم في منصة الذكاء الاصطناعي ISET صفاقس',
+                    'hero.subtitle': 'استفد من مجموعتنا من الأدوات والواجهات المدعومة بالذكاء الاصطناعي المصممة لتعزيز تجربتك التعليمية والإدارية',
+                    'hero.explore_tools': 'استكشاف الأدوات',
+                    'hero.view_docs': 'عرض الوثائق',
+                    'hero.stats.tools_value': '3',
+                    'hero.stats.tools_label': 'أدوات الذكاء الاصطناعي',
+                    'hero.stats.availability_value': '24/7',
+                    'hero.stats.availability_label': 'التوفر',
+                    'hero.stats.security_value': '100%',
+                    'hero.stats.security_label': 'آمن',
+                    'breadcrumbs.home': 'الرئيسية',
+                    'breadcrumbs.platform': 'منصة الذكاء الاصطناعي',
+                    'search.placeholder': 'ابحث عن الأدوات أو الميزات أو الوثائق...',
+                    'whats_new.title': 'ما الجديد',
+                    'whats_new.view_all': 'عرض جميع التحديثات',
+                    'whats_new.automl_title': 'ميزات AutoML Pro الجديدة',
+                    'whats_new.automl_date': '5 مايو 2025',
+                    'whats_new.automl_description': 'قدرات تدريب النماذج المحسنة مع دعم لمجموعات البيانات المخصصة وأدوات التصور المحسنة.',
+                    'whats_new.analytics_title': 'ترقية لوحة التحليلات',
+                    'whats_new.analytics_date': '28 أبريل 2025',
+                    'whats_new.analytics_description': 'لوحة تحليلات محسنة مع معالجة البيانات في الوقت الفعلي وتقارير قابلة للتخصيص.',
+                    'whats_new.chatbot_title': 'توسيع قاعدة معارف الشاتبوت',
+                    'whats_new.chatbot_date': '15 أبريل 2025',
+                    'whats_new.chatbot_description': 'تمت إضافة أكثر من 500 إدخال جديد إلى قاعدة معارف الشاتبوت تغطي البرامج الأكاديمية وخدمات الحرم الجامعي.',
+                    'whats_new.tag_new': 'جديد',
+                    'tools.title': 'أدوات الذكاء الاصطناعي',
+                    'tools.subtitle': 'استفد من مجموعتنا من الأدوات والواجهات المدعومة بالذكاء الاصطناعي المصممة لتعزيز تجربتك التعليمية والإدارية',
+                    'tools.grid_view': 'عرض الشبكة',
+                    'tools.list_view': 'عرض القائمة',
+                    'tools.tab_all': 'جميع الأدوات',
+                    'tools.tab_admin': 'أدوات المشرف',
+                    'tools.tab_user': 'أدوات المستخدم',
+                    'tools.tab_ml': 'التعلم الآلي',
+                    'tools.status_online': 'متصل',
+                    'tools.status_offline': 'غير متصل',
+                    'tools.admin_title': 'إدارة الشاتبوت',
+                    'tools.admin_description': 'واجهة إدارية شاملة لإدارة قاعدة معارف الشاتبوت، عرض التحليلات، وتهيئة إعدادات النظام.',
+                    'tools.admin_feature_knowledge': 'قاعدة المعارف',
+                    'tools.admin_feature_analytics': 'التحليلات',
+                    'tools.admin_feature_settings': 'الإعدادات',
+                    'tools.admin_updated': 'تم التحديث قبل يومين',
+                    'tools.assistant_title': 'مساعد الذكاء الاصطناعي',
+                    'tools.assistant_description': 'مساعد ذكاء اصطناعي تفاعلي يوفر معلومات حول برامج ISET صفاقس، الدورات، الخدمات، ويجيب على أسئلة الطلاب.',
+                    'tools.assistant_feature_chat': 'واجهة الدردشة',
+                    'tools.assistant_feature_multilang': 'متعدد اللغات',
+                    'tools.assistant_feature_links': 'روابط الموارد',
+                    'tools.assistant_updated': 'تم التحديث اليوم',
+                    'tools.automl_title': 'AutoML Pro',
+                    'tools.automl_description': 'منصة تعلم آلي متقدمة لتحليل البيانات، تدريب النماذج، والتحليلات التنبؤية مع واجهة سهلة الاستخدام.',
+                    'tools.automl_feature_analysis': 'تحليل البيانات',
+                    'tools.automl_feature_training': 'تدريب النماذج',
+                    'tools.automl_feature_export': 'تصدير النتائج',
+                    'tools.automl_updated': 'تم التحديث قبل 3 أيام',
+                    'tools.tag_admin': 'مشرف',
+                    'tools.tag_user': 'مستخدم',
+                    'tools.tag_ml': 'التعلم الآلي',
+                    'tools.tag_ai': 'الذكاء الاصطناعي',
+                    'tools.tag_new': 'جديد',
+                    'tools.tag_updated': 'محدث',
+                    'tools.open_interface': 'فتح الواجهة',
+                    'tools.view_docs': 'الوثائق',
+                    'help.title': 'هل تحتاج إلى مساعدة؟',
+                    'help.description': 'اطلع على وثائقنا الشاملة لمعرفة المزيد عن منصة الذكاء الاصطناعي لدينا وكيفية استخدام كل أداة بفعالية. إذا كنت بحاجة إلى مساعدة إضافية، فإن فريق الدعم لدينا متاح للمساعدة.',
+                    'help.view_docs': 'عرض الوثائق',
+                    'help.contact_support': 'الاتصال بالدعم',
+                    'footer.title': 'ISET صفاقس',
+                    'footer.description': 'المعهد العالي للدراسات التكنولوجية بصفاقس (ISET صفاقس) مكرس لتقديم تعليم عالي الجودة وحلول تكنولوجية مبتكرة.',
+                    'footer.social_facebook': 'فيسبوك',
+                    'footer.social_twitter': 'تويتر',
+                    'footer.social_linkedin': 'لينكدإن',
+                    'footer.social_instagram': 'إنستغرام',
+                    'footer.quick_links': 'روابط سريعة',
+                    'footer.link_home': 'الرئيسية',
+                    'footer.link_about': 'من نحن',
+                    'footer.link_tools': 'أدوات الذكاء الاصطناعي',
+                    'footer.link_docs': 'الوثائق',
+                    'footer.link_contact': 'الاتصال',
+                    'footer.resources': 'الموارد',
+                    'footer.link_tutorials': 'البرامج التعليمية',
+                    'footer.link_faq': 'الأسئلة الشائعة',
+                    'footer.link_support': 'الدعم',
+                    'footer.link_blog': 'المدونة',
+                    'footer.link_updates': 'التحديثات',
+                    'footer.contact_us': 'اتصل بنا',
+                    'footer.contact_address': 'طريق المهدية كم 2.5، صفاقس',
+                    'footer.copyright': '2025 ISET صفاقس. جميع الحقوق محفوظة.',
+                    'footer.link_privacy': 'سياسة الخصوصية',
+                    'footer.link_terms': 'شروط الخدمة',
+                    'footer.link_sitemap': 'خريطة الموقع',
+                    'notification.welcome_title': 'مرحبًا بكم في منصة الذكاء الاصطناعي ISET صفاقس',
+                    'notification.welcome_message': 'استكشف أدواتنا المدعومة بالذكاء الاصطناعي واكتشف ميزات جديدة.',
+                    'notification.language_changed': 'تم تغيير اللغة إلى {{ language }}',
+                    'notification.settings_updated': 'تم تحديث الإعدادات بنجاح',
+                    'notification.no_notifications': 'ليس لديك إشعارات جديدة',
+                    'notification.offline_title': 'فقدان الاتصال',
+                    'notification.offline_message': 'أنت غير متصل حاليًا. بعض الميزات قد لا تكون متاحة.',
+                    'notification.close': 'إغلاق الإشعار'
+                }
+            }
+        }
+    }, (err, t) => {
+        if (err) {
+            console.error('i18next initialization failed:', err);
+            return;
+        }
+
+        // Function to update the DOM with translations
+        function updateContent() {
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                const attributeMatch = key.match(/\[(.+)\](.+)/);
+                if (attributeMatch) {
+                    const attribute = attributeMatch[1];
+                    const translationKey = attributeMatch[2];
+                    element.setAttribute(attribute, t(translationKey));
+                } else {
+                    element.innerHTML = t(key);
+                }
+            });
+
+            // Update placeholder separately
+            const searchInput = document.querySelector('[data-i18n="[placeholder]search.placeholder"]');
+            if (searchInput) {
+                searchInput.placeholder = t('search.placeholder');
+            }
+
+            // Update user role dynamically
+            const userRoleElement = document.querySelector('[data-i18n="header.user_role"]');
+            if (userRoleElement) {
+                const role = userRoleElement.textContent.match(/Role: (.+)/)?.[1] || 'User';
+                userRoleElement.innerHTML = t('header.user_role', { role });
+            }
+        }
+
+        // Initial content update
+        updateContent();
+
+        // Language selector
+        const languageSelector = document.getElementById('language-selector');
+        languageSelector.addEventListener('change', (e) => {
+            const newLang = e.target.value;
+            i18next.changeLanguage(newLang, () => {
+                updateContent();
+                document.cookie = `language=${newLang}; path=/; max-age=31536000`;
+                document.documentElement.setAttribute('lang', newLang);
+                document.body.setAttribute('lang', newLang);
+                
+                // Show notification
+                showNotification(
+                    t('notification.language_changed', { language: t(`header.lang_${newLang}`) }),
+                    t('notification.welcome_message')
+                );
+            });
+        });
+
+        // Theme toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+            themeIcon.classList.toggle('fa-moon');
+            themeIcon.classList.toggle('fa-sun');
+            const isDark = document.body.classList.contains('dark');
+            document.cookie = `theme=${isDark ? 'dark' : 'light'}; path=/; max-age=31536000`;
+        });
+
+        // Load saved theme
+        const savedTheme = getCookie('theme');
+        if (savedTheme === 'dark') {
+            document.body.classList.add('dark');
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        }
+
+        // User dropdown
+        const userProfileBtn = document.getElementById('user-profile-btn');
+        const userDropdown = document.getElementById('user-dropdown');
+        userProfileBtn.addEventListener('click', () => {
+            userDropdown.classList.toggle('show');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!userProfileBtn.contains(e.target) && !userDropdown.contains(e.target)) {
+                userDropdown.classList.remove('show');
+            }
+        });
+
+        // Notification handling
+        const notification = document.getElementById('notification');
+        const notificationBtn = document.getElementById('notification-btn');
+        const notificationClose = document.querySelector('.notification-close');
+
+        function showNotification(title, message) {
+            notification.querySelector('.notification-title').innerHTML = title;
+            notification.querySelector('.notification-message').innerHTML = message;
+            notification.classList.add('show');
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 5000);
+        }
+
+        notificationBtn.addEventListener('click', () => {
+            showNotification(
+                t('notification.welcome_title'),
+                t('notification.no_notifications')
+            );
+        });
+
+        notificationClose.addEventListener('click', () => {
+            notification.classList.remove('show');
+        });
+
+        // Show welcome notification on page load
+        setTimeout(() => {
+            showNotification(
+                t('notification.welcome_title'),
+                t('notification.welcome_message')
+            );
+        }, 1000);
+
+        // Tabs functionality
+        const tabs = document.querySelectorAll('.tab');
+        const cards = document.querySelectorAll('.card');
+        const tabIndicator = document.querySelector('.tab-indicator');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                // Update tab indicator
+                const tabRect = tab.getBoundingClientRect();
+                const tabsRect = tab.parentElement.getBoundingClientRect();
+                tabIndicator.style.width = `${tabRect.width}px`;
+                tabIndicator.style.left = `${tabRect.left - tabsRect.left}px`;
+
+                // Filter cards
+                const filter = tab.getAttribute('data-filter');
+                cards.forEach(card => {
+                    const categories = card.getAttribute('data-category').split(' ');
+                    if (filter === 'all' || categories.includes(filter)) {
+                        card.style.display = 'block';
+                        card.classList.add('fade-in');
+                    } else {
+                        card.style.display = 'none';
+                        card.classList.remove('fade-in');
+                    }
+                });
+            });
+        });
+
+        // Initialize tab indicator
+        const activeTab = document.querySelector('.tab.active');
+        if (activeTab) {
+            const tabRect = activeTab.getBoundingClientRect();
+            const tabsRect = activeTab.parentElement.getBoundingClientRect();
+            tabIndicator.style.width = `${tabRect.width}px`;
+            tabIndicator.style.left = `${tabRect.left - tabsRect.left}px`;
+        }
+
+        // View toggle
+        const gridViewBtn = document.getElementById('grid-view');
+        const listViewBtn = document.getElementById('list-view');
+        const cardGrid = document.querySelector('.card-grid');
+
+        gridViewBtn.addEventListener('click', () => {
+            cardGrid.classList.remove('list');
+            gridViewBtn.classList.add('active');
+            listViewBtn.classList.remove('active');
+        });
+
+        listViewBtn.addEventListener('click', () => {
+            cardGrid.classList.add('list');
+            listViewBtn.classList.add('active');
+            gridViewBtn.classList.remove('active');
+        });
+
+        // Search functionality
+        const searchInput = document.getElementById('search-input');
+        searchInput.addEventListener('input', () => {
+            const query = searchInput.value.toLowerCase();
+            cards.forEach(card => {
+                const title = card.querySelector('.card-title span').textContent.toLowerCase();
+                const description = card.querySelector('.card-description').textContent.toLowerCase();
+                if (title.includes(query) || description.includes(query)) {
+                    card.style.display = 'block';
+                    card.classList.add('fade-in');
+                } else {
+                    card.style.display = 'none';
+                    card.classList.remove('fade-in');
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>
