@@ -1,0 +1,5 @@
+outs:
+- md5: beef904da6d94b9101a99f01d41b3ef3
+  size: 3452
+  hash: md5
+  path: vectorizer.pkl
